@@ -25,7 +25,10 @@ module.exports = {
     })
   ],
   resolve: {
-    extensions: ['.js', '.jsx']
+    extensions: ['.js', '.jsx'],
+    alias: {
+      '@Components': path.resolve(__dirname, 'src', 'js', 'components')
+    }
   },
   module: {
     rules: [
