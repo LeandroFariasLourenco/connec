@@ -31,6 +31,13 @@
     "react": "^16.13.1",
     "react-dom": "^16.13.1"
   },
+  "husky": {
+    "hooks": {
+      "pre-commit": "npm run linters && npm run stage",
+      "pre-push": "npm run linters",
+      "commit-msg": "commitlint -E HUSKY_GIT_PARAMS"
+    }
+  },
   "devDependencies": {
     "@babel/core": "^7.10.2",
     "@babel/preset-env": "^7.10.2",
