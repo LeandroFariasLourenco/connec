@@ -1,0 +1,12 @@
+{
+  "compilerOptions": {
+    "baseUrl": "./",
+    "paths": {
+      "@/*": ["src/js/*"],
+      "@Components/*": ["src/js/components/*"],
+      "@Routes/*": ["src/js/routes/*"],
+      "@Icons/*": ["  src/utils/icons/*"]
+    }
+  },
+  "exclude": ["node_modules", "dist"]
+}
