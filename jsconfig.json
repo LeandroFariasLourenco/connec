@@ -6,7 +6,9 @@
       "@Components/*": ["src/js/components/*"],
       "@Images": ["src/utils/images/*"],
       "@Routes/*": ["src/js/routes/*"],
-      "@Icons/*": ["  src/utils/icons/*"]
+      "@Icons/*": ["src/utils/icons/*"],
+      "@Global/*": ["src/js/global/*"],
+      "@Svgs/*": ["src/utils/svgs"]
     }
   },
   "exclude": ["node_modules", "dist"]

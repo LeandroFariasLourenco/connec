@@ -29,7 +29,8 @@
   "dependencies": {
     "prop-types": "^15.7.2",
     "react": "^16.13.1",
-    "react-dom": "^16.13.1"
+    "react-dom": "^16.13.1",
+    "svg-url-loader": "^6.0.0"
   },
   "husky": {
     "hooks": {
