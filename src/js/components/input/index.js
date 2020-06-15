@@ -4,6 +4,7 @@ import PropTypes from 'prop-types';
 import * as s from './style';
 
 const Input = ({
+  _icon,
   _type,
   _id,
   _maxLength = 30,
@@ -12,6 +13,7 @@ const Input = ({
 }) => {
   return (
     <s.Wrapper>
+      {_icon && <img src={_icon} />}
       <input
         type={_type}
         id={_id}
@@ -23,6 +25,7 @@ const Input = ({
 };
 
 Input.propTypes = {
+  _icon: PropTypes.string,
   _type: PropTypes.string.isRequired,
   _id: PropTypes.string.isRequired,
   _maxLength: PropTypes.number.isRequired,

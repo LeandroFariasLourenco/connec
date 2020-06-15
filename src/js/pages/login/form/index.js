@@ -4,24 +4,37 @@ import {
   Link
 } from 'react-router-dom';
 import Logo from '@Images/login/logo.png';
+import { ThemeProvider } from 'styled-components';
+
+import Input from '@Components/input/index';
+import User from '@Svgs/login/user.svg';
+import Security from '@Svgs/login/security.svg';
 
 import Button from '@Components/button/index';
-import Input from '@Components/input/index';
-
 const Form = () => {
+  const theme = {
+    icon: User
+  };
+
   return (
     <s.Wrapper>
       <form>
-        <img src={Logo}/>
-        <Input
-          _maxLength={50}
-          _name='user-email'
-          _type='email'
-          _id='email'
-          _placeholder='Email...'
-        />
+        <img src={Logo} />
+        <ThemeProvider
+          theme={theme}
+        >
+          <Input
+            _icon={User}
+            _maxLength={50}
+            _name='user-email'
+            _type='email'
+            _id='email'
+            _placeholder='Email...'
+          />
+        </ThemeProvider>
 
         <Input
+          _icon={Security}
           _maxLength={30}
           _name='user-password'
           _type='password'
@@ -29,7 +42,7 @@ const Form = () => {
           _placeholder='Senha...'
         />
 
-        <Button text='Entrar'/>
+        <Button text='Entrar' />
         <Link>Esqueci minha senha</Link>
       </form>
     </s.Wrapper>
