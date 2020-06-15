@@ -3,15 +3,32 @@ import * as s from './style';
 import {
   Link
 } from 'react-router-dom';
+import Logo from '@Images/login/logo.png';
+
 import Button from '@Components/button/index';
+import Input from '@Components/input/index';
 
 const Form = () => {
   return (
     <s.Wrapper>
       <form>
-        <img />
-        <input placeholder='Email...'/>
-        <input placeholder='Senha...'/>
+        <img src={Logo}/>
+        <Input
+          _maxLength={50}
+          _name='user-email'
+          _type='email'
+          _id='email'
+          _placeholder='Email...'
+        />
+
+        <Input
+          _maxLength={30}
+          _name='user-password'
+          _type='password'
+          _id='senha'
+          _placeholder='Senha...'
+        />
+
         <Button text='Entrar'/>
         <Link>Esqueci minha senha</Link>
       </form>

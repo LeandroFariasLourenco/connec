@@ -18,6 +18,11 @@ export const GlobalStyles = createGlobalStyle`
     cursor: pointer;
   }
 
+  *:before,
+  *:after {
+    display: block;
+  }
+
   *,
   *::before,
   *::after {
