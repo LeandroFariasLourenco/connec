@@ -5,4 +5,5 @@ export const Button = styled.button`
   color: white;
   text-transform: uppercase;
   font-weight: bold;
+  border-radius: 10px;
 `;
