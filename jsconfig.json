@@ -4,6 +4,7 @@
     "paths": {
       "@/*": ["src/js/*"],
       "@Components/*": ["src/js/components/*"],
+      "@Images": ["src/utils/images/*"],
       "@Routes/*": ["src/js/routes/*"],
       "@Icons/*": ["  src/utils/icons/*"]
     }
