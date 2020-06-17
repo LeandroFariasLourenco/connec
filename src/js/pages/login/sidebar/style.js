@@ -1,5 +1,6 @@
 import styled from 'styled-components';
 import SidebarBG from '@Images/login/sidebar.png';
+import Colors from '@Global/colors';
 
 export const Options = styled.div`
   width: 30%;
@@ -13,6 +14,16 @@ export const Options = styled.div`
   div {
     width: 100%;
     flex: 0.30;
+    display: flex;
+    flex-flow: column;
+    justify-content: flex-end;
+
+    img {
+      width: 100px;
+      &:nth-of-type(2) {
+        transform: translate(10px, -20px);
+      }
+    }
   }
 
   nav {
@@ -33,7 +44,10 @@ export const Options = styled.div`
         cursor: pointer;
         text-transform: uppercase;
         position: relative;
+        color: white;
         &.active {
+          color: ${Colors.BLUE};
+          font-size: 16px;
           background: white;
         }
       }

@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import Colors from '@Global/colors';
 
 export const Wrapper = styled.div`
   width: 70%;
@@ -22,11 +23,7 @@ export const Wrapper = styled.div`
     
     div {
       &:nth-of-type(2) {
-        input {
-          {
-            margin-top: 15px;
-          }
-        }
+        margin-top: 15px;
       }
     }
 
@@ -38,6 +35,9 @@ export const Wrapper = styled.div`
       text-align: center;
       display: block; 
       margin-top: 10px;
+      font-size: 12px;
+      color:${Colors.GREY};
+      font-weight: bold;
     }
   }
 `;

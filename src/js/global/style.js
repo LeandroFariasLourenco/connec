@@ -23,6 +23,10 @@ export const GlobalStyles = createGlobalStyle`
     display: block;
   }
 
+  * {
+    font-family: 'Montserrat';
+  }
+
   *,
   *::before,
   *::after {

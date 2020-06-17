@@ -1,12 +1,16 @@
 import React from 'react';
 
+import Appstore from '@Images/login/appstore.png';
+import Googlestore from '@Images/login/googleplaystore.png';
+
 import * as s from './style';
 
 const Sidebar = () => {
   return (
     <s.Options>
       <div>
-
+        <img src={Googlestore} />
+        <img src={Appstore} />
       </div>
       <nav>
         <ul>

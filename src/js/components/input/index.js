@@ -13,7 +13,7 @@ const Input = ({
 }) => {
   return (
     <s.Wrapper>
-      {_icon && <img src={_icon} />}
+      {_icon && <img className='icon' src={_icon} />}
       <input
         type={_type}
         id={_id}
