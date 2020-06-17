@@ -4,7 +4,6 @@ import {
   Link
 } from 'react-router-dom';
 import Logo from '@Images/login/logo.png';
-import { ThemeProvider } from 'styled-components';
 
 import Input from '@Components/input/index';
 import User from '@Svgs/login/user.svg';
@@ -12,27 +11,18 @@ import Security from '@Svgs/login/security.svg';
 
 import Button from '@Components/button/index';
 const Form = () => {
-  const theme = {
-    icon: User
-  };
-
   return (
     <s.Wrapper>
       <form>
         <img src={Logo} />
-        <ThemeProvider
-          theme={theme}
-        >
-          <Input
-            _icon={User}
-            _maxLength={50}
-            _name='user-email'
-            _type='email'
-            _id='email'
-            _placeholder='Email...'
-          />
-        </ThemeProvider>
-
+        <Input
+          _icon={User}
+          _maxLength={50}
+          _name='user-email'
+          _type='email'
+          _id='email'
+          _placeholder='Email...'
+        />
         <Input
           _icon={Security}
           _maxLength={30}

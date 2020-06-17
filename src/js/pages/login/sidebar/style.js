@@ -24,6 +24,30 @@ export const Options = styled.div`
         transform: translate(10px, -20px);
       }
     }
+
+    &.support {
+      display: flex;
+      flex-flow: row;
+      justify-content: flex-start;
+      align-items: flex-end;
+      padding-bottom: 10px;
+      padding-left: 30px;
+      
+      img {
+        width: 20px;
+      }
+
+      p {
+        font-weight: bold;
+        display: flex;
+        align-items: flex-end;
+        padding: 0 10px;
+        color: white;
+        span {
+          margin: 0 5px;
+        }
+      }
+    }
   }
 
   nav {
@@ -51,19 +75,6 @@ export const Options = styled.div`
           background: white;
         }
       }
-    }
-  }
-
-  p {
-    width: 100%;
-    flex: 0.20;
-    font-weight: bold;
-    display: flex;
-    align-items: flex-end;
-    padding: 10px 20px;
-    color: white;
-    span {
-      margin: 0 5px;
     }
   }
 `;

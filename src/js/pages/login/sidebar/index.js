@@ -2,6 +2,7 @@ import React from 'react';
 
 import Appstore from '@Images/login/appstore.png';
 import Googlestore from '@Images/login/googleplaystore.png';
+import Support from '@Svgs/login/support.svg';
 
 import * as s from './style';
 
@@ -18,7 +19,10 @@ const Sidebar = () => {
           <li>Sobre</li>
         </ul>
       </nav>
-      <p>0800 <span>5652</span> 2452</p>
+      <div className='support'>
+        <img src={Support} />
+        <p>0800 <span>5652</span> 2452</p>
+      </div>
     </s.Options>
   );
 };
