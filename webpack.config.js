@@ -1,48 +1,31 @@
+const DEVSERVER_CONFIG = require('./webpack/devServer');
+const ALIAS_CONFIG = require('./webpack/alias');
+const RULES_CONFIG = require('./webpack/rules');
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 
-const PROJECT = 'connec';
-const SRC = './src/';
+require('dotenv').config();
+const GLOBAL = process.env;
 
 module.exports = {
-  entry: `${SRC}js/${PROJECT}-index.js`,
+  entry: `${GLOBAL.SRC}js/${GLOBAL.PROJECT_NAME}-index.js`,
   watch: false,
   output: {
     path: path.join(__dirname, './dist'),
-    filename: `./js/${PROJECT}-index-bundle.js`
+    filename: `./js/${GLOBAL.PROJECT_NAME}-index-bundle.js`
   },
-  devServer: {
-    port: 3000,
-    index: `/views/${PROJECT}-index.html`,
-    liveReload: true,
-    writeToDisk: true,
-    contentBase: './dist'
-  },
+  devServer: DEVSERVER_CONFIG,
   plugins: [
     new HtmlWebpackPlugin({
-      template: `${SRC}views/${PROJECT}-index.pug`,
-      filename: `./views/${PROJECT}-index.html`
+      template: `${GLOBAL.SRC}views/${GLOBAL.PROJECT_NAME}-index.pug`,
+      filename: `./views/${GLOBAL.PROJECT_NAME}-index.html`
     })
   ],
   resolve: {
     extensions: ['.js', '.jsx'],
-    alias: {
-      '@Components': path.resolve(__dirname, 'src', 'js', 'components')
-    }
+    alias: ALIAS_CONFIG
   },
   module: {
-    rules: [
-      {
-        test: /\.js$/,
-        exclude: path.resolve(__dirname, 'node_modules'),
-        use: ['babel-loader', 'eslint-loader']
-      },
-      {
-        test: /\.pug$/,
-        use: {
-          loader: 'pug-loader'
-        }
-      }
-    ]
+    rules: RULES_CONFIG
   }
 };

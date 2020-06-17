@@ -1,10 +1,6 @@
 import { createGlobalStyle } from 'styled-components';
 
 export const GlobalStyles = createGlobalStyle`
-  html {
-    box-sizing: border-box;
-  }
-
   a {
     text-decoration: none;
     color: black;
@@ -13,10 +9,28 @@ export const GlobalStyles = createGlobalStyle`
     }
   }
 
+  ul , li {
+    list-style: none;
+  }
+
+  button {
+    border: none;
+    cursor: pointer;
+  }
+
+  *:before,
+  *:after {
+    display: block;
+  }
+
+  * {
+    font-family: 'Montserrat';
+  }
+
   *,
   *::before,
   *::after {
-    box-sizing: inherit
+    box-sizing: border-box;
     padding: 0;
     margin: 0;
   }
