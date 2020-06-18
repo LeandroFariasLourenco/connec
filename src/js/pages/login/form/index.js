@@ -33,7 +33,9 @@ const Form = () => {
         />
 
         <Button text='Entrar' />
-        <Link>Esqueci minha senha</Link>
+        <Link
+          to='/cadastro'
+        >Esqueci minha senha</Link>
       </form>
     </s.Wrapper>
   );
