@@ -6,5 +6,6 @@ module.exports = {
   '@Icons': path.resolve(__dirname, '../', 'src', 'utils', 'icons'),
   '@Routes': path.resolve(__dirname, '../', 'src', 'js', 'routes'),
   '@Global': path.resolve(__dirname, '..', 'src', 'js', 'global'),
-  '@Svgs': path.resolve(__dirname, '..', 'src', 'utils', 'svgs')
+  '@Svgs': path.resolve(__dirname, '..', 'src', 'utils', 'svgs'),
+  '@Pages': path.resolve(__dirname, '..', 'src', 'js', 'pages')
 };
