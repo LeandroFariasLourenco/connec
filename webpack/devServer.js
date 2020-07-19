@@ -4,5 +4,8 @@ module.exports = {
   liveReload: true,
   writeToDisk: true,
   contentBase: './dist',
+  historyApiFallback: {
+    index: `./views/${process.env.PROJECT_NAME}-index.html`
+  },
   index: `./views/${process.env.PROJECT_NAME}-index.html`
 };

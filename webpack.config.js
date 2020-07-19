@@ -12,7 +12,8 @@ module.exports = {
   watch: false,
   output: {
     path: path.join(__dirname, './dist'),
-    filename: `./js/${GLOBAL.PROJECT_NAME}-index-bundle.js`
+    filename: `./js/${GLOBAL.PROJECT_NAME}-index-bundle.js`,
+    publicPath: '/'
   },
   devServer: DEVSERVER_CONFIG,
   plugins: [
