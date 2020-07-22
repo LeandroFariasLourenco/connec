@@ -9,7 +9,7 @@
       "@Icons/*": ["src/utils/icons/*"],
       "@Global/*": ["src/js/global/*"],
       "@Svgs/*": ["src/utils/svgs"],
-      "@Pages/*": ["src/js/pages"]
+      "@Pages/*": ["src/js/pages"],
     }
   },
   "exclude": ["node_modules", "dist"]

@@ -1,9 +1,7 @@
-const path = require('path');
-
 module.exports = [
   {
     test: /\.js$/,
-    exclude: path.resolve(__dirname, '..', 'node_modules'),
+    exclude: /node_modules/,
     use: ['babel-loader', 'eslint-loader']
   },
   {

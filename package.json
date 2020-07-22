@@ -4,13 +4,12 @@
   "description": "Uma aplicacao front end para o projeto do am de TDS",
   "main": "connec-index.js",
   "scripts": {
-    "start": "npm run build && webpack-dev-server --mode development --watch --colors --open",
-    "build": "webpack --mode production --colors",
-    "lint:css": "yarn lint:css",
+    "start": "yarn build && webpack-dev-server --mode production --watch --colors --open",
+    "build": "yarn remove:dist && webpack --mode production --colors",
     "lint:js": "eslint ./src --ext .js,.jsx --color",
-    "lint:js:fix": "npm run lint:js --fix --color",
+    "lint:js:fix": "yarn lint:js --fix --color",
     "pug:lint": "pug-lint ./src",
-    "linters": "npm run lint:js && npm run pug:lint",
+    "linters": "yarn lint:js && yarn pug:lint",
     "remove:dist": "rm -rf dist"
   },
   "repository": {
@@ -28,10 +27,13 @@
   },
   "homepage": "https://github.com/LeandroFariasLourenco/connec#readme",
   "dependencies": {
+    "axios": "^0.19.2",
+    "polished": "^3.6.5",
     "prop-types": "^15.7.2",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
-    "svg-url-loader": "^6.0.0"
+    "svg-url-loader": "^6.0.0",
+    "webpack-split-by-path": "^2.0.0"
   },
   "husky": {
     "hooks": {

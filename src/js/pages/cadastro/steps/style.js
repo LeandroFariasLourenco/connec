@@ -1,9 +1,10 @@
 import styled from 'styled-components';
 import Colors from '@Global/colors';
+import { rem } from 'polished';
 
 export const StepWrapper = styled.div`
   width: 100%;
-  padding: 50px;
+  padding:   ${rem(50)};
   
   .steps {
     display: flex;
@@ -12,10 +13,10 @@ export const StepWrapper = styled.div`
   
     h2 {
       font-weight: 400;
-      font-size: 35px;
+      font-size: ${rem(35)};
       color: ${Colors.BLUE};
-      padding-left: 20px;
-      margin-bottom: 40px;
+      padding-left: ${rem(20)};
+      margin-bottom: ${rem(40)};
       text-align: center;
     }
 
@@ -23,16 +24,19 @@ export const StepWrapper = styled.div`
       width: 100%;
       height: 24px;
       display: block;
-      margin: 15px 0;
-      padding-left: 50px;
+      margin: ${rem(14)} 0;
+      padding-left: ${rem(50)};
       position: relative;
       color: ${Colors.BLUE};
       font-weight: 14px;
       &.active{
-        &:nth-of-type(1),
-        &:nth-of-type(2) {
+        &:nth-of-type(2),
+        &:nth-of-type(3) {
           &:after {
             background-color: ${Colors.PURPLE}
+          }
+          &:before {
+
           }
         }
 
@@ -49,7 +53,7 @@ export const StepWrapper = styled.div`
         border: 2px solid #929292;
         position: absolute;
         left: 10px;
-        padding: 3px;
+        padding: ${rem(3)};
         background-clip: content-box;
       }
       
@@ -58,18 +62,18 @@ export const StepWrapper = styled.div`
         &:after {
           content: '';
           height: 30px;
-          width: 1.5px;
+          width: ${rem(1.5)};
           background: ${Colors.GREY};
           position: absolute;
-          left: 22px;
-          top: 24px;
+          left: ${rem(22)};
+          top: ${rem(24)};
         }
       }
     }
     button {
       width: 80%; 
       margin: 0 auto;
-      margin-top: 30px;
+      margin-top: ${rem(30)};
     }
   }
 `;

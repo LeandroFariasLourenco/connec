@@ -12,6 +12,11 @@ module.exports = {
     sourceType: 'module'
   },
   plugins: ['react'],
+  settings: {
+    react: {
+      version: 'detect'
+    }
+  },
   rules: {
     semi: ['error', 'always'],
     'react/jsx-filename-extension': [0],
