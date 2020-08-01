@@ -1,0 +1,9 @@
+$screen-sm: 1024px !default;
+$screen-md: 1440px !default;
+$screen-lg: 1920px !default;
+
+$breakpoints: (
+  'sm': $screen-sm,
+  'md': $screen-md,
+  'lg': $screen-lg,
+);

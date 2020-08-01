@@ -18,13 +18,13 @@ export const GlobalStyles = createGlobalStyle`
     cursor: pointer;
   }
 
+  * {
+    font-family: ${({ theme }) => theme.fontPrimary};
+  }
+
   *:before,
   *:after {
     display: block;
-  }
-
-  * {
-    font-family: 'Montserrat';
   }
 
   *,

@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import { rem } from 'polished';
 
 export const Wrapper = styled.div`
   flex: 0.15;
@@ -17,7 +18,7 @@ export const Wrapper = styled.div`
       flex-flow: column;
       justify-content: space-between;
       align-items: center;
-      height: 300px;
+      height: ${rem(300)};
     }
   }
 `;

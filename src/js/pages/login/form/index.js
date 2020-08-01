@@ -1,5 +1,5 @@
 import React from 'react';
-import * as s from './style';
+import * as s from './styled';
 import {
   Link
 } from 'react-router-dom';
@@ -16,26 +16,28 @@ const Form = () => {
       <form>
         <img src={Logo} />
         <Input
-          _icon={User}
-          _maxLength={50}
-          _name='user-email'
-          _type='email'
-          _id='email'
-          _placeholder='Email...'
+          icon={User}
+          maxLength={50}
+          name='user-email'
+          type='email'
+          id='email'
+          placeholder='Email...'
         />
         <Input
-          _icon={Security}
-          _maxLength={30}
-          _name='user-password'
-          _type='password'
-          _id='senha'
-          _placeholder='Senha...'
+          icon={Security}
+          maxLength={30}
+          name='user-password'
+          type='password'
+          id='senha'
+          placeholder='Senha...'
         />
 
         <Button text='Entrar' />
         <Link
           to='/cadastro'
-        >Esqueci minha senha</Link>
+        >
+          Esqueci minha senha
+        </Link>
       </form>
     </s.Wrapper>
   );

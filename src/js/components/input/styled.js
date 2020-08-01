@@ -1,12 +1,12 @@
 import styled from 'styled-components';
-import Colors from '@Global/colors';
+import { rem } from 'polished';
 
 export const Wrapper = styled.div`
   display: flex;
   width: 100%;
   position: relative;
   img.icon {
-    width: 12px;
+    width: ${rem(12)};
     position: absolute;
     left: 2%;
     top: 50%;
@@ -17,12 +17,12 @@ export const Wrapper = styled.div`
     width: 100%;
     border: none;
     border-bottom: 1.5px solid #707070;
-    padding-left: 25px;
-    padding-bottom: 5px;
-    padding-top: 5px;
+    padding-left: ${rem(25)};
+    padding-bottom: ${rem(5)};
+    padding-top: ${rem(5)};
     transition: 200ms;
     &:focus {
-      border-bottom: 1.5px solid ${Colors.PURPLE};
+      border-bottom: 1.5px solid ${({ theme }) => theme.purple};
     }
   }
 `;

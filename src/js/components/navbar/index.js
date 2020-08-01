@@ -1,5 +1,5 @@
 import React from 'react';
-import * as s from './style';
+import * as s from './styled';
 
 import Logo from '@Svgs/navbar/logo.svg';
 // import Chart from '@Svgs/navbar/chart.svg';
@@ -7,7 +7,7 @@ import Logo from '@Svgs/navbar/logo.svg';
 // import User from '@Svgs/navbar/user.svg';
 
 import Option from './option/index';
-import navbarOptions from '@Global/navbarOptions';
+import navbarOptions from '@Utils/navbar';
 
 const Navbar = () => {
   return (
