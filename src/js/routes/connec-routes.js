@@ -4,15 +4,15 @@ import {
   Route,
   BrowserRouter
 } from 'react-router-dom';
-import Login from './../pages/login/index';
-import Cadastro from './../pages/cadastro/index';
+import Login from '@App/Login';
+import Register from '@App/Register';
 
 const Routes = () => {
   return (
     <BrowserRouter>
       <Switch>
         <Route path='/' exact={true} component={Login} />
-        <Route path='/cadastro' exact={true} component={Cadastro} />
+        <Route path='/cadastro' exact={true} component={Register} />
       </Switch>
     </BrowserRouter>
   );

@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import Colors from '@Global/colors';
+import { rem } from 'polished';
 
 export const Wrapper = styled.div`
   width: 70%;
@@ -34,9 +34,9 @@ export const Wrapper = styled.div`
     a {
       text-align: center;
       display: block; 
-      margin-top: 10px;
-      font-size: 12px;
-      color:${Colors.GREY};
+      margin-top: ${rem(10)};
+      font-size: ${rem(14)};
+      color:${({ theme }) => theme.grey};
       font-weight: bold;
     }
   }

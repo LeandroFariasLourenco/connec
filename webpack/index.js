@@ -6,7 +6,8 @@ const output = require('./config/output');
 const plugins = require('./config/plugins');
 const resolve = require('./config/resolve');
 const rules = require('./config/rules');
-const watch = require('./config/watch');
+const optimization = require('./config/optimization');
+const performance = require('./config/performance');
 
 module.exports = {
   alias,
@@ -17,5 +18,6 @@ module.exports = {
   plugins,
   resolve,
   rules,
-  watch
+  optimization,
+  performance
 };

@@ -4,7 +4,7 @@ import Appstore from '@Images/login/appstore.png';
 import Googlestore from '@Images/login/googleplaystore.png';
 import Support from '@Svgs/login/support.svg';
 
-import * as s from './style';
+import * as s from './styled';
 
 const Sidebar = () => {
   return (

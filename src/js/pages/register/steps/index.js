@@ -1,6 +1,6 @@
 import Button from '@Components/button/index';
 import React from 'react';
-import * as s from './style';
+import * as s from './styled';
 
 const Steps = () => {
   return (

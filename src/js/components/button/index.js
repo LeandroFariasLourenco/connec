@@ -1,11 +1,11 @@
 import React from 'react';
-import * as s from './style';
+import * as S from './styled';
 import PropTypes from 'prop-types';
 
 const Button = ({ text }) => (
-  <s.Button>
+  <S.Button>
     {text}
-  </s.Button>
+  </S.Button>
 );
 
 Button.propTypes = {

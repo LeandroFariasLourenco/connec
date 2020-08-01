@@ -1,11 +1,11 @@
 import styled from 'styled-components';
-import COLORS from '@Global/colors';
+import { rem } from 'polished';
 
 export const Button = styled.button`
-  padding: 8px 20px;
+  padding: ${rem(8)} ${rem(20)};
   color: white;
   text-transform: uppercase;
   font-weight: bold;
   border-radius: 10px;
-  background-color: ${COLORS.PURPLE}
+  background-color: ${({ theme }) => theme.purple};
 `;

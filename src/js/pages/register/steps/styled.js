@@ -1,10 +1,9 @@
 import styled from 'styled-components';
-import Colors from '@Global/colors';
 import { rem } from 'polished';
 
 export const StepWrapper = styled.div`
   width: 100%;
-  padding:   ${rem(50)};
+  padding: ${rem(50)};
   
   .steps {
     display: flex;
@@ -14,7 +13,7 @@ export const StepWrapper = styled.div`
     h2 {
       font-weight: 400;
       font-size: ${rem(35)};
-      color: ${Colors.BLUE};
+      color: ${({ theme }) => theme.blue};
       padding-left: ${rem(20)};
       margin-bottom: ${rem(40)};
       text-align: center;
@@ -27,13 +26,13 @@ export const StepWrapper = styled.div`
       margin: ${rem(14)} 0;
       padding-left: ${rem(50)};
       position: relative;
-      color: ${Colors.BLUE};
+      color: ${({ theme }) => theme.blue};
       font-weight: 14px;
       &.active{
         &:nth-of-type(2),
         &:nth-of-type(3) {
           &:after {
-            background-color: ${Colors.PURPLE}
+            background-color: ${({ theme }) => theme.purple};
           }
           &:before {
 
@@ -41,7 +40,7 @@ export const StepWrapper = styled.div`
         }
 
         &:before {
-          background-color: ${Colors.PURPLE}
+          background-color: ${({ theme }) => theme.purple}
         }
       }
 
@@ -63,7 +62,7 @@ export const StepWrapper = styled.div`
           content: '';
           height: 30px;
           width: ${rem(1.5)};
-          background: ${Colors.GREY};
+          color: ${({ theme }) => theme.grey};
           position: absolute;
           left: ${rem(22)};
           top: ${rem(24)};

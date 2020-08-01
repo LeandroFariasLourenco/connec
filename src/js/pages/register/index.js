@@ -4,7 +4,7 @@ import Backbutton from '@Svgs/cadastro/back.svg';
 import Steps from './steps/index';
 import Form from './form/index';
 
-import * as s from './style';
+import * as s from './styled';
 
 const Cadastro = () => {
   return (

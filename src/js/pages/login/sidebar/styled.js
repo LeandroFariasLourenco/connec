@@ -1,6 +1,5 @@
 import styled from 'styled-components';
 import SidebarBG from '@Images/login/sidebar.png';
-import Colors from '@Global/colors';
 
 export const Options = styled.div`
   width: 30%;
@@ -70,7 +69,7 @@ export const Options = styled.div`
         position: relative;
         color: white;
         &.active {
-          color: ${Colors.BLUE};
+          color: ${({ theme }) => theme.blue};
           font-size: 16px;
           background: white;
         }

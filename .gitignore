@@ -3,3 +3,4 @@
 *.log
 npm-debug.log*
 yarn.lock
+package-json.json
