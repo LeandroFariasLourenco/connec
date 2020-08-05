@@ -6,19 +6,20 @@ export const Options = styled.div`
   height: 100%;
   background: url(${SidebarBG});
   background-size: cover;
-  background-position: 0px 90%;
+  background-position: 0 90%;
   display: flex;
   flex-flow: column;
 
   div {
     width: 100%;
-    flex: 0.30;
+    flex: 0.3;
     display: flex;
     flex-flow: column;
     justify-content: flex-end;
 
     img {
       width: 100px;
+
       &:nth-of-type(2) {
         transform: translate(10px, -20px);
       }
@@ -31,7 +32,7 @@ export const Options = styled.div`
       align-items: flex-end;
       padding-bottom: 10px;
       padding-left: 30px;
-      
+
       img {
         width: 20px;
       }
@@ -42,6 +43,7 @@ export const Options = styled.div`
         align-items: flex-end;
         padding: 0 10px;
         color: white;
+
         span {
           margin: 0 5px;
         }
@@ -51,14 +53,14 @@ export const Options = styled.div`
 
   nav {
     width: 100%;
-    flex: 0.50;
+    flex: 0.5;
     display: flex;
     justify-content: flex-end;
 
     ul {
       width: 20%;
       height: auto;
-      
+
       li {
         border-radius: 10px 0 0 10px;
         width: 100%;
@@ -68,6 +70,7 @@ export const Options = styled.div`
         text-transform: uppercase;
         position: relative;
         color: white;
+
         &.active {
           color: ${({ theme }) => theme.blue};
           font-size: 16px;

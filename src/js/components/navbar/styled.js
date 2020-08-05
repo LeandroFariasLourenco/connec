@@ -7,7 +7,8 @@ export const Wrapper = styled.div`
   flex-flow: column;
   display: flex;
   padding-top: 50px;
-  
+  justify-content: center;
+
   nav {
     margin-top: 70px;
     width: 100%;
@@ -19,6 +20,12 @@ export const Wrapper = styled.div`
       justify-content: space-between;
       align-items: center;
       height: ${rem(300)};
+
+      li {
+        &:not(:first-of-type) {
+          margin-top: ${rem(32)};
+        }
+      }
     }
   }
 `;

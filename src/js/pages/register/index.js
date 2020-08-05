@@ -4,20 +4,20 @@ import Backbutton from '@Svgs/cadastro/back.svg';
 import Steps from './steps/index';
 import Form from './form/index';
 
-import * as s from './styled';
+import * as S from './styled';
 
 const Cadastro = () => {
   return (
-    <s.Wrapper>
+    <S.Wrapper>
       <Navbar />
-      <section>
-        <div className='return'>
+      <S.FormWrapper>
+        <S.BackButtonWrapper>
           <img src={Backbutton} />
-        </div>
+        </S.BackButtonWrapper>
         <Steps />
         <Form />
-      </section>
-    </s.Wrapper>
+      </S.FormWrapper>
+    </S.Wrapper>
   );
 };
 

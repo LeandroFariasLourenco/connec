@@ -4,27 +4,43 @@ export const GlobalStyles = createGlobalStyle`
   a {
     text-decoration: none;
     color: black;
+
     &:visited {
       color: black;
     }
   }
 
-  ul , li {
+  ul,
+  li {
     list-style: none;
   }
 
   button {
     border: none;
     cursor: pointer;
+    outline: none;
+
+    &:active,
+    &:focus {
+      outline: none;
+    }
   }
 
   * {
     font-family: ${({ theme }) => theme.fontPrimary};
   }
 
-  *:before,
-  *:after {
+  *::before,
+  *::after {
     display: block;
+  }
+
+  input {
+    &:active,
+    &:focus {
+      outline: none;
+      border: none;
+    }
   }
 
   *,

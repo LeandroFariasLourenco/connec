@@ -20,7 +20,7 @@ export const Wrapper = styled.div`
       margin: 0 auto;
       margin-bottom: 40px;
     }
-    
+
     div {
       &:nth-of-type(2) {
         margin-top: 15px;
@@ -33,10 +33,10 @@ export const Wrapper = styled.div`
 
     a {
       text-align: center;
-      display: block; 
+      display: block;
       margin-top: ${rem(10)};
       font-size: ${rem(14)};
-      color:${({ theme }) => theme.grey};
+      color: ${({ theme }) => theme.grey};
       font-weight: bold;
     }
   }
