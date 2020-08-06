@@ -1,8 +1,12 @@
 import React from 'react';
 import * as s from './styled';
 import {
-  Link
+  Link,
+  useHistory
 } from 'react-router-dom';
+import { useDispatch } from 'react-redux';
+import { setNavigation } from '@Store/ducks/navbar';
+
 import Logo from '@Images/login/logo.png';
 
 import Input from '@Components/input/index';
@@ -11,9 +15,22 @@ import Security from '@Svgs/login/security.svg';
 
 import Button from '@Components/button/index';
 const Form = () => {
+  const history = useHistory();
+  const dispatch = useDispatch();
+
+  const handleSubmit = (ev) => {
+    ev.preventDefault();
+    const homePage = '/doadores/cadastro';
+
+    dispatch(setNavigation(homePage));
+    history.push(homePage);
+  };
+
   return (
     <s.Wrapper>
-      <form>
+      <s.Form
+        onSubmit={handleSubmit}
+      >
         <img src={Logo} />
         <Input
           icon={User}
@@ -38,7 +55,7 @@ const Form = () => {
         >
           Esqueci minha senha
         </Link>
-      </form>
+      </s.Form>
     </s.Wrapper>
   );
 };

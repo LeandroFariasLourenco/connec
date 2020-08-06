@@ -1,5 +1,4 @@
 import React from 'react';
-import * as s from './styled';
 
 import Logo from '@Svgs/navbar/logo.svg';
 // import Chart from '@Svgs/navbar/chart.svg';
@@ -9,7 +8,9 @@ import Logo from '@Svgs/navbar/logo.svg';
 import Option from './option/index';
 import navbarOptions from '@Utils/navbar';
 
-const Navbar = () => {
+import * as s from './styled';
+
+const Navbar = (props) => {
   return (
     <s.Wrapper>
       <img src={Logo} />
@@ -19,6 +20,7 @@ const Navbar = () => {
             <Option
               key={i}
               title={option.title}
+              pathname={option.pathname}
             />
           ))}
         </ul>

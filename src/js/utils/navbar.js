@@ -1,14 +1,22 @@
 export default [
   {
-    title: 'Dashboard'
+    id: 1,
+    title: 'Dashboard',
+    pathname: '/dashboard'
   },
   {
-    title: 'Receptores'
+    id: 2,
+    title: 'Receptores',
+    pathname: '/receptores'
   },
   {
-    title: 'Doadores'
+    id: 3,
+    title: 'Doadores',
+    pathname: '/doadores'
   },
   {
-    title: 'Histórico'
+    id: 4,
+    title: 'Histórico',
+    pathname: '/historico'
   }
 ];

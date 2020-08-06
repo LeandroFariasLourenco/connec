@@ -29,13 +29,17 @@
   },
   "homepage": "https://github.com/LeandroFariasLourenco/connec#readme",
   "dependencies": {
+    "axios": "^0.19.2",
+    "classnames": "^2.2.6",
     "polished": "^3.6.5",
     "prop-types": "^15.7.2",
     "pug-lint": "^2.6.0",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
-    "svg-url-loader": "^6.0.0",
-    "webpack-split-by-path": "^2.0.0"
+    "react-redux": "^7.2.1",
+    "redux": "^4.0.5",
+    "styled-components": "^5.1.1",
+    "styled-media-query": "^2.1.2"
   },
   "husky": {
     "hooks": {
@@ -50,7 +54,6 @@
     "@babel/preset-react": "^7.10.1",
     "@commitlint/cli": "^8.3.5",
     "@commitlint/config-conventional": "^8.3.4",
-    "axios": "^0.19.2",
     "babel-eslint": "^10.1.0",
     "babel-loader": "^8.1.0",
     "dotenv": "^8.2.0",
@@ -78,18 +81,18 @@
     "sass-extract": "^2.1.0",
     "sass-extract-js": "^0.4.0",
     "sass-extract-loader": "^1.1.0",
-    "styled-components": "^5.1.1",
-    "styled-media-query": "^2.1.2",
     "stylelint": "^13.6.1",
     "stylelint-config-recommended": "^3.0.0",
     "stylelint-config-standard": "^20.0.0",
     "stylelint-config-styled-components": "^0.1.1",
     "stylelint-processor-styled-components": "^1.10.0",
+    "svg-url-loader": "^6.0.0",
     "url-loader": "^4.1.0",
     "webpack": "^4.43.0",
     "webpack-cli": "^3.3.11",
     "webpack-dev-server": "^3.11.0",
     "webpack-node-externals": "^1.7.2",
+    "webpack-split-by-path": "^2.0.0",
     "yarn": "^1.22.4"
   },
   "engines": {

@@ -10,5 +10,6 @@ module.exports = {
   '@Pages': PATH.resolve('./', 'src', 'js', 'pages'),
   '@Styles': PATH.resolve('./', 'src', 'js', 'styles'),
   '@Utils': PATH.resolve('./', 'src', 'js', 'utils'),
-  '@App': PATH.resolve('./', 'src', 'app')
+  '@App': PATH.resolve('./', 'src', 'app'),
+  '@Store': PATH.resolve('./', 'src', 'js', 'store')
 };
