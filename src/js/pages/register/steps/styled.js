@@ -1,6 +1,8 @@
 import styled from 'styled-components';
 import { rem } from 'polished';
 
+import Button from '@Components/Button';
+
 export const StepWrapper = styled.div`
   width: 100%;
   padding: ${rem(50)};
@@ -22,7 +24,7 @@ export const Step = styled.div`
   }
 `;
 
-export const StepTitle = styled.h2`
+export const StepTitle = styled(Button)`
   font-weight: 400;
   font-size: ${rem(35)};
   color: ${({ theme }) => theme.blue};

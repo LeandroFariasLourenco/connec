@@ -1,22 +1,40 @@
 import React, { useState } from 'react';
+import { useSelector, useDispatch } from 'react-redux';
 import cx from 'classnames';
 
-import Button from '@Components/button/index';
+import { setActiveStep } from '@Store/ducks/register';
+import Button from '@Components/button';
+import registerSteps from '@Utils/registerSteps';
 
 import * as S from './styled';
 
 const Steps = () => {
-  const [currentStep] = useState(0);
+  const { currentStep, buttonTitle } = useSelector(state => state.register);
+  console.log(currentStep);
+  console.log(buttonTitle);
+  const dispatch = useDispatch();
+
+  const handleStep = () => {
+    console.log(currentStep);
+  };
 
   return (
     <S.StepWrapper>
       <S.Step>
-        <S.StepTitle className={cx('yolo', { currentStep })}>Cadastro do doador</S.StepTitle>
-        <S.StepOption>Informações básicas</S.StepOption>
-        <S.StepOption>Tipo Sanguíneo</S.StepOption>
-        <S.StepOption>Cadastro de órgãos</S.StepOption>
+        { registerSteps.map(({ id, title, stepNumber }) => (
+          <S.StepTitle
+            reset
+            key={id}
+            title={title}
+            text={title}
+            handler={() => dispatch(setActiveStep(stepNumber))}
+            classNames={cx(currentStep === stepNumber ? 'active' : 'pênis')}
+          />
+        ))}
         <Button
-          text='Finalizar'
+          handler={handleStep}
+          title={buttonTitle}
+          text={buttonTitle}
         />
       </S.Step>
     </S.StepWrapper>

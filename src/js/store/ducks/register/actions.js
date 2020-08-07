@@ -5,15 +5,22 @@ const setupPreviousStep = (state) => ({
   payload: state
 });
 
-const getActualStep = () => ({
-  type: t.GETCURRENTSTEP
-});
+const validateStep = (current) => {
+  console.log(current);
+};
 
 export const setPreviousStep = (state) => (dispatch) => {
-  const step = {
-    currentStep: getActualStep() - 1,
-    buttonTitle: 'Próximo'
+  dispatch(setPreviousStep(state));
+};
+
+export const setActiveStep = (stepNumber) => {
+  const state = {
+    currentStep: stepNumber,
+    buttonTitle: stepNumber < 2 ? 'Próximo' : 'Finalizar'
   };
 
-  dispatch(setPreviousStep(step));
+  return {
+    type: t.SETACTIVESTEP,
+    payload: state
+  };
 };
