@@ -1,19 +1,14 @@
 import styled from 'styled-components';
+import { rem } from 'polished';
 
-export const Wrapper = styled.section`
+export const FormWrapper = styled.section`
+  flex: 0.9;
+`;
+
+export const BackButtonWrapper = styled.div`
   width: 100%;
-  height: 100vh;
+  height: ${rem(90)};
   display: flex;
-
-  section {
-    flex: 0.90;
-    
-    .return {
-      width: 100%;
-      height: 90px;
-      display: flex;
-      align-items: flex-end;
-      padding-left: 60px;
-    }
-  }
+  align-items: flex-end;
+  padding-left: ${rem(90)};
 `;

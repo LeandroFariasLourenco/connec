@@ -1,20 +1,25 @@
+import React, { useState } from 'react';
+import cx from 'classnames';
+
 import Button from '@Components/button/index';
-import React from 'react';
-import * as s from './styled';
+
+import * as S from './styled';
 
 const Steps = () => {
+  const [currentStep] = useState(0);
+
   return (
-    <s.StepWrapper>
-      <div className='steps'>
-        <h2>Cadastro do doador</h2>
-        <span>Informações básicas</span>
-        <span>Tipo Sanguíneo</span>
-        <span className='active'>Cadastro de órgãos</span>
+    <S.StepWrapper>
+      <S.Step>
+        <S.StepTitle className={cx('yolo', { currentStep })}>Cadastro do doador</S.StepTitle>
+        <S.StepOption>Informações básicas</S.StepOption>
+        <S.StepOption>Tipo Sanguíneo</S.StepOption>
+        <S.StepOption>Cadastro de órgãos</S.StepOption>
         <Button
           text='Finalizar'
         />
-      </div>
-    </s.StepWrapper>
+      </S.Step>
+    </S.StepWrapper>
   );
 };
 

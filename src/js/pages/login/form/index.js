@@ -49,7 +49,10 @@ const Form = () => {
           placeholder='Senha...'
         />
 
-        <Button text='Entrar' />
+        <Button
+          text='Entrar'
+          title='Logar'
+        />
         <Link
           to='/cadastro'
         >

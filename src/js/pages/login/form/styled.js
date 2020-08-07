@@ -15,16 +15,17 @@ export const Form = styled.form`
   flex-flow: column;
   max-width: ${rem(280)};
 
-  img {
-    height: auto;
-    width: 70%;
-    margin: 0 auto;
-    margin-bottom: ${rem(40)};
-  }
-  
-  div {
-    &:nth-of-type(2) {
-      margin-top: ${rem(15)};
+    img {
+      height: auto;
+      width: 70%;
+      margin: 0 auto;
+      margin-bottom: 40px;
+    }
+
+    div {
+      &:nth-of-type(2) {
+        margin-top: 15px;
+      }
     }
   }
 
@@ -32,12 +33,13 @@ export const Form = styled.form`
     margin-top: ${rem(30)};
   }
 
-  a {
-    text-align: center;
-    display: block; 
-    margin-top: ${rem(10)};
-    font-size: ${rem(14)};
-    color:${({ theme }) => theme.grey};
-    font-weight: bold;
+    a {
+      text-align: center;
+      display: block;
+      margin-top: ${rem(10)};
+      font-size: ${rem(14)};
+      color: ${({ theme }) => theme.grey};
+      font-weight: bold;
+    }
   }
 `;

@@ -1,20 +1,28 @@
 import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+import PropTypes from 'prop-types';
 import cx from 'classnames';
+import { useHistory } from 'react-router-dom';
 
 import { setNavigation } from '@Store/ducks/navbar';
 
-import PropTypes from 'prop-types';
+import * as S from './styled';
 
-import * as s from './styled';
-
-const Option = ({ title, pathname }) => {
+const Option = ({
+  title,
+  pathname,
+  iconActive,
+  iconDefault
+}) => {
   const dispatch = useDispatch();
+  const history = useHistory();
   const [isActive, setIsActive] = useState(false);
   const { currentPage } = useSelector(store => store.navbar);
+  const className = isActive ? 'active' : 'default';
 
   const handleNavigation = () => {
-    dispatch(setNavigation());
+    dispatch(setNavigation(pathname));
+    history.push(pathname);
   };
 
   useEffect(() => {
@@ -22,22 +30,34 @@ const Option = ({ title, pathname }) => {
   }, [isActive]);
 
   return (
-    <s.Wrapper className={cx(isActive ? 'active' : 'not-active')}>
-      <s.Handler
+    <S.Wrapper>
+      <S.Handler
         onClick={handleNavigation}
       >
-        <s.Logo/>
-        <s.Title>
+        <S.LogoWrapper
+          className={cx(className)}
+        >
+          <S.Logo
+            src={iconActive}
+            className={cx(className)}
+          />
+          <S.Logo
+            src={iconDefault}
+          />
+        </S.LogoWrapper>
+        <S.Title>
           {title}
-        </s.Title>
-      </s.Handler>
-    </s.Wrapper>
+        </S.Title>
+      </S.Handler>
+    </S.Wrapper>
   );
 };
 
 Option.propTypes = {
   title: PropTypes.string.isRequired,
-  pathname: PropTypes.string.isRequired
+  pathname: PropTypes.string.isRequired,
+  iconActive: PropTypes.string.isRequired,
+  iconDefault: PropTypes.string.isRequired
 };
 
 export default Option;

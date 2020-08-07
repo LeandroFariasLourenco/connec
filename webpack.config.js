@@ -1,12 +1,14 @@
 const commonConfig = require('./webpack');
 
 module.exports = {
-  entry: commonConfig.entry,
+  entry: `${process.env.SRC}js/${process.env.PROJECT_NAME}-index.js`,
   output: commonConfig.output,
   devServer: commonConfig.devServer,
   plugins: commonConfig.plugins,
   resolve: commonConfig.resolve,
-  module: commonConfig.modules,
+  module: {
+    rules: commonConfig.rules
+  },
   optimization: commonConfig.optimization,
   performance: commonConfig.performance
 };
