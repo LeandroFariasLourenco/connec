@@ -1,6 +1,6 @@
 import React from 'react';
 
-import RegisterPage from '@Pages/register';
+import RegisterPage from '@Pages/Register';
 
 const Cadastro = () => <RegisterPage />;
 

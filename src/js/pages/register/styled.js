@@ -1,19 +1,24 @@
 import styled from 'styled-components';
+import { rem } from 'polished';
 
-export const Wrapper = styled.section`
-  width: 100%;
-  height: 100vh;
-  display: flex;
+import Button from '@Components/Button';
 
-  section {
-    flex: 0.90;
-    
-    .return {
-      width: 100%;
-      height: 90px;
-      display: flex;
-      align-items: flex-end;
-      padding-left: 60px;
-    }
-  }
+export const FormWrapper = styled.section`
+  flex: 0.9;
+  max-width: ${({ theme }) => rem(theme.maxContainerWidth)};
 `;
+
+export const BackButton = styled(Button)`
+  width: 100%;
+  height: ${rem(90)};
+  display: flex;
+  align-items: flex-end;
+  padding-left: ${rem(90)};
+`;
+
+export const RegisterFormWrapper = styled.div`
+  width: 100%;
+  height: calc(100% - 6.625rem);
+`;
+
+export const GoBack = styled.img``;

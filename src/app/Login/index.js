@@ -1,6 +1,6 @@
 import React from 'react';
 
-import LoginPage from '@Pages/login';
+import LoginPage from '@Pages/Login';
 
 const Login = () => <LoginPage />;
 

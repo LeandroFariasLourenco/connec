@@ -1,15 +1,38 @@
 import React from 'react';
-import * as S from './styled';
 import PropTypes from 'prop-types';
 
-const Button = ({ text }) => (
-  <S.Button>
+import * as S from './styled';
+
+const Button = ({
+  title,
+  text,
+  handler,
+  children,
+  ...props
+}) => (
+  <S.Btn
+    title={title}
+    onClick={handler}
+    {...props}
+  >
     {text}
-  </S.Button>
+    {children}
+  </S.Btn>
 );
 
 Button.propTypes = {
-  text: PropTypes.string.isRequired
+  title: PropTypes.string.isRequired,
+  text: PropTypes.string,
+  children: PropTypes.oneOfType([PropTypes.element, PropTypes.node]),
+  reset: PropTypes.bool,
+  handler: PropTypes.func
+};
+
+Button.defaultProps = {
+  reset: false,
+  children: <></>,
+  text: '',
+  handler: () => {}
 };
 
 export default Button;
