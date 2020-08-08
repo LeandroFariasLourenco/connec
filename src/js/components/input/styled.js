@@ -16,7 +16,7 @@ export const Wrapper = styled.div`
   input {
     width: 100%;
     border: none;
-    border-bottom: 1.5px solid #707070;
+    border-bottom: 1px solid #707070;
     padding-left: ${rem(25)};
     padding-bottom: ${rem(5)};
     padding-top: ${rem(5)};

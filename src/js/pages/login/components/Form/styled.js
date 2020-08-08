@@ -27,7 +27,6 @@ export const Form = styled.form`
         margin-top: 15px;
       }
     }
-  }
 
   button {
     margin-top: ${rem(30)};
@@ -41,5 +40,4 @@ export const Form = styled.form`
       color: ${({ theme }) => theme.grey};
       font-weight: bold;
     }
-  }
 `;

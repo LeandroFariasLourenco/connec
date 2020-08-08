@@ -1,35 +1,37 @@
 import React from 'react';
-import * as S from './styled';
 import PropTypes from 'prop-types';
-import cx from 'classnames';
+
+import * as S from './styled';
 
 const Button = ({
   title,
   text,
   handler,
-  reset,
-  classNames
+  children,
+  ...props
 }) => (
-  <S.Button
-    className={cx({ 'reset-style': reset }, classNames)}
+  <S.Btn
     title={title}
     onClick={handler}
+    {...props}
   >
     {text}
-  </S.Button>
+    {children}
+  </S.Btn>
 );
 
 Button.propTypes = {
-  text: PropTypes.string.isRequired,
   title: PropTypes.string.isRequired,
-  classNames: PropTypes.string,
+  text: PropTypes.string,
+  children: PropTypes.oneOfType([PropTypes.element, PropTypes.node]),
   reset: PropTypes.bool,
   handler: PropTypes.func
 };
 
 Button.defaultProps = {
   reset: false,
-  classNames: '',
+  children: <></>,
+  text: '',
   handler: () => {}
 };
 
