@@ -3,11 +3,6 @@ import { rem } from 'polished';
 
 import Button from '@Components/Button';
 
-export const FormWrapper = styled.section`
-  flex: 0.9;
-  max-width: ${({ theme }) => rem(theme.maxContainerWidth)};
-`;
-
 export const BackButton = styled(Button)`
   width: 100%;
   height: ${rem(90)};

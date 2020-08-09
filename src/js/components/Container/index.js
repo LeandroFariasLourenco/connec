@@ -5,10 +5,14 @@ import Navbar from '../Navbar';
 
 import * as S from './styled';
 
-const Container = ({ children }) => (
+const Container = ({ children, ...props }) => (
   <S.Wrapper>
     <Navbar />
-    { children }
+    <S.RightWrapper
+      {...props}
+    >
+      { children }
+    </S.RightWrapper>
   </S.Wrapper>
 );
 

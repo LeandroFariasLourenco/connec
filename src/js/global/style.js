@@ -1,6 +1,10 @@
 import { createGlobalStyle } from 'styled-components';
 
 export const GlobalStyles = createGlobalStyle`
+  body {
+    overflow: hidden;
+  }
+
   a {
     text-decoration: none;
     color: black;

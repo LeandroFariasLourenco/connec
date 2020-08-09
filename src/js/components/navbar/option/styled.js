@@ -23,10 +23,16 @@ export const LogoWrapper = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
+  transition: 400ms;
 
   &.active {
     background-color: ${({ theme }) => theme.purple};
     border: none;
+  }
+
+  &:not(.active):hover {
+    background-color: rgb(109, 113, 249, 0.2);
+    transition: 400ms;
   }
 `;
 

@@ -4,27 +4,27 @@ import { rem } from 'polished';
 import Button from '@Components/Button';
 
 export const StepWrapper = styled.div`
-  flex: 0.30;
+  flex: 0.3;
   padding: ${rem(50)};
   padding-bottom: 0;
   height: calc(90% - 50px);
   align-items: center;
   display: flex;
   flex-flow: column;
-  justify-content: space-around;
+  justify-content: center;
+  max-width: 380px;
 `;
 
 export const Step = styled.div`
   display: flex;
   flex-flow: column;
-  width: 85%;
+  width: 90%;
   padding-left: ${rem(20)};
 `;
 
 export const StepOption = styled.span`
   width: 100%;
   height: 24px;
-  display: block;
   padding-left: ${rem(50)};
   position: relative;
   display: flex;
@@ -95,5 +95,6 @@ export const Subtitle = styled.h2`
   text-align: center;
   font-weight: 400;
   font-size: ${rem(30)};
+  margin-bottom: ${rem(40)};
   color: ${({ theme }) => theme.darkPurple};
 `;

@@ -1,4 +1,5 @@
-const alias = require('./config/alias');
+require('dotenv').config();
+
 const devServer = require('./config/devServer');
 const output = require('./config/output');
 const plugins = require('./config/plugins');
@@ -8,7 +9,6 @@ const optimization = require('./config/optimization');
 const performance = require('./config/performance');
 
 module.exports = {
-  alias,
   devServer,
   output,
   plugins,

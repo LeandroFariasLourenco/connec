@@ -21,22 +21,19 @@ const Cadastro = () => {
 
   return (
     <Container>
-      <S.FormWrapper>
-        <S.BackButton
-          reset
-          title='Voltar'
-          handler={handleGoBack}
-        >
-          <S.GoBack
-            src={Backbutton}
-          />
-        </S.BackButton>
+      <S.BackButton
+        reset
+        title='Voltar'
+        handler={handleGoBack}
+      >
+        <S.GoBack
+          src={Backbutton}
+        />
+      </S.BackButton>
 
-        <S.RegisterFormWrapper>
-          <FormWrapper />
-        </S.RegisterFormWrapper>
-
-      </S.FormWrapper>
+      <S.RegisterFormWrapper>
+        <FormWrapper />
+      </S.RegisterFormWrapper>
     </Container>
   );
 };

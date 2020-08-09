@@ -8,12 +8,12 @@ import { useDispatch } from 'react-redux';
 import { setNavigation } from '@Store/ducks/navbar';
 
 import Logo from '@Images/login/logo.png';
-
-import Input from '@Components/input/index';
 import User from '@Svgs/login/user.svg';
+
+import Input from '@Components/Input';
 import Security from '@Svgs/login/security.svg';
 
-import Button from '@Components/button/index';
+import Button from '@Components/Button';
 const Form = () => {
   const history = useHistory();
   const dispatch = useDispatch();

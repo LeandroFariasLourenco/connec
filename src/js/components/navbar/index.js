@@ -5,8 +5,8 @@ import Logo from '@Svgs/navbar/logo.svg';
 // import Notebook from '@Svgs/navbar/notebook.svg';
 // import User from '@Svgs/navbar/user.svg';
 
-import Option from './option';
-import UserImg from './userImg';
+import Option from './Option';
+import UserImg from './UserImg';
 import navbarOptions from '@Utils/navbar';
 
 import * as S from './styled';
