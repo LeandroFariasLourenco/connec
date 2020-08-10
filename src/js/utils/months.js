@@ -3,4 +3,8 @@ const months = ['Janeiro', 'Feveiro', 'Março', 'Abril', 'Maio', 'Junho', 'Julho
 
 export default Array.prototype.map.call([5, 4, 3, 2, 1, 0],
   (month) => new Date().getMonth() - month)
-  .map(numMonth => months[numMonth]);
+  .map((numMonth, index) => ({
+    id: index,
+    number: numMonth,
+    name: months[numMonth]
+  }));

@@ -4,7 +4,6 @@ import { rem } from 'polished';
 import Button from '@Components/Button';
 
 export const BackButton = styled(Button)`
-  width: 100%;
   height: ${rem(90)};
   display: flex;
   align-items: flex-end;

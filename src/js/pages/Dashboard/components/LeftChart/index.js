@@ -1,36 +1,23 @@
 import React from 'react';
-import { Doughnut } from 'react-chartjs-2';
+import { useSelector } from 'react-redux';
+import { Pie } from 'react-chartjs-2';
+import DoughnutData, { legends } from '@Utils/hospital/doughnutData';
+
+import './style.scss';
 
 import * as S from './styled';
 
-const data = {
-  labels: [
-    'Em Espera',
-    'Doadores',
-    'Receptores'
-  ],
-  datasets: [{
-    data: [300, 50, 100],
-    backgroundColor: [
-      '#FF6384',
-      '#36A2EB',
-      '#FFCE56'
-    ],
-    hoverBackgroundColor: [
-      '#FF6384',
-      '#36A2EB',
-      '#FFCE56'
-    ]
-  }]
-};
-
 const LeftChart = () => {
+  const { currentMonth, monthNumber } = useSelector(state => state.dashboard);
+
   return (
     <S.ChartWrapper>
-      <Doughnut
-        data={data}
-        width={70}
+      <h1>{currentMonth} {monthNumber}</h1>
+      <Pie
+        data={DoughnutData}
+        width={40}
         height={50}
+        legend={legends}
         options={{ maintainAspectRatio: true }}
       />
     </S.ChartWrapper>

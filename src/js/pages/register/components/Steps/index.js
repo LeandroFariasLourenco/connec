@@ -12,6 +12,7 @@ const Steps = () => {
   const dispatch = useDispatch();
 
   const handleStep = () => {
+    if (currentStep >= 2) return;
     dispatch(setActiveStep(currentStep + 1));
   };
 

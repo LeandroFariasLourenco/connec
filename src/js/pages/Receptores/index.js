@@ -5,6 +5,8 @@ import Container from '@Components/Container';
 const Receptores = () => {
   return (
     <Container>
+      <>
+      </>
     </Container>
   );
 };

@@ -1,5 +1,4 @@
-import React, { useEffect } from 'react';
-import { useSelector } from 'react-redux';
+import React from 'react';
 
 import First from './../First';
 // import Second from '';
@@ -8,8 +7,6 @@ import First from './../First';
 import * as S from './styled';
 
 const Forms = () => {
-  const { currentStep } = useSelector(state => state.register);
-
   return (
     <S.Wrapper>
       <First />
