@@ -5,21 +5,32 @@ import { setNavigation } from '@Store/ducks/navbar';
 import Sidebar from '@Components/Sidebar';
 
 import Form from './components/Form';
+import { useHistory } from 'react-router-dom';
+import LoginCookies from '@Utils/Login';
 
 import * as S from './styled';
 
 const Login = () => {
   const dispatch = useDispatch();
+  const history = useHistory();
+  const cookie = LoginCookies.getCookie();
 
   useEffect(() => {
-    dispatch(setNavigation('/'));
+    if (!cookie) return dispatch(setNavigation('/'));
+
+    dispatch(setNavigation('/dashboard'));
+    history.push('/dashboard');
   }, []);
 
   return (
-    <S.Wrapper>
-      <Sidebar />
-      <Form />
-    </S.Wrapper>
+    <>
+      {!cookie && (
+        <S.Wrapper>
+          <Sidebar />
+          <Form />
+        </S.Wrapper>
+      )}
+    </>
   );
 };
 

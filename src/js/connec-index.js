@@ -5,7 +5,7 @@ import { Provider } from 'react-redux';
 
 import store from '@Store';
 import { GlobalStyles } from '@Global/style';
-import Routes from '@Routes/connec-routes';
+import Routes from '@Routes';
 import theme from '@Styles/theme';
 
 const Main = () => {

@@ -4,13 +4,12 @@ import {
   Route,
   BrowserRouter
 } from 'react-router-dom';
-import Login from '@App/Login';
-import Dashboard from '@App/Dashboard';
-import Doadores from '@App/Doadores';
-import Historico from '@App/Historico';
-import Receptores from '@App/Receptores';
-import Register from '@App/Register';
-import Sobre from '@App/Sobre';
+import Login from '@Pages/Login';
+import Dashboard from '@Pages/Dashboard';
+import Historico from '@Pages/Historico';
+import Receptores from '@Pages/Receptores';
+import Register from '@Pages/Register';
+import Sobre from '@Pages/Sobre';
 
 const Routes = () => {
   return (
@@ -23,8 +22,7 @@ const Routes = () => {
         <Route path='/historico' exact={true} component={Historico} />
         <Route path='/receptores' exact={true} component={Receptores} />
 
-        <Route path='/doadores' exact={true} component={Doadores} />
-        <Route path='/doadores/cadastro' exact={true} component={Register} />
+        <Route path='/doadores' exact={true} component={Register} />
       </Switch>
     </BrowserRouter>
   );

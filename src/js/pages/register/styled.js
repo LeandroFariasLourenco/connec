@@ -14,5 +14,3 @@ export const RegisterFormWrapper = styled.div`
   width: 100%;
   height: calc(100% - 6.625rem);
 `;
-
-export const GoBack = styled.img``;

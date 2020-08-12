@@ -1,7 +1,7 @@
 import React from 'react';
 import { Line } from 'react-chartjs-2';
 
-import graphicData from '@Utils/hospital/graphicData';
+import graphicData from '@Utils/Hospital/graphicData';
 
 import './style.scss';
 

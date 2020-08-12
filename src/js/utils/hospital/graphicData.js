@@ -1,4 +1,4 @@
-import Months from './../months';
+import Months from './../Months';
 import lineChartData from './linechart';
 
 const chartPoints = lineChartData.map(chartData => ({

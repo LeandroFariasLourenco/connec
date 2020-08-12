@@ -7,3 +7,8 @@ export const setMonth = (number, month) => ({
     month
   }
 });
+
+export const setLoading = (state) => ({
+  type: t.SETLOADING,
+  payload: state
+});

@@ -23,7 +23,6 @@ module.exports = {
         '@Pages': './src/js/pages',
         '@Styles': './src/js/styles',
         '@Utils': './src/js/utils',
-        '@App': './src/app',
         '@Store': './src/js/store'
       }
     }]

@@ -2,7 +2,8 @@ import * as t from './types';
 
 const INITIAL_STATE = {
   monthNumber: 0,
-  currentMonth: ''
+  currentMonth: '',
+  isLoading: false
 };
 
 export default function reducer (state = INITIAL_STATE, { type, payload }) {
@@ -12,6 +13,11 @@ export default function reducer (state = INITIAL_STATE, { type, payload }) {
         ...state,
         monthNumber: payload.number,
         currentMonth: payload.month
+      };
+    case t.SETLOADING :
+      return {
+        ...state,
+        isLoading: payload
       };
     default:
       return state;

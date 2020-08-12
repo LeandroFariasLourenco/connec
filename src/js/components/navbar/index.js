@@ -7,7 +7,7 @@ import Logo from '@Svgs/navbar/logo.svg';
 
 import Option from './Option';
 import UserImg from './UserImg';
-import navbarOptions from '@Utils/navbar';
+import navbarOptions from '@Utils/Navbar';
 
 import * as S from './styled';
 

@@ -1,1 +1,3 @@
-export const SETCURRENTMONTH = `${process.env.PROJECT_NAME}/dashboard/setmonth`;
+export const SETCURRENTMONTH = '/dashboard/setmonth';
+
+export const SETLOADING = '/dashboard/setloading';

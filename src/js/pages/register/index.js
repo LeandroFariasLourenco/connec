@@ -4,8 +4,6 @@ import { setNavigation } from '@Store/ducks/navbar';
 import { useHistory } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 
-import Backbutton from '@Svgs/cadastro/back.svg';
-
 import FormWrapper from './components/FormWrapper';
 
 import * as S from './styled';
@@ -27,9 +25,6 @@ const Cadastro = () => {
           title='Voltar'
           handler={handleGoBack}
         >
-          <S.GoBack
-            src={Backbutton}
-          />
         </S.BackButton>
 
         <S.RegisterFormWrapper>

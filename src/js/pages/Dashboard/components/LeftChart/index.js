@@ -1,7 +1,7 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
 import { Pie } from 'react-chartjs-2';
-import DoughnutData, { legends } from '@Utils/hospital/doughnutData';
+import DoughnutData, { legends } from '@Utils/Hospital/doughnutData';
 
 import './style.scss';
 

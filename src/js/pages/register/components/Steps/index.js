@@ -3,7 +3,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import cx from 'classnames';
 
 import { setActiveStep } from '@Store/ducks/register';
-import registerSteps from '@Utils/registerSteps';
+import registerSteps from '@Utils/Steps';
 
 import * as S from './styled';
 
