@@ -1,1 +1,1 @@
-export const SETACTIVESTEP = `${process.env.PROJECT_NAME}/register/set-step`;
+export const SETACTIVESTEP = '/register/set-step';

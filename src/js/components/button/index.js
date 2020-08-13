@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { memo } from 'react';
 import PropTypes from 'prop-types';
 
 import * as S from './styled';
@@ -35,4 +35,4 @@ Button.defaultProps = {
   handler: () => {}
 };
 
-export default Button;
+export default memo(Button);

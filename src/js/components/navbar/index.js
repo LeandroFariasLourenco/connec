@@ -1,13 +1,10 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, memo } from 'react';
 
 import Logo from '@Svgs/navbar/logo.svg';
-// import Chart from '@Svgs/navbar/chart.svg';
-// import Notebook from '@Svgs/navbar/notebook.svg';
-// import User from '@Svgs/navbar/user.svg';
 
-import Option from './option';
-import UserImg from './userImg';
-import navbarOptions from '@Utils/navbar';
+import Option from './Option';
+import UserImg from './UserImg';
+import navbarOptions from '@Utils/Navbar';
 
 import * as S from './styled';
 
@@ -50,4 +47,4 @@ const Navbar = () => {
   );
 };
 
-export default Navbar;
+export default memo(Navbar);

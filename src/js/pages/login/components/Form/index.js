@@ -5,23 +5,27 @@ import {
   useHistory
 } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
+
 import { setNavigation } from '@Store/ducks/navbar';
 
-import Logo from '@Images/login/logo.png';
+import LoginCookies from '@Utils/Login/index';
 
-import Input from '@Components/input/index';
+import Input from '@Components/Input';
+import Button from '@Components/Button';
+
+import Logo from '@Images/login/logo.png';
 import User from '@Svgs/login/user.svg';
 import Security from '@Svgs/login/security.svg';
 
-import Button from '@Components/button/index';
 const Form = () => {
   const history = useHistory();
   const dispatch = useDispatch();
 
   const handleSubmit = (ev) => {
     ev.preventDefault();
-    const homePage = '/doadores/cadastro';
+    const homePage = '/dashboard';
 
+    LoginCookies.setupCookie();
     dispatch(setNavigation(homePage));
     history.push(homePage);
   };
@@ -51,7 +55,7 @@ const Form = () => {
 
         <Button
           text='Entrar'
-          title='Logar'
+          title='Login'
         />
         <Link
           to='/cadastro'

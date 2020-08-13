@@ -1,0 +1,39 @@
+.rc {
+  &-slider {
+    margin-bottom: 84px;
+
+    &-handle {
+      border-radius: 5px;
+      height: 28px;
+      width: 10px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, .16) !important;
+      transform: translate(-50%, -25%) !important;
+      border: none !important;
+      transition: 400ms;
+      outline: none !important;
+
+      &:active {
+        box-shadow: 0 0 10px rgba(0, 0, 0, .50) !important;
+        transition: 400ms;
+      }
+    }
+
+    &-mark {
+      &-text {
+        margin-top: 10px;
+        color: #000000;
+        font-weight: bold;
+      }
+    }
+
+    &-step {
+      background: #B1E1FC;
+      border-radius: 10px;
+      height: 7px;
+    }
+
+    &-dot {
+      display: none;
+    }
+  }
+}

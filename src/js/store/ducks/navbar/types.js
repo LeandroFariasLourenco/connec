@@ -1,1 +1,1 @@
-export const NAVIGATE = `${process.env.PROJECT_NAME}/navbar/NAVIGATE`;
+export const NAVIGATE = '/navbar/NAVIGATE';

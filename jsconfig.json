@@ -1,0 +1,17 @@
+{
+  "compilerOptions": {
+    "baseUrl": "./src",
+    "paths": {
+      "@Components/*": ["./js/components/*"],
+      "@Images/*": ["./images/*"],
+      "@Icons/*": ["./icons/*"],
+      "@Routes/*": ["./js/routes/*"],
+      "@Global/*": ["./js/global/*"],
+      "@Svgs/*": ["./icons/svgs/*"],
+      "@Pages/*": ["./js/pages/*"],
+      "@Styles/*": ["./js/styles/*"],
+      "@Utils/*": ["./js/utils/*"],
+      "@Store/*": ["./js/store/*"]
+    }
+  }
+}

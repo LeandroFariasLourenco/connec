@@ -2,13 +2,15 @@ import styled from 'styled-components';
 import { rem } from 'polished';
 
 export const Wrapper = styled.div`
-  flex: 0.10;
+  width: 10%;
   height: 100%;
   flex-flow: column;
   display: flex;
   padding-top: 50px;
-  justify-content: center;
   background: white;
+  position: absolute;
+  left: 0;
+  top: 0;
 
   li {
     &:not(:first-of-type) {
@@ -25,7 +27,6 @@ export const Options = styled.ul`
   flex-flow: column;
   justify-content: space-between;
   align-items: center;
-  height: ${rem(300)};
 `;
 
 export const Navigation = styled.nav`
