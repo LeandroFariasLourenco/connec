@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { memo } from 'react';
 import PropTypes from 'prop-types';
 
 import * as S from './styled';
@@ -23,4 +23,4 @@ Form.propTypes = {
   handler: PropTypes.func.isRequired
 };
 
-export default Form;
+export default memo(Form);

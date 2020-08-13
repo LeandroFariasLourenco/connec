@@ -54,4 +54,10 @@ export const GlobalStyles = createGlobalStyle`
     padding: 0;
     margin: 0;
   }
+
+  .is--loading {
+    opacity: 0.3;
+    cursor: not-allowed;
+    transition: opacity 400ms;
+  }
 `;

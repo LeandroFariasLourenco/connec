@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, memo } from 'react';
 import Proptypes from 'prop-types';
 import { CSSTransition } from 'react-transition-group';
 
@@ -26,7 +26,9 @@ const Container = ({ children, ...props }) => {
           timeout={300}
           classNames='transition'
         >
-          { children }
+          <S.ContentWrapper>
+            {children}
+          </S.ContentWrapper>
         </CSSTransition>
       </S.RightWrapper>
     </S.Wrapper>
@@ -37,4 +39,4 @@ Container.propTypes = {
   children: Proptypes.node.isRequired
 };
 
-export default Container;
+export default memo(Container);

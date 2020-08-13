@@ -18,7 +18,7 @@ export const StepWrapper = styled.div`
 export const Step = styled.div`
   display: flex;
   flex-flow: column;
-  width: 95%;
+  width: 85%;
   padding-left: ${rem(20)};
 `;
 
@@ -97,6 +97,8 @@ export const Subtitle = styled.h2`
   font-size: ${rem(30)};
   margin-bottom: ${rem(40)};
   color: ${({ theme }) => theme.darkPurple};
+
+  /** */
   ${({ theme }) => theme.mq.lessThan('1380px')`
     font-size: ${rem(26)};
     width: 55%;

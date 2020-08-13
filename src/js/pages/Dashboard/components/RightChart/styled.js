@@ -10,4 +10,5 @@ export const GraphicWrapper = styled.div`
   border-radius: 20px;
   margin-left: ${rem(40)};
   padding: ${rem(30)};
+  transition: opacity 400ms;
 `;

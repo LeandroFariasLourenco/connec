@@ -8,7 +8,8 @@ import Login from '@Pages/Login';
 import Dashboard from '@Pages/Dashboard';
 import Historico from '@Pages/Historico';
 import Receptores from '@Pages/Receptores';
-import Register from '@Pages/Register';
+import CadastroDoadores from '@Pages/CadastroDoadores';
+import CadastroReceptores from '@Pages/CadastroReceptores';
 import Sobre from '@Pages/Sobre';
 
 const Routes = () => {
@@ -20,9 +21,11 @@ const Routes = () => {
 
         <Route path='/dashboard' exact={true} component={Dashboard} />
         <Route path='/historico' exact={true} component={Historico} />
-        <Route path='/receptores' exact={true} component={Receptores} />
 
-        <Route path='/doadores' exact={true} component={Register} />
+        <Route path='/receptores' exact={true} component={Receptores} />
+        <Route path='/receptores/cadastro' exact={true} component={CadastroReceptores} />
+
+        <Route path='/doadores' exact={true} component={CadastroDoadores} />
       </Switch>
     </BrowserRouter>
   );

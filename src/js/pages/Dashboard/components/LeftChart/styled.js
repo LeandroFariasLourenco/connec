@@ -14,4 +14,5 @@ export const ChartWrapper = styled.div`
   justify-content: space-evenly;
   z-index: 3;
   padding: ${rem(20)};
+  transition: opacity 400ms;
 `;

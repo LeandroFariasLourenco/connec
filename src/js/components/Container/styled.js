@@ -13,7 +13,7 @@ export const Wrapper = styled.section`
 
 const flex = css`
   flex: 1;
-  padding-left: ${rem(80)};
+  margin-left: 10%;
 `;
 
 const flexAlign = css`
@@ -35,4 +35,9 @@ const hasBackground = (align) => css`
 export const RightWrapper = styled.section`
   ${({ alignRight }) => alignRight ? flexAlign : flex};
   ${({ backgrounAlignRight }) => backgrounAlignRight && hasBackground('right')}
+`;
+
+export const ContentWrapper = styled.div`
+  height: 100%;
+  width: 100%;
 `;

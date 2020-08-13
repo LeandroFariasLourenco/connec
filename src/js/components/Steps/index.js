@@ -1,13 +1,16 @@
-import React from 'react';
+import React, { memo } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import cx from 'classnames';
+import PropTypes from 'prop-types';
 
 import { setActiveStep } from '@Store/ducks/register';
-import registerSteps from '@Utils/Steps';
 
 import * as S from './styled';
 
-const Steps = () => {
+const Steps = ({
+  subtitle,
+  stepOptions
+}) => {
   const { currentStep, buttonTitle } = useSelector(state => state.register);
   const dispatch = useDispatch();
 
@@ -19,11 +22,11 @@ const Steps = () => {
   return (
     <S.StepWrapper>
       <S.Subtitle>
-        Cadastro do Doador
+        {subtitle}
       </S.Subtitle>
 
       <S.Step>
-        { registerSteps.map(({ id, title, stepNumber }) => {
+        { stepOptions.map(({ id, title, stepNumber }) => {
           const currentActive = currentStep === stepNumber && 'active';
           const completedSteps = currentStep > stepNumber && 'completed';
 
@@ -52,4 +55,13 @@ const Steps = () => {
   );
 };
 
-export default Steps;
+Steps.propTypes = {
+  subtitle: PropTypes.string.isRequired,
+  stepOptions: PropTypes.arrayOf(PropTypes.shape({
+    id: PropTypes.number.isRequired,
+    stepNumber: PropTypes.number.isRequired,
+    title: PropTypes.string.isRequired
+  })).isRequired
+};
+
+export default memo(Steps);

@@ -31,13 +31,12 @@ const Slipper = () => {
     dispatch(setLoading(true));
 
     try {
-      setTimeout(() => {
-        console.log('teste');
-      }, 2000);
     } catch (e) {
       console.log(e);
     } finally {
-      // dispatch(setLoading(false));
+      setTimeout(() => {
+        dispatch(setLoading(false));
+      }, 2000);
     }
   };
 

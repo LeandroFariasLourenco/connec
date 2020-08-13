@@ -7,6 +7,7 @@
     "commit": "git-cz",
     "start": "yarn clear && webpack-dev-server --mode=development --watch --colors --open",
     "prod": "yarn clear && webpack -p --mode=production --colors",
+    "push": "git push -u",
     "lint:js": "eslint ./src --ext .js,.jsx --color",
     "lint:js:fix": "yarn lint:js --fix --color",
     "pug:lint": "pug-lint ./src",

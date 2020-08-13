@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { memo } from 'react';
 import PropTypes from 'prop-types';
 
 import * as S from './styled';
@@ -33,4 +33,4 @@ Input.propTypes = {
   placeholder: PropTypes.string.isRequired
 };
 
-export default Input;
+export default memo(Input);

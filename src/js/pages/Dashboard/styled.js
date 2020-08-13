@@ -2,13 +2,12 @@ import styled from 'styled-components';
 import { rem } from 'polished';
 
 export const InformationWrapper = styled.div`
-  width: 75%;
+  width: 80%;
   height: 80%;
-  margin-left: ${rem(125)};
   position: relative;
   z-index: 1;
   ${({ theme }) => theme.mq.lessThan('1366px')`
-    width: 80%;
+    width: 90%;
     height: 90%;
   `}
 `;
