@@ -16,7 +16,15 @@ export const HeaderNotify = styled.div`
 `;
 
 export const HeaderText = styled.span`
-  padding-left: ${rem(22)};
+  padding-left: ${rem(2)};
+  display: flex;
+  align-items: center;
+  font-weight: bold;
+
+  img {
+    margin-right: ${rem(22)};
+  }
+
   > span[data-receiver="0"]{
     display: none;
   }

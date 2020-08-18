@@ -2,7 +2,7 @@ import { createGlobalStyle } from 'styled-components';
 
 export const GlobalStyles = createGlobalStyle`
   body {
-    overflow: hidden;
+    overflow-x: hidden;
   }
 
   a {

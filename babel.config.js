@@ -23,7 +23,8 @@ module.exports = {
         '@Pages': './src/js/pages',
         '@Styles': './src/js/styles',
         '@Utils': './src/js/utils',
-        '@Store': './src/js/store'
+        '@Store': './src/js/store',
+        '@Requests': './src/js/requests'
       }
     }]
   ]

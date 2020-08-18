@@ -4,6 +4,7 @@ import Container from '@Components/Container';
 
 import ReceiverList from './components/ReceiverList';
 import ReceiverHeader from './components/ReceiverHeader';
+import Registers from './components/Registers';
 
 import * as S from './styled';
 
@@ -12,7 +13,10 @@ const Receptores = () => {
     <Container>
       <S.ReceiverWrapper>
         <ReceiverHeader />
-        <ReceiverList />
+        <S.FrameWrapper>
+          <ReceiverList />
+          <Registers />
+        </S.FrameWrapper>
       </S.ReceiverWrapper>
     </Container>
   );

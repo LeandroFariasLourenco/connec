@@ -11,7 +11,8 @@
       "@Pages/*": ["./js/pages/*"],
       "@Styles/*": ["./js/styles/*"],
       "@Utils/*": ["./js/utils/*"],
-      "@Store/*": ["./js/store/*"]
+      "@Store/*": ["./js/store/*"],
+      "@Requests/*": ["./js/requests/*"]
     }
   }
 }

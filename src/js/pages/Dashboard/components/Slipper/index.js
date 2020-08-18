@@ -32,7 +32,6 @@ const Slipper = () => {
 
     try {
     } catch (e) {
-      console.log(e);
     } finally {
       setTimeout(() => {
         dispatch(setLoading(false));
