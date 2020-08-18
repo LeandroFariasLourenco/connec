@@ -22,6 +22,8 @@ module.exports = {
     semi: ['warn', 'always'],
     'react/jsx-filename-extension': [0],
     'import/prefer-default-export': 'off',
-    'jsx-quotes': ['warn', 'prefer-single']
+    'jsx-quotes': ['warn', 'prefer-single'],
+    'no-console': 'off',
+    indent: ['error', 2]
   }
 };

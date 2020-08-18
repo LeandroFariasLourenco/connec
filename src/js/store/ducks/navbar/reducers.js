@@ -6,9 +6,9 @@ const INITIAL_STATE = {
 
 export default function reducer (state = INITIAL_STATE, { type, payload }) {
   switch (type) {
-    case t.NAVIGATE:
-      return { ...state, currentPage: payload };
-    default:
-      return state;
+  case t.NAVIGATE:
+    return { ...state, currentPage: payload };
+  default:
+    return state;
   }
 };

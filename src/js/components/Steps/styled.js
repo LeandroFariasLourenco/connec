@@ -97,10 +97,11 @@ export const Subtitle = styled.h2`
   font-size: ${rem(30)};
   margin-bottom: ${rem(40)};
   color: ${({ theme }) => theme.darkPurple};
+  white-space: nowrap;
 
   /** */
   ${({ theme }) => theme.mq.lessThan('1380px')`
-    font-size: ${rem(26)};
+    font-size: ${rem(25)};
     width: 55%;
   `}
 `;

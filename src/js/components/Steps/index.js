@@ -1,14 +1,14 @@
-import React, { memo } from 'react';
+import React, { memo, useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import cx from 'classnames';
 import PropTypes from 'prop-types';
 
-import { setActiveStep } from '@Store/ducks/register';
+import { setActiveStep, resetStep } from '@Store/ducks/register';
 
 import * as S from './styled';
 
 const Steps = ({
-  subtitle,
+  subTitle,
   stepOptions
 }) => {
   const { currentStep, buttonTitle } = useSelector(state => state.register);
@@ -19,10 +19,14 @@ const Steps = ({
     dispatch(setActiveStep(currentStep + 1));
   };
 
+  useEffect(() => {
+    dispatch(resetStep());
+  }, []);
+
   return (
     <S.StepWrapper>
       <S.Subtitle>
-        {subtitle}
+        {subTitle}
       </S.Subtitle>
 
       <S.Step>
@@ -56,7 +60,7 @@ const Steps = ({
 };
 
 Steps.propTypes = {
-  subtitle: PropTypes.string.isRequired,
+  subTitle: PropTypes.string.isRequired,
   stepOptions: PropTypes.arrayOf(PropTypes.shape({
     id: PropTypes.number.isRequired,
     stepNumber: PropTypes.number.isRequired,

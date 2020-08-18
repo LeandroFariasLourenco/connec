@@ -4,15 +4,18 @@
   "description": "Uma aplicacao front end para o projeto do am de TDS",
   "main": "connec-index.js",
   "scripts": {
+    "preinstall": "npx use-yarn",
     "commit": "git-cz",
-    "start": "yarn clear && webpack-dev-server --mode=development --watch --colors --open",
-    "prod": "yarn clear && webpack -p --mode=production --colors",
+    "start": "npm run clear && npm run server",
+    "prod": "npm run clear && npm run linters && npm run build",
     "push": "git push -u",
     "lint:js": "eslint ./src --ext .js,.jsx --color",
     "lint:js:fix": "yarn lint:js --fix --color",
     "pug:lint": "pug-lint ./src",
     "linters": "yarn lint:js && yarn pug:lint",
-    "clear": "rm -rf dist"
+    "server": "webpack-dev-server --watch --colors --open --config webpack.dev.js",
+    "build": "webpack -m -p --colors --config webpack.prod.js",
+    "clear": "rimraf ./dist"
   },
   "repository": {
     "type": "git",
@@ -51,7 +54,8 @@
     "sass-loader": "^9.0.3",
     "style-loader": "^1.2.1",
     "styled-components": "^5.1.1",
-    "styled-media-query": "^2.1.2"
+    "styled-media-query": "^2.1.2",
+    "typescript": "^3.9.7"
   },
   "husky": {
     "hooks": {
@@ -67,6 +71,9 @@
     "@babel/preset-react": "^7.10.1",
     "@commitlint/cli": "^8.3.5",
     "@commitlint/config-conventional": "^8.3.4",
+    "@svgr/webpack": "^5.4.0",
+    "@types/react": "^16.9.46",
+    "@types/react-dom": "^16.9.8",
     "babel-eslint": "^10.1.0",
     "babel-loader": "^8.1.0",
     "babel-plugin-module-resolver": "^4.0.0",
@@ -91,11 +98,13 @@
     "image-webpack-loader": "^6.0.0",
     "lint-staged": "^10.2.10",
     "lodash-webpack-plugin": "^0.11.5",
+    "node-env-run": "^4.0.1",
     "node-sass": "^4.14.1",
     "pug": "^2.0.0",
     "pug-lint-config-clock": "^2.0.0",
     "pug-loader": "^2.4.0",
     "react-router-dom": "^5.2.0",
+    "rimraf": "^3.0.2",
     "sass-extract": "^2.1.0",
     "sass-extract-js": "^0.4.0",
     "sass-extract-loader": "^1.1.0",
@@ -109,6 +118,7 @@
     "webpack": "^4.43.0",
     "webpack-cli": "^3.3.11",
     "webpack-dev-server": "^3.11.0",
+    "webpack-merge": "^5.1.1",
     "webpack-node-externals": "^1.7.2",
     "webpack-split-by-path": "^2.0.0",
     "yarn": "^1.22.4"

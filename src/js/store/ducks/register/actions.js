@@ -11,3 +11,8 @@ export const setActiveStep = (stepNumber) => {
     payload: state
   };
 };
+
+export const resetStep = () => ({
+  type: t.RESETSTEP,
+  payload: null
+});

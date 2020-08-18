@@ -38,7 +38,7 @@ const Cadastro = () => {
         <FormWrapper>
           <Frames/>
           <Steps
-            subTitle='Cadastro do Doador'
+            subTitle='Cadastro de Receptor'
             stepOptions={stepOptions}
           />
         </FormWrapper>

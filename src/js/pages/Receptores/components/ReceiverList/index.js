@@ -4,8 +4,14 @@ import * as S from './styled';
 
 const ReceiverList = () => {
   return (
-    <S.ListWrapper>
-    </S.ListWrapper>
+    <S.HeadingWrapper>
+      <S.ListTitle>
+        Receptores
+      </S.ListTitle>
+      <S.ReceiverCount>
+        4.300 Receptores
+      </S.ReceiverCount>
+    </S.HeadingWrapper>
   );
 };
 

@@ -9,6 +9,7 @@ export const InformationWrapper = styled.div`
   ${({ theme }) => theme.mq.lessThan('1366px')`
     width: 90%;
     height: 90%;
+    padding-top: ${rem(30)};
   `}
 `;
 
