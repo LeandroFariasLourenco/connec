@@ -5,7 +5,7 @@ import * as S from './styled';
 const First = () => {
   return (
     <S.Model
-      handler={() => {}}
+      onSubmit={() => {}}
       active
     >
       <>

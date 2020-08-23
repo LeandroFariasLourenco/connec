@@ -15,7 +15,7 @@ const Filters = () => {
   const { selectedFilter, searchBar } = useSelector(state => state.history);
 
   return (
-    <>
+    <S.FilterOptionsWrapper>
       <S.Options>
         {FilterOptions.map(({
           title, id, searchTerm
@@ -23,6 +23,7 @@ const Filters = () => {
           <S.Filter
             reset
             key={id}
+            disabled={!!searchBar}
             className={cx({
               'is--active': selectedFilter === searchTerm &&
               !searchBar
@@ -35,7 +36,7 @@ const Filters = () => {
         ))}
       </S.Options>
       <SearchBar />
-    </>
+    </S.FilterOptionsWrapper>
   );
 };
 

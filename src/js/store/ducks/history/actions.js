@@ -14,3 +14,7 @@ export const setFilter = (search) => ({
   type: t.setFilter,
   payload: search
 });
+
+export const resetSearch = () => ({
+  type: t.resetSearch
+});

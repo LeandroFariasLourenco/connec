@@ -39,7 +39,7 @@ const Steps = ({
               reset
               key={id}
               title={title}
-              handler={() => dispatch(setActiveStep(stepNumber))}
+              onClick={() => dispatch(setActiveStep(stepNumber))}
             >
               <S.StepOption
                 className={cx(currentActive, completedSteps)}
@@ -50,7 +50,7 @@ const Steps = ({
           );
         })}
         <S.Submit
-          handler={handleStep}
+          onClick={handleStep}
           title={buttonTitle}
           text={buttonTitle}
         />

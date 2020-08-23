@@ -37,7 +37,7 @@ const Registers = () => {
           <S.ReceiverDetails
             reset
             title='Ver mais'
-            handler={() => {}}
+            onClick={() => {}}
           >
             <img src={ArrowSvg} />
           </S.ReceiverDetails>

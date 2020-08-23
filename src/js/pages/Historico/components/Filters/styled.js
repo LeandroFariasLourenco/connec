@@ -16,6 +16,10 @@ export const Filter = styled(Button)`
   position: relative;
   transition: 400ms;
 
+  &[disabled] {
+    cursor: not-allowed;
+  }
+
   &::after {
     content: '';
     width: 0;
@@ -39,4 +43,9 @@ export const Filter = styled(Button)`
       border-radius: 10px;
     }
   }
+`;
+
+export const FilterOptionsWrapper = styled.div`
+  display: flex;
+  border-bottom: 2px solid #707070;
 `;

@@ -27,7 +27,7 @@ const Support = () => {
             key={id}
             title={title}
             className={cx({ 'is-active': pathname === currentPage })}
-            handler={() => handleDispatch(pathname)}
+            onClick={() => handleDispatch(pathname)}
           >
             {title}
           </S.MenuOption>

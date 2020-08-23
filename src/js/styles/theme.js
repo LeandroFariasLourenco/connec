@@ -6,6 +6,10 @@ import typography from 'sass-extract-loader?{"plugins": ["sass-extract-js"]}!../
 
 import * as flex from './mixins/flex';
 
+import { zIndex } from 'sass-extract-loader?{"plugins": ["sass-extract-js"]}!../../scss/01-settings/_z-index.scss';
+import generateIndex from './zindex';
+const zIndexes = generateIndex(zIndex);
+
 const mq = generateMedia(screen.breakpoints);
 
 const theme = {
@@ -13,6 +17,7 @@ const theme = {
   ...variables,
   ...typography,
   ...flex,
+  zIndexes,
   mq
 };
 

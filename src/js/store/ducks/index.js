@@ -4,6 +4,7 @@ import navbar from './navbar';
 import register from './register';
 import dashboard from './dashboard';
 import receiver from './receiver';
+import general from './general';
 import history from './history';
 
 export default combineReducers({
@@ -11,5 +12,6 @@ export default combineReducers({
   register,
   dashboard,
   receiver,
-  history
+  history,
+  general
 });

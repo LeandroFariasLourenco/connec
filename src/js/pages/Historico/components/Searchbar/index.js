@@ -1,6 +1,6 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 
 import { setSearchBar } from '@Store/ducks/history';
 
@@ -10,6 +10,7 @@ import SubmitIcon from '@Icons/history/send.svg';
 import * as S from './styled';
 
 const Searchbar = () => {
+  const { searchBar } = useSelector(state => state.history);
   const [search, setSearch] = useState('');
   const dispatch = useDispatch();
 
@@ -19,6 +20,10 @@ const Searchbar = () => {
 
     dispatch(setSearchBar(search));
   };
+
+  useEffect(() => {
+    if (!searchBar) setSearch('');
+  }, [searchBar]);
 
   return (
     <S.SearchWrapper

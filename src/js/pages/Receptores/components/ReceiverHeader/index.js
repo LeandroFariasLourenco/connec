@@ -26,7 +26,7 @@ const ReceiverList = () => {
         reset
         title='Cadastrar'
         text='+ Receptor'
-        handler={handleClick}
+        onClick={handleClick}
       />
 
       <S.HeaderNotify>

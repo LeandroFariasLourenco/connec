@@ -31,7 +31,7 @@ const Cadastro = () => {
       <S.BackButton
         reset
         title='Voltar'
-        handler={handleGoBack}
+        onClick={handleGoBack}
       >
       </S.BackButton>
 
