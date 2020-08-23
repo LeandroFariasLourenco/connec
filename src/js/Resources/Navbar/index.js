@@ -1,11 +1,11 @@
-import UserIconDefault from '@Svgs/navbar/userDefault.svg';
-import UserIconActive from '@Svgs/navbar/userActive.svg';
+import UserIconDefault from '@Icons/navbar/userDefault.svg';
+import UserIconActive from '@Icons/navbar/userActive.svg';
 
-import ChartIconDefault from '@Svgs/navbar/chartDefault.svg';
-import ChartIconActive from '@Svgs/navbar/chartActive.svg';
+import ChartIconDefault from '@Icons/navbar/chartDefault.svg';
+import ChartIconActive from '@Icons/navbar/chartActive.svg';
 
-import NotebookIconDefault from '@Svgs/navbar/notebookDefault.svg';
-import NotebookIconActive from '@Svgs/navbar/notebookActive.svg';
+import NotebookIconDefault from '@Icons/navbar/notebookDefault.svg';
+import NotebookIconActive from '@Icons/navbar/notebookActive.svg';
 
 export default [
   {

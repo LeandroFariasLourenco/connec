@@ -1,6 +1,6 @@
 import React from 'react';
 
-import SupportSvg from '@Svgs/login/support.svg';
+import SupportSvg from '@Icons/login/support.svg';
 
 import * as S from './styled';
 

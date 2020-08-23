@@ -1,10 +1,10 @@
 import React, { useEffect, useState, memo } from 'react';
 
-import Logo from '@Svgs/navbar/logo.svg';
+import Logo from '@Icons/navbar/logo.svg';
+import navbarOptions from '@Resources/Navbar';
 
-import Option from './Option';
-import UserImg from './UserImg';
-import navbarOptions from '@Utils/Navbar';
+import Option from './components/Option';
+import UserArea from './components/UserArea';
 
 import * as S from './styled';
 
@@ -38,7 +38,8 @@ const Navbar = () => {
           ))}
         </S.Options>
       </S.Navigation>
-      <UserImg />
+
+      <UserArea />
 
       <S.Sac>
 

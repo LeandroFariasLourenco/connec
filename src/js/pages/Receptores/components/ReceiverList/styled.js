@@ -12,6 +12,10 @@ export const ReceiverCount = styled.span`
   margin-top: ${rem(12)};
   color: #606060;
   font-size: ${rem(10)};
+
+  span {
+    margin-right: ${rem(5)};
+  }
 `;
 
 export const ListTitle = styled.h2`

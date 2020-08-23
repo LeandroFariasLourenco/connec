@@ -4,7 +4,7 @@ import { useHistory } from 'react-router-dom';
 import cx from 'classnames';
 
 import { setNavigation } from '@Store/ducks/navbar';
-import sidebarOptions from '@Utils/Sidebar';
+import sidebarOptions from '@Resources/Sidebar';
 
 import * as S from './styled';
 

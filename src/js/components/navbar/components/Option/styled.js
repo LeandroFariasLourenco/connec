@@ -8,6 +8,10 @@ export const Wrapper = styled.li`
 export const Title = styled.span`
   display: block;
   margin-top: ${rem(11)};
+
+  ${({ theme }) => theme.mq.lessThan('md')`
+    font-size: ${rem(11)};
+  `}
 `;
 
 export const Handler = styled.button`

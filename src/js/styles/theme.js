@@ -4,12 +4,15 @@ import screen from 'sass-extract-loader?{"plugins": ["sass-extract-js"]}!../../s
 import variables from 'sass-extract-loader?{"plugins": ["sass-extract-js"]}!../../scss/01-settings/_variables.scss';
 import typography from 'sass-extract-loader?{"plugins": ["sass-extract-js"]}!../../scss/01-settings/_typography.scss';
 
+import * as flex from './mixins/flex';
+
 const mq = generateMedia(screen.breakpoints);
 
 const theme = {
   ...screen,
   ...variables,
   ...typography,
+  ...flex,
   mq
 };
 

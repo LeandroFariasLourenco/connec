@@ -1,7 +1,7 @@
 import React from 'react';
 
 import BackgroundImage from '@Images/dashboard/background.png';
-import Container from '@Components/Container';
+import Container from '@Layouts/Container';
 
 import Slipper from './components/Slipper';
 import LeftChart from './components/LeftChart';

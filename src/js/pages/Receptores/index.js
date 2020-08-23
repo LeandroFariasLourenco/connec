@@ -1,6 +1,6 @@
 import React from 'react';
 
-import Container from '@Components/Container';
+import Container from '@Layouts/Container';
 
 import ReceiverList from './components/ReceiverList';
 import ReceiverHeader from './components/ReceiverHeader';

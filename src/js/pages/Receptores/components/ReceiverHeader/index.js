@@ -2,7 +2,7 @@ import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { useHistory } from 'react-router-dom';
 
-import BellIcon from '@Svgs/receptores/bell.svg';
+import BellIcon from '@Icons/receptores/bell.svg';
 
 import { setNavigation } from '@Store/ducks/navbar';
 import * as S from './styled';

@@ -2,7 +2,7 @@ import React, { useState, useEffect, memo } from 'react';
 import Proptypes from 'prop-types';
 import { CSSTransition } from 'react-transition-group';
 
-import Navbar from '../Navbar';
+import Navbar from '@Components/Navbar';
 
 import './style.scss';
 

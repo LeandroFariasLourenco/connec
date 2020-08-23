@@ -6,7 +6,8 @@ export const Wrapper = styled.div`
   height: 100%;
   flex-flow: column;
   display: flex;
-  padding-top: 50px;
+  justify-content: space-between;
+  padding-top: ${rem(50)};
   background: white;
   position: absolute;
   left: 0;
@@ -15,6 +16,10 @@ export const Wrapper = styled.div`
   li {
     &:not(:first-of-type) {
       margin-top: ${rem(32)};
+
+      ${({ theme }) => theme.mq.lessThan('md')`
+        margin-top: ${rem(16)};
+      `}
     }
   }
 `;
@@ -30,8 +35,12 @@ export const Options = styled.ul`
 `;
 
 export const Navigation = styled.nav`
-  margin-top: 70px;
+  margin-top: ${rem(70)};
   width: 100%;
+
+  ${({ theme }) => theme.mq.lessThan('md')`
+    margin-top: ${rem(40)};
+  `}
 `;
 
 export const Sac = styled.span``;

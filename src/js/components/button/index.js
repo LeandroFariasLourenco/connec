@@ -6,13 +6,11 @@ import * as S from './styled';
 const Button = ({
   title,
   text,
-  handler,
   children,
   ...props
 }) => (
   <S.Btn
     title={title}
-    onClick={handler}
     {...props}
   >
     {text}
@@ -23,16 +21,12 @@ const Button = ({
 Button.propTypes = {
   title: PropTypes.string.isRequired,
   text: PropTypes.string,
-  children: PropTypes.oneOfType([PropTypes.element, PropTypes.node]),
-  reset: PropTypes.bool,
-  handler: PropTypes.func
+  children: PropTypes.oneOfType([PropTypes.element, PropTypes.node])
 };
 
 Button.defaultProps = {
-  reset: false,
   children: <></>,
-  text: '',
-  handler: () => {}
+  text: ''
 };
 
 export default memo(Button);

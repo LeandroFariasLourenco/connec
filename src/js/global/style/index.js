@@ -36,10 +36,13 @@ export const GlobalStyles = createGlobalStyle`
 
   *::before,
   *::after {
-    display: block;
+    display: block; 
   }
 
   input {
+    outline: none;
+    border: none;
+
     &:active,
     &:focus {
       outline: none;

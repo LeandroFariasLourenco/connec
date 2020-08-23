@@ -3,7 +3,7 @@ import React from 'react';
 
 import ReceiverList from '@Requests';
 
-import ArrowSvg from '@Svgs/back.svg';
+import ArrowSvg from '@Icons/back.svg';
 
 import * as S from './styled';
 

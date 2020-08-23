@@ -16,10 +16,12 @@ const Login = () => {
   const cookie = LoginCookies.getCookie();
 
   useEffect(() => {
-    if (!cookie) return dispatch(setNavigation('/'));
-
-    dispatch(setNavigation('/dashboard'));
-    history.push('/dashboard');
+    if (!cookie) {
+      dispatch(setNavigation('/'));
+    } else {
+      dispatch(setNavigation('/dashboard'));
+      history.push('/dashboard');
+    }
   }, []);
 
   return (

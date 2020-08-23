@@ -4,7 +4,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import 'rc-slider/assets/index.css';
 
 import { setMonth, setLoading } from '@Store/ducks/dashboard';
-import Months from '@Utils/Months';
+import Months from '@Resources/Months';
 
 import './style.scss';
 
