@@ -20,7 +20,7 @@ export const ReceiverCount = styled.span`
 
 export const ListTitle = styled.h2`
   font-size: ${rem(16)};
-  color: #000000;
+  color: 000000;
   text-transform: uppercase;
   font-weight: 500;
 `;

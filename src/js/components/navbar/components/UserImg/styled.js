@@ -22,6 +22,6 @@ export const NotificationCounter = styled(Button)`
   position: absolute;
   right: 0;
   bottom: 0;
-  background: #6DC9FA;
+  background: #6dc9fa;
   border-radius: 100%;
 `;

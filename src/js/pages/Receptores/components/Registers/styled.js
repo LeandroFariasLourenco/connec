@@ -9,8 +9,7 @@ export const ListWrapper = styled.ul`
   padding: 0 ${rem(31)};
   padding-bottom: ${rem(20)};
   width: 100%;
-  height: 80%;
-  max-height: ${rem(320)};
+  height: calc(100% - 92px);
   overflow: auto;
   position: relative;
 
@@ -20,12 +19,12 @@ export const ListWrapper = styled.ul`
 
   ::-webkit-scrollbar-track {
     background: #f1f1f1;
-    border: 1px solid #7E7E7E;
+    border: 1px solid #7e7e7e;
     border-radius: 10px;
   }
 
   ::-webkit-scrollbar-thumb {
-    background: #7E7E7E;
+    background: #7e7e7e;
     border-radius: 10px;
   }
 
@@ -67,8 +66,8 @@ export const Receiver = styled.li`
 
 export const ReceiverThumb = styled.img`
   border-radius: 100%;
-  width: 6%;
-  height: 8vh;
+  width: ${rem(45)};
+  height: ${rem(45)};
   object-fit: cover;
 `;
 

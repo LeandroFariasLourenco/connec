@@ -1,5 +1,8 @@
 import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
+import 'lazysizes';
+
+import Placeholder from '@Images/lazyload/placeholder.jpg';
 
 import Notifications from '../Notifications';
 
@@ -18,7 +21,10 @@ const UserImg = () => {
   return (
     <S.ImageWrapper>
       <S.UserImage
-        src='https://www.sirgia.com/wp-content/uploads/2017/12/shutterstock_83672362-01.jpg'
+        data-src='https://www.sirgia.com/wp-content/uploads/2017/12/shutterstock_83672362-01.jpg'
+        src={Placeholder}
+        className='lazyload'
+        data-sizes='auto'
       />
       <S.NotificationCounter
         reset

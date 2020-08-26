@@ -1,5 +1,8 @@
 import React from 'react';
 // import { useSelector } from 'react-redux';
+import 'lazysizes';
+
+import Placeholder from '@Images/lazyload/placeholder.jpg';
 
 import ReceiverList from '@Requests';
 
@@ -23,7 +26,10 @@ const Registers = () => {
           key={id}
         >
           <S.ReceiverThumb
-            src={imageUrl}
+            data-sizes='auto'
+            data-src={imageUrl}
+            className='lazyload'
+            src={Placeholder}
           />
           <S.ReceiverName>
             {name}

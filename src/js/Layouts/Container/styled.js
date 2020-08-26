@@ -21,23 +21,28 @@ const flexAlign = css`
   display: flex;
   ${flex};
   padding-left: ${rem(80)};
+
+  /** */
+  ${({ theme }) => theme.mq.greaterThan('screenMd')`
+    padding-left: ${rem(120)};
+  `}
 `;
 
-const hasBackground = (align) => css`
+const hasBackground = css`
   background-image: url(${BackgroundImage});
-  background-position: ${align};
-  background-repeat: no-repeat;
-  background-position: 110% ${rem(175)};
+  background-position: right -10% bottom -140%;
   background-repeat: no-repeat;
   background-size: ${rem(740)} ${rem(750)};
 `;
 
 export const RightWrapper = styled.section`
   ${({ alignRight }) => alignRight ? flexAlign : flex};
-  ${({ backgrounAlignRight }) => backgrounAlignRight && hasBackground('right')}
+  ${({ backgrounAlignRight }) => backgrounAlignRight && hasBackground}
 `;
 
 export const ContentWrapper = styled.div`
   height: 100%;
   width: 100%;
+  display: flex;
+  align-items: center;
 `;

@@ -7,13 +7,11 @@ export const HistoryWrapper = styled.section`
   margin-left: 10%;
   height: 90%;
   position: relative;
-  padding-top: ${rem(120)};
+  padding-top: ${rem(60)};
 
   ${({ theme }) => theme.mq.lessThan('md')`
     padding-top: ${rem(60)};
   `}
 `;
 
-export const Background = styled.div`
-
-`;
+export const Background = styled.div``;
