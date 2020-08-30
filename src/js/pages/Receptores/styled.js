@@ -9,7 +9,7 @@ export const ReceiverWrapper = styled.section`
 
 export const FrameWrapper = styled.div`
   width: 100%;
-  height: 80%;
+  height: 90%;
   background: white;
   box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
 `;

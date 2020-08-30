@@ -1,4 +1,5 @@
 import React from 'react';
+import { useHistory } from 'react-router-dom';
 
 import LogoutIcon from '@Icons/logout.svg';
 
@@ -7,8 +8,10 @@ import UserImage from '../UserImg';
 import * as S from './styled';
 
 const UserArea = () => {
-  const handleLogout = () => {
+  const history = useHistory();
 
+  const handleLogout = () => {
+    history.push('/');
   };
 
   return (

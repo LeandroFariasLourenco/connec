@@ -14,13 +14,13 @@ export const ListWrapper = styled.div`
 
 export const Table = styled.table`
   margin-top: ${rem(26)};
-  overflow: auto;
   width: 100%;
   height: calc(100% - (37px + 26px));
 `;
 
 export const THead = styled.thead`
   ${tableFill}
+  display: block;
 `;
 
 export const Head = styled.th`
@@ -34,6 +34,7 @@ export const Body = styled.tbody`
   display: block;
   max-height: ${rem(530)};
   overflow-y: auto;
+  height: 100%;
 
   &::-webkit-scrollbar {
     width: ${rem(6)};

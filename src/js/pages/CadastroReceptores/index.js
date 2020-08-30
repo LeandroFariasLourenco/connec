@@ -5,13 +5,9 @@ import { useDispatch } from 'react-redux';
 import Container from '@Layouts/Container';
 import FormWrapper from '@Layouts/FormWrapper';
 
-import Steps from '@Components/Steps';
-
 import stepOptions from '@Resources/Steps/Receptores';
 
 import { setNavigation } from '@Store/ducks/navbar';
-
-import Frames from './components/Frames';
 
 import * as S from './styled';
 
@@ -36,13 +32,12 @@ const Cadastro = () => {
       </S.BackButton>
 
       <S.RegisterFormWrapper>
-        <FormWrapper>
-          <Frames/>
-          <Steps
-            subTitle='Cadastro de Receptor'
-            stepOptions={stepOptions}
-          />
-        </FormWrapper>
+        <FormWrapper
+          stepTitle='Cadastro de Receptor'
+          stepOptions={stepOptions}
+          noBackground
+          stepFirst
+        />
       </S.RegisterFormWrapper>
     </Container>
   );

@@ -10,6 +10,10 @@ export const Title = styled.h2`
 export const Header = styled.div`
   width: 100%;
   margin-bottom: ${rem(60)};
+
+  ${({ theme }) => theme.mq.lessThan('md')`
+    margin-bottom: ${rem(30)};
+  `}
 `;
 
 export const HistoryCount = styled.span`

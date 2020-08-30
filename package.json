@@ -12,8 +12,8 @@
     "lint:js:fix": "yarn lint:js --fix --color",
     "pug:lint": "pug-lint ./src",
     "linters": "yarn lint:js && yarn pug:lint",
-    "server": "webpack-dev-server --watch --colors --open --config webpack.dev.js",
-    "build": "webpack -m -p --colors --config webpack.prod.js",
+    "server": "webpack-dev-server --watch --colors --open --config webpack.dev.js --env.ENVIROMENT=development",
+    "build": "webpack -m -p --colors --config webpack.prod.js --env.ENVIROMENT=production",
     "clear": "rimraf ./dist"
   },
   "repository": {
@@ -48,7 +48,9 @@
     "react-addons-css-transition-group": "^15.6.2",
     "react-chartjs-2": "^2.10.0",
     "react-dom": "^16.13.1",
+    "react-hook-form": "^6.6.0",
     "react-redux": "^7.2.1",
+    "react-router-dom": "^5.2.0",
     "react-router-transition": "^2.0.0",
     "react-transition-group": "^4.4.1",
     "redux": "^4.0.5",
@@ -56,7 +58,6 @@
     "sass-loader": "^9.0.3",
     "style-loader": "^1.2.1",
     "styled-components": "^5.1.1",
-    "react-router-dom": "^5.2.0",
     "styled-media-query": "^2.1.2"
   },
   "husky": {

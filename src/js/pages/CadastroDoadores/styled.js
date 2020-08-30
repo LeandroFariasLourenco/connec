@@ -12,5 +12,6 @@ export const BackButton = styled(Button)`
 
 export const RegisterFormWrapper = styled.div`
   width: 100%;
-  height: calc(100% - 6.625rem);
+  margin-top: ${rem(58)};
+  height: calc(100% - 58px);
 `;

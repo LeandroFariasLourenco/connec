@@ -17,7 +17,10 @@ const Form = ({
 };
 
 Form.propTypes = {
-  children: PropTypes.oneOfType([PropTypes.node, PropTypes.element]).isRequired
+  children: PropTypes.oneOfType([
+    PropTypes.node,
+    PropTypes.element
+  ]).isRequired
 };
 
 export default memo(Form);

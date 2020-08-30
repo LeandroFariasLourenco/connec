@@ -23,14 +23,14 @@ const flexAlign = css`
   padding-left: ${rem(80)};
 
   /** */
-  ${({ theme }) => theme.mq.greaterThan('screenMd')`
+  ${({ theme }) => theme.mq.greaterThan('md')`
     padding-left: ${rem(120)};
   `}
 `;
 
 const hasBackground = css`
   background-image: url(${BackgroundImage});
-  background-position: right -10% bottom -140%;
+  background-position: right -5vw bottom -40vh;
   background-repeat: no-repeat;
   background-size: ${rem(740)} ${rem(750)};
 `;

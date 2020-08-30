@@ -1,7 +1,7 @@
 import styled, { css } from 'styled-components';
 
 export const FormModel = styled.form`
-  ${(props) => props.active ? formShow : formHide}
+  ${({ active }) => active ? formShow : formHide}
 `;
 
 const formHide = css`

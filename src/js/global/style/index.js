@@ -40,7 +40,7 @@ export const GlobalStyles = createGlobalStyle`
 
   *::before,
   *::after {
-    display: block; 
+    display: block;
   }
 
   input {
@@ -50,7 +50,6 @@ export const GlobalStyles = createGlobalStyle`
     &:active,
     &:focus {
       outline: none;
-      border: none;
     }
   }
 
