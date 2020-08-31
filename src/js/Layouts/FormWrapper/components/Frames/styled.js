@@ -62,5 +62,5 @@ export const FormField = styled.div`
   /** */
   ${({ isAbsolute }) => isAbsolute ? absolute : `
     box-shadow: 0 3px 10px #0000000D;
-  `};
+  `}
 `;

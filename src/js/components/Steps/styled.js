@@ -47,7 +47,7 @@ export const StepOption = styled.span`
   /** */
   ${({ theme }) => theme.mq.lessThan('sm')`
     font-size: ${rem(14)};
-  `};
+  `}
 
   &.active {
     &::before {
@@ -58,12 +58,12 @@ export const StepOption = styled.span`
   &::before {
     content: '';
     border-radius: 100%;
-    width: 24px;
-    height: 24px;
-    border: 2px solid #929292;
+    width: ${rem(24)};
+    height: ${rem(24)};
+    border: ${rem(1)} solid #929292;
     position: absolute;
-    left: 10px;
-    padding: ${rem(3)};
+    left: ${rem(10)};
+    padding: ${rem(4)};
     background-clip: content-box;
     transition: background-color 400ms;
   }
@@ -121,5 +121,5 @@ export const Subtitle = styled.h2`
   /** */
   ${({ theme }) => theme.mq.lessThan('sm')`
     font-size: ${rem(30)};
-  `};
+  `}
 `;
