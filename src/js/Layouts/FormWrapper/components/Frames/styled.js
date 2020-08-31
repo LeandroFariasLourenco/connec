@@ -55,9 +55,12 @@ export const FormField = styled.div`
   width: 90%;
   height: 85%;
   border-radius: 20px;
+  max-height: ${rem(630)};
   max-width: ${rem(795)};
   z-index: 3;
-  ${({ isAbsolute }) => isAbsolute ? absolute : {
-    'box-shadow': '0 3px 10px #0000000D'
-  }};
+
+  /** */
+  ${({ isAbsolute }) => isAbsolute ? absolute : `
+    box-shadow: 0 3px 10px #0000000D;
+  `};
 `;

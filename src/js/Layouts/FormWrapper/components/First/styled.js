@@ -43,7 +43,6 @@ export const InputWrapper = styled.div`
       color: red;
     }
   }
-  
 
   & + & {
     margin-top: ${rem(11)};
@@ -72,9 +71,9 @@ export const InputWrapper = styled.div`
 `;
 
 export const Submit = styled(Button)`
-  margin-top: ${rem(38)};
   width: 30%;
   margin: 0 auto;
+  margin-top: ${rem(38)};
   display: block;
 
   /** */

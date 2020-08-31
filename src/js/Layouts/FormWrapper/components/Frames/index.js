@@ -1,8 +1,10 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { useSelector } from 'react-redux';
 
 import Header from '../Header';
 import First from '../First';
+import Second from '../Second';
 
 import * as S from './styled';
 
@@ -10,6 +12,8 @@ const Frames = ({
   noBackground,
   ...props
 }) => {
+  const { currentStep, formTitle } = useSelector((state) => state.register);
+
   return (
     <S.Wrapper
       noBackground
@@ -19,9 +23,10 @@ const Frames = ({
         {...props}
       >
         <Header
-          title='Informações Básicas'
+          title={formTitle}
         />
-        <First />
+        {currentStep === 0 && <First />}
+        {currentStep === 1 && <Second />}
       </S.FormField>
       { !noBackground && (
         <>

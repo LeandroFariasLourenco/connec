@@ -1,24 +1,30 @@
 import React from 'react';
 import { useForm } from 'react-hook-form';
+import { useDispatch, useSelector } from 'react-redux';
 import cx from 'classnames';
 
-import { handleInputMask, handlePostal } from '@Utils/Form';
-// import { useSelector } from 'react-redux';
+import { setActiveStep } from '@Store/ducks/register';
 
+import { handleInputMask, handlePostal } from '@Utils/Form';
 import FormInputs from '@Resources/Register/BasicInformations';
 
 import * as S from './styled';
 
 const First = () => {
+  const dispatch = useDispatch();
+  const { currentStep } = useSelector((state) => state.register);
+
   const {
     register: field,
     handleSubmit,
     errors
   } = useForm();
 
-  const onSubmit = (ev) => {
-    ev.preventDefault();
-    console.log(ev);
+  const onSubmit = (data) => {
+    const { celular, telefone } = data;
+    if (!celular && !telefone) return;
+
+    dispatch(setActiveStep(currentStep + 1));
   };
 
   return (
@@ -57,6 +63,7 @@ const First = () => {
             }}
             name={input.name}
             type={input.type}
+            maxLength={input.maxLength}
             autoComplete='new-password'
             readOnly={input.readOnly}
           />

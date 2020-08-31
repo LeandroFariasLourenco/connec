@@ -2,7 +2,8 @@ import * as t from './types';
 
 const INITIAL_STATE = {
   currentStep: 0,
-  buttonTitle: 'Próximo'
+  buttonTitle: 'Próximo',
+  formTitle: 'Informações Básicas'
 };
 
 export default function reducer (state = INITIAL_STATE, { type, payload }) {
@@ -11,7 +12,8 @@ export default function reducer (state = INITIAL_STATE, { type, payload }) {
     return {
       ...state,
       currentStep: payload.currentStep,
-      buttonTitle: payload.buttonTitle
+      buttonTitle: payload.buttonTitle,
+      formTitle: payload.formTitle
     };
   case t.RESETSTEP:
     return {
