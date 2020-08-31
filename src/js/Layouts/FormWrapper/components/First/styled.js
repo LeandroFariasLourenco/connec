@@ -2,6 +2,7 @@ import styled from 'styled-components';
 import { rem } from 'polished';
 
 import Form from '@Components/Form';
+import Button from '@Components/Button';
 
 export const FormData = styled(Form)`
   padding: ${rem(14)} ${rem(44)};
@@ -33,6 +34,17 @@ export const Input = styled.input`
 export const InputWrapper = styled.div`
   display: inline-block;
 
+  &.has-error {
+    ${Input} {
+      border-color: red;
+    }
+
+    ${Label} {
+      color: red;
+    }
+  }
+  
+
   & + & {
     margin-top: ${rem(11)};
 
@@ -57,4 +69,16 @@ export const InputWrapper = styled.div`
   &.is-spaced {
     margin-left: ${rem(14)};
   }
+`;
+
+export const Submit = styled(Button)`
+  margin-top: ${rem(38)};
+  width: 30%;
+  margin: 0 auto;
+  display: block;
+
+  /** */
+  ${({ theme }) => theme.mq.lessThan('md')`
+    margin-top: ${rem(14)};
+  `}
 `;

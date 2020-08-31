@@ -50,6 +50,9 @@ const Steps = ({
           );
         })}
         <S.Submit
+          className={cx({
+            'is--shown': currentStep === 2
+          })}
           onClick={handleStep}
           title={buttonTitle}
           text={buttonTitle}

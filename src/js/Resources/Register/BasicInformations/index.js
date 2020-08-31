@@ -2,13 +2,15 @@ export default [
   {
     id: 1,
     readOnly: false,
-    label: 'Nome Completo:',
+    label: 'Nome:',
     fill: true,
     required: true,
     spaced: false,
     maxLength: 50,
     type: 'text',
-    name: 'nome'
+    name: 'nome',
+    pattern: /[a-zA-ZáàâãéèêíïóôõöúçñÁÀÂÃÉÈÊÍÏÓÒÖÚÇÑ]/gi,
+    hasMask: false
   },
   {
     id: 2,
@@ -19,7 +21,10 @@ export default [
     spaced: false,
     maxLength: 13,
     type: 'text',
-    name: 'registroGeral'
+    name: 'registroGeral',
+    pattern: /(\d{1,2})\.?(\d{3})\.?(\d{3})-?(\d{1})/gi,
+    hasMask: true,
+    replace: '$1.$2.$3-$4'
   },
   {
     id: 3,
@@ -30,7 +35,10 @@ export default [
     spaced: true,
     maxLength: 14,
     type: 'text',
-    name: 'CPF'
+    name: 'CPF',
+    pattern: /(\d{3})-?(\d{3})-?(\d{3}).?(\d{2})/gi,
+    hasMask: true,
+    replace: '$1-$2-$3.$4'
   },
   {
     id: 4,
@@ -48,10 +56,13 @@ export default [
     label: 'Celular:',
     spaced: false,
     fill: false,
-    required: true,
+    required: null,
     maxLength: 13,
     type: 'text',
-    name: 'celular'
+    name: 'celular',
+    pattern: /(\d{2})(\d{5})(\d{4})/gi,
+    hasMask: true,
+    replace: '($1) $2-$3'
   },
   {
     id: 6,
@@ -59,10 +70,13 @@ export default [
     label: 'Telefone:',
     spaced: true,
     fill: false,
-    required: true,
+    required: null,
     maxLength: 13,
     type: 'text',
-    name: 'telefone'
+    name: 'telefone',
+    pattern: /(\d{4})-?(\d{4})/gi,
+    hasMask: true,
+    replace: '$1-$2'
   },
   {
     id: 7,
@@ -72,7 +86,11 @@ export default [
     spaced: false,
     maxLength: 13,
     readOnly: false,
-    type: 'text'
+    type: 'text',
+    name: 'cep',
+    pattern: /(\d{5})-?(\d{3})/gi,
+    hasMask: true,
+    replace: '$1-$2'
   },
   {
     id: 8,
@@ -83,7 +101,7 @@ export default [
     maxLength: 13,
     readOnly: true,
     type: 'text',
-    name: 'endereco'
+    name: 'logradouro'
   },
   {
     id: 9,
@@ -94,7 +112,7 @@ export default [
     maxLength: 13,
     readOnly: true,
     type: 'text',
-    name: 'cidade'
+    name: 'localidade'
   },
   {
     id: 10,
@@ -114,7 +132,6 @@ export default [
     required: true,
     spaced: false,
     maxLength: 13,
-    readOnly: true,
     type: 'text',
     name: 'complemento'
   }

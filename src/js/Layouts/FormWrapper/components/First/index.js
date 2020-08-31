@@ -2,6 +2,9 @@ import React from 'react';
 import { useForm } from 'react-hook-form';
 import cx from 'classnames';
 
+import { handleInputMask, handlePostal } from '@Utils/Form';
+// import { useSelector } from 'react-redux';
+
 import FormInputs from '@Resources/Register/BasicInformations';
 
 import * as S from './styled';
@@ -13,39 +16,57 @@ const First = () => {
     errors
   } = useForm();
 
+  const onSubmit = (ev) => {
+    ev.preventDefault();
+    console.log(ev);
+  };
+
   return (
     <S.FormData
       active
+      autoComplete='new-password'
+      onSubmit={handleSubmit(onSubmit)}
     >
-      {console.log(FormInputs)}
-      {FormInputs.map(({
-        id,
-        fill,
-        spaced,
-        label,
-        readOnly,
-        required,
-        pattern
-      }) => (
+      {FormInputs.map((input) => (
         <S.InputWrapper
-          key={id}
+          key={input.id}
           className={cx({
-            'is-row': fill,
-            'is-spaced': spaced
+            'is-row': input.fill,
+            'is-spaced': input.spaced,
+            'has-error': errors[input.name]
           })}
         >
           <S.Label>
-            {label}
+            {input.label}
           </S.Label>
           <S.Input
             ref={field({
-              required: required,
-              pattern: pattern
+              required: input.required,
+              pattern: input.pattern
             })}
-            readOnly={readOnly}
+            onChange={({
+              target: { value }
+            }) => {
+              if (input.label.includes('Cep')) {
+                handlePostal(value, ['logradouro', 'uf', 'localidade']);
+              }
+
+              if (input.hasMask) {
+                handleInputMask(value, input.pattern, input.replace, input.name);
+              }
+            }}
+            name={input.name}
+            type={input.type}
+            autoComplete='new-password'
+            readOnly={input.readOnly}
           />
         </S.InputWrapper>
       ))}
+
+      <S.Submit
+        title='Próximo'
+        text='Próximo'
+      />
     </S.FormData>
   );
 };

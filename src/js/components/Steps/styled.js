@@ -102,6 +102,12 @@ export const StepTitle = styled(Button)`
 export const Submit = styled(Button)`
   width: 90%;
   margin: 0 auto;
+  opacity: 0;
+  transition: opacity 200ms ease-in-out;
+
+  &.is--shown {
+    opacity: 1;
+  }
 `;
 
 export const Subtitle = styled.h2`
