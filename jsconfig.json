@@ -12,8 +12,9 @@
       "@Styles/*": ["./js/styles/*"],
       "@Utils/*": ["./js/utils/*"],
       "@Store/*": ["./js/store/*"],
-      "@Requests/*": ["./js/requests/*"],
-      "@Resources/*": ["./src/js/Requests"]
+      "@Layouts/*": ["./js/Layouts"],
+      "@Requests/*": ["./js/Requests/*"],
+      "@Resources/*": ["./src/js/Resources"]
     }
   }
 }
