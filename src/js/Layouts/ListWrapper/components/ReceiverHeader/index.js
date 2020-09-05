@@ -1,34 +1,36 @@
 import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { useHistory } from 'react-router-dom';
+import PropTypes from 'prop-types';
 
 import BellIcon from '@Icons/receptores/bell.svg';
 
 import { setNavigation } from '@Store/ducks/navbar';
 import * as S from './styled';
 
-const ReceiverList = () => {
+const ReceiverList = ({
+  title,
+  redirect
+}) => {
   const history = useHistory();
   const dispatch = useDispatch();
   const { lastThreeMonthsCount } = useSelector(state => state.receiver);
   const receiverText = lastThreeMonthsCount >= 2
-    ? `+ ${lastThreeMonthsCount} Receptores`
-    : 'Nenhum receptor nos últimos 3 meses';
+    ? `+ ${lastThreeMonthsCount} ${title}s`
+    : `Nenhum ${title} nos últimos 3 meses`;
 
   const handleClick = () => {
-    dispatch(setNavigation('/receptores/cadastro'));
-    history.push('/receptores/cadastro');
+    dispatch(setNavigation(`/${redirect}/cadastro`));
+    history.push(`/${redirect}/cadastro`);
   };
 
   return (
-    <S.HeaderWrapper>
-      <S.HeaderRegister
-        reset
-        title='Cadastrar'
-        text='+ Receptor'
-        onClick={handleClick}
-      />
-
+    <S.HeaderWrapper
+      reset
+      title='Cadastrar'
+      text={`+ ${title}`}
+      onClick={handleClick}
+    >
       <S.HeaderNotify>
         <S.HeaderText>
           <img src={BellIcon} />
@@ -40,6 +42,11 @@ const ReceiverList = () => {
       </S.HeaderNotify>
     </S.HeaderWrapper>
   );
+};
+
+ReceiverList.propTypes = {
+  title: PropTypes.string.isRequired,
+  redirect: PropTypes.string.isRequired
 };
 
 export default ReceiverList;

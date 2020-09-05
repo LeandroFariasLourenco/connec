@@ -1,23 +1,19 @@
 import React from 'react';
 
 import Container from '@Layouts/Container';
+import ListWrapper from '@Layouts/ListWrapper';
 
-import ReceiverList from './components/ReceiverList';
-import ReceiverHeader from './components/ReceiverHeader';
-import Registers from './components/Registers';
-
-import * as S from './styled';
+import ReceiverList from '@Requests';
 
 const Receptores = () => {
   return (
     <Container>
-      <S.ReceiverWrapper>
-        <ReceiverHeader />
-        <S.FrameWrapper>
-          <ReceiverList />
-          <Registers />
-        </S.FrameWrapper>
-      </S.ReceiverWrapper>
+      <ListWrapper
+        title='Receptor'
+        data={ReceiverList}
+        redirect='Receptores'
+        storeValue='receiver'
+      />
     </Container>
   );
 };

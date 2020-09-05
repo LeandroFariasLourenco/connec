@@ -1,21 +1,22 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 // import { useSelector } from 'react-redux';
 import 'lazysizes';
 
 import Placeholder from '@Images/lazyload/placeholder.jpg';
 
-import ReceiverList from '@Requests';
-
 import ArrowSvg from '@Icons/back.svg';
 
 import * as S from './styled';
 
-const Registers = () => {
+const Registers = ({
+  listToMap
+}) => {
   // const { receptorCount }
 
   return (
     <S.ListWrapper>
-      {ReceiverList.map(({
+      {listToMap.map(({
         id,
         imageUrl,
         name,
@@ -51,6 +52,10 @@ const Registers = () => {
       ))}
     </S.ListWrapper>
   );
+};
+
+Registers.propTypes = {
+  listToMap: PropTypes.array.isRequired
 };
 
 export default Registers;

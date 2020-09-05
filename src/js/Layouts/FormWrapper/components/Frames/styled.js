@@ -9,7 +9,7 @@ const flexAlign = css`
 const absolute = css`
   position: absolute;
   left: 10%;
-  top: ${rem(20)};
+  top: ${rem(100)};
 
   /** */
   ${({ theme }) => theme.mq.lessThan('md')`
