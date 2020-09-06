@@ -25,7 +25,7 @@ export const HeaderText = styled.span`
     margin-right: ${rem(22)};
   }
 
-  > span[data-receiver="0"]{
+  > span[data-receiver="0"] {
     display: none;
   }
 `;

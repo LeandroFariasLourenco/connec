@@ -28,6 +28,7 @@ const Receptores = ({
             storeValue={storeValue}
           />
           <Registers
+            redirect={redirect}
             listToMap={data}
           />
         </S.FrameWrapper>

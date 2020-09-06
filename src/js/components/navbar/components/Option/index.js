@@ -1,10 +1,8 @@
 import React, { useEffect, useState } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
+import { useSelector } from 'react-redux';
 import PropTypes from 'prop-types';
 import cx from 'classnames';
 import { useHistory } from 'react-router-dom';
-
-import { setNavigation } from '@Store/ducks/navbar';
 
 import * as S from './styled';
 
@@ -14,20 +12,18 @@ const Option = ({
   iconActive,
   iconDefault
 }) => {
-  const dispatch = useDispatch();
   const history = useHistory();
   const [isActive, setIsActive] = useState(false);
   const { currentPage } = useSelector(store => store.navbar);
   const className = isActive ? 'active' : 'default';
 
   const handleNavigation = () => {
-    dispatch(setNavigation(pathname));
     history.push(pathname);
   };
 
   useEffect(() => {
     setIsActive(currentPage.includes(pathname));
-  }, [isActive]);
+  }, [currentPage]);
 
   return (
     <S.Wrapper>

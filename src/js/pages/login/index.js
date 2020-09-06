@@ -1,6 +1,5 @@
 import React, { useEffect } from 'react';
 import { useDispatch } from 'react-redux';
-import { setNavigation } from '@Store/ducks/navbar';
 
 import Sidebar from '@Components/Sidebar';
 
@@ -11,15 +10,11 @@ import LoginCookies from '@Utils/Login';
 import * as S from './styled';
 
 const Login = () => {
-  const dispatch = useDispatch();
   const history = useHistory();
   const cookie = LoginCookies.getCookie();
 
   useEffect(() => {
-    if (!cookie) {
-      dispatch(setNavigation('/'));
-    } else {
-      dispatch(setNavigation('/dashboard'));
+    if (cookie) {
       history.push('/dashboard');
     }
   }, []);

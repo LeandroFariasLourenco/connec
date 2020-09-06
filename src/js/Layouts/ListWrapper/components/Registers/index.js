@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-// import { useSelector } from 'react-redux';
+import { useHistory } from 'react-router-dom';
 import 'lazysizes';
 
 import Placeholder from '@Images/lazyload/placeholder.jpg';
@@ -10,9 +10,14 @@ import ArrowSvg from '@Icons/back.svg';
 import * as S from './styled';
 
 const Registers = ({
-  listToMap
+  listToMap,
+  redirect
 }) => {
-  // const { receptorCount }
+  const history = useHistory();
+
+  const handleViewMore = (id) => {
+    history.push(`/${redirect}/${id}`);
+  };
 
   return (
     <S.ListWrapper>
@@ -44,7 +49,7 @@ const Registers = ({
           <S.ReceiverDetails
             reset
             title='Ver mais'
-            onClick={() => {}}
+            onClick={() => handleViewMore(id)}
           >
             <img src={ArrowSvg} />
           </S.ReceiverDetails>
@@ -55,7 +60,8 @@ const Registers = ({
 };
 
 Registers.propTypes = {
-  listToMap: PropTypes.array.isRequired
+  listToMap: PropTypes.array.isRequired,
+  redirect: PropTypes.string.isRequired
 };
 
 export default Registers;

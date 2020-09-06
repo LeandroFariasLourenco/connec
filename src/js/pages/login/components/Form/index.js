@@ -3,9 +3,6 @@ import {
   Link,
   useHistory
 } from 'react-router-dom';
-import { useDispatch } from 'react-redux';
-
-import { setNavigation } from '@Store/ducks/navbar';
 
 import LoginCookies from '@Utils/Login/index';
 
@@ -20,14 +17,12 @@ import * as S from './styled';
 
 const Form = () => {
   const history = useHistory();
-  const dispatch = useDispatch();
 
   const handleSubmit = (ev) => {
     ev.preventDefault();
     const homePage = '/dashboard';
 
     LoginCookies.setupCookie();
-    dispatch(setNavigation(homePage));
     history.push(homePage);
   };
 
