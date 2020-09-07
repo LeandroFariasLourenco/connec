@@ -1,22 +1,21 @@
-import React, { useEffect, useState, memo } from 'react';
+import React, { useEffect, memo } from 'react';
+import { useDispatch } from 'react-redux';
 
-import Logo from '@Svgs/navbar/logo.svg';
+import { setNavigation } from '@Store/ducks/navbar';
 
-import Option from './Option';
-import UserImg from './UserImg';
-import navbarOptions from '@Utils/Navbar';
+import Logo from '@Icons/navbar/logo.svg';
+import navbarOptions from '@Resources/Navbar';
+
+import Option from './components/Option';
+import UserArea from './components/UserArea';
 
 import * as S from './styled';
 
 const Navbar = () => {
-  const [currentPage, setCurrentPage] = useState(false);
+  const dispatch = useDispatch();
 
   useEffect(() => {
-    const [currentPage] = navbarOptions.map((option) => {
-      const page = window.location.pathname.replace(/[/]/gi, '');
-      return option.title === page && option;
-    });
-    setCurrentPage(currentPage.title);
+    dispatch(setNavigation(window.location.pathname));
   }, []);
 
   return (
@@ -33,12 +32,12 @@ const Navbar = () => {
               pathname={option.pathname}
               iconActive={option.iconActive}
               iconDefault={option.iconDefault}
-              active={currentPage}
             />
           ))}
         </S.Options>
       </S.Navigation>
-      <UserImg />
+
+      <UserArea />
 
       <S.Sac>
 

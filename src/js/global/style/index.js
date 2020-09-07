@@ -3,6 +3,10 @@ import { createGlobalStyle } from 'styled-components';
 export const GlobalStyles = createGlobalStyle`
   body {
     overflow-x: hidden;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
   }
 
   a {
@@ -40,10 +44,12 @@ export const GlobalStyles = createGlobalStyle`
   }
 
   input {
+    outline: none;
+    border: none;
+
     &:active,
     &:focus {
       outline: none;
-      border: none;
     }
   }
 

@@ -4,13 +4,11 @@ import PropTypes from 'prop-types';
 import * as S from './styled';
 
 const Form = ({
-  handler,
   children,
   ...props
 }) => {
   return (
     <S.FormModel
-      onSubmit={handler}
       {...props}
     >
       {children}
@@ -19,8 +17,10 @@ const Form = ({
 };
 
 Form.propTypes = {
-  children: PropTypes.oneOfType([PropTypes.node, PropTypes.element]).isRequired,
-  handler: PropTypes.func.isRequired
+  children: PropTypes.oneOfType([
+    PropTypes.node,
+    PropTypes.element
+  ]).isRequired
 };
 
 export default memo(Form);

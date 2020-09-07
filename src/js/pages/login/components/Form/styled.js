@@ -41,3 +41,18 @@ export const Form = styled.form`
       font-weight: bold;
     }
 `;
+
+export const Input = styled.input`
+  width: 100%;
+  border: none;
+  border-bottom: 1px solid #707070;
+  padding-left: ${rem(25)};
+  padding-bottom: ${rem(10)};
+  padding-top: ${rem(10)};
+  font-size: ${rem(16)};
+  transition: 200ms;
+    
+  &:focus {
+    border-bottom: 1px solid ${({ theme }) => theme.purple};
+  }
+`;

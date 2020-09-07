@@ -3,6 +3,5 @@
     "pre-commit": "npm run linters",
     "pre-push": "npm run linters",
     "commit-msg": "commitlint -E HUSKY_GIT_PARAMS"
-    "post-commit": "npm run push",
   }
 }

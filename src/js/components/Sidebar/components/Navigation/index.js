@@ -1,20 +1,17 @@
 import React from 'react';
-import { useSelector, useDispatch } from 'react-redux';
+import { useSelector } from 'react-redux';
 import { useHistory } from 'react-router-dom';
 import cx from 'classnames';
 
-import { setNavigation } from '@Store/ducks/navbar';
-import sidebarOptions from '@Utils/Sidebar';
+import sidebarOptions from '@Resources/Sidebar';
 
 import * as S from './styled';
 
 const Support = () => {
   const { currentPage } = useSelector(state => state.navbar);
-  const dispatch = useDispatch();
   const history = useHistory();
 
   const handleDispatch = (pathname) => {
-    dispatch(setNavigation(pathname));
     history.push(pathname);
   };
 
@@ -27,7 +24,7 @@ const Support = () => {
             key={id}
             title={title}
             className={cx({ 'is-active': pathname === currentPage })}
-            handler={() => handleDispatch(pathname)}
+            onClick={() => handleDispatch(pathname)}
           >
             {title}
           </S.MenuOption>

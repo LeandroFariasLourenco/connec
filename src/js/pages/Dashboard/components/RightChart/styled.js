@@ -11,4 +11,5 @@ export const GraphicWrapper = styled.div`
   margin-left: ${rem(40)};
   padding: ${rem(30)};
   transition: opacity 400ms;
+  ${({ theme }) => theme.flexCentered};
 `;
