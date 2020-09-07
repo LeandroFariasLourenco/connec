@@ -1,8 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import Container from '@Layouts/Container';
-
 import ReceiverList from './components/ReceiverList';
 import ReceiverHeader from './components/ReceiverHeader';
 import Registers from './components/Registers';
@@ -16,24 +14,23 @@ const Receptores = ({
   redirect
 }) => {
   return (
-    <Container>
-      <S.ReceiverWrapper>
-        <ReceiverHeader
+    <S.ReceiverWrapper>
+      <ReceiverHeader
+        title={title}
+        redirect={redirect}
+        storeValue={storeValue}
+      />
+      <S.FrameWrapper>
+        <ReceiverList
           title={title}
-          redirect={redirect}
+          storeValue={storeValue}
         />
-        <S.FrameWrapper>
-          <ReceiverList
-            title={title}
-            storeValue={storeValue}
-          />
-          <Registers
-            redirect={redirect}
-            listToMap={data}
-          />
-        </S.FrameWrapper>
-      </S.ReceiverWrapper>
-    </Container>
+        <Registers
+          redirect={redirect}
+          listToMap={data}
+        />
+      </S.FrameWrapper>
+    </S.ReceiverWrapper>
   );
 };
 

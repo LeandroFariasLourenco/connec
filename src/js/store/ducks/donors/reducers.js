@@ -2,7 +2,7 @@ import * as t from './types';
 
 const INITIAL_STATE = {
   donorsCount: 0,
-  lastThreeMonthsCount: 0
+  lastThreeMonthsCount: 1
 };
 
 export default function reducer (state = INITIAL_STATE, { action, payload }) {

@@ -25,9 +25,14 @@ export const Input = styled.input`
   padding: ${rem(4)} 0;
   width: 100%;
   border-radius: 0;
+  transition: opacity 200ms ease-in-out;
 
   &:read-only {
     cursor: not-allowed;
+  }
+
+  &.is--loading {
+    opacity: 0.3;
   }
 `;
 

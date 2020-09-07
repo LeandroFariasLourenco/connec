@@ -15,6 +15,7 @@ const Cadastro = () => {
         <FormWrapper
           stepTitle='Cadastro de Doador'
           stepOptions={stepOptions}
+          formType='doador'
           isAbsolute
         />
       </S.RegisterFormWrapper>

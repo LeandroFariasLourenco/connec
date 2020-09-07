@@ -5,10 +5,6 @@ export const ReceiverWrapper = styled.section`
   width: 100%;
   padding: 0 ${rem(47)} ${rem(38)} ${rem(140)};
   height: 80%;
-
-  ${({ theme }) => theme.mq.greaterThan('md')`
-    padding-left: 0;
-  `}
 `;
 
 export const FrameWrapper = styled.div`

@@ -11,15 +11,22 @@ const Form = ({
   stepOptions,
   stepTitle,
   stepFirst,
+  formType,
   ...props
 }) => (
   <S.FormWrapper>
-    {stepFirst && <Frames {...props} />}
+    {stepFirst && <Frames
+      formType={formType}
+      {...props}
+    />}
     <Steps
       subTitle={stepTitle}
       stepOptions={stepOptions}
     />
-    {!stepFirst && <Frames {...props} />}
+    {!stepFirst && <Frames
+      formType={formType}
+      {...props}
+    />}
   </S.FormWrapper>
 );
 
@@ -32,7 +39,8 @@ Form.propTypes = {
       title: PropTypes.string
     })
   ),
-  stepFirst: PropTypes.bool
+  stepFirst: PropTypes.bool,
+  formType: PropTypes.string.isRequired
 };
 
 Form.defaultProps = {

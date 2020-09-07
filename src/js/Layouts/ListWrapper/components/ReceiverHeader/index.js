@@ -3,19 +3,22 @@ import { useSelector } from 'react-redux';
 import { useHistory } from 'react-router-dom';
 import PropTypes from 'prop-types';
 
+import { pluralize } from '@Utils/General';
+
 import BellIcon from '@Icons/receptores/bell.svg';
 
 import * as S from './styled';
 
-const ReceiverList = ({
+const ReceiverHeader = ({
   title,
-  redirect
+  redirect,
+  storeValue
 }) => {
   const history = useHistory();
-  const { lastThreeMonthsCount } = useSelector(state => state.receiver);
-  const receiverText = lastThreeMonthsCount >= 2
-    ? `+ ${lastThreeMonthsCount} ${title}s`
-    : `Nenhum ${title} nos últimos 3 meses`;
+  const { lastThreeMonthsCount } = useSelector(state => state[`${storeValue}`]);
+  const countingText = lastThreeMonthsCount
+    ? `${pluralize(title, lastThreeMonthsCount)}`
+    : `Nenhum ${title.toLowerCase()} nos últimos 3 meses`;
 
   const handleClick = () => {
     history.push(`/${redirect}/cadastro`);
@@ -33,18 +36,19 @@ const ReceiverList = ({
         <S.HeaderText>
           <img src={BellIcon} />
           <span data-receiver={lastThreeMonthsCount}>
-            {lastThreeMonthsCount}
+            + {lastThreeMonthsCount}
           </span>
-          {receiverText}
+          {countingText}
         </S.HeaderText>
       </S.HeaderNotify>
     </S.HeaderWrapper>
   );
 };
 
-ReceiverList.propTypes = {
+ReceiverHeader.propTypes = {
   title: PropTypes.string.isRequired,
-  redirect: PropTypes.string.isRequired
+  redirect: PropTypes.string.isRequired,
+  storeValue: PropTypes.string.isRequired
 };
 
-export default ReceiverList;
+export default ReceiverHeader;

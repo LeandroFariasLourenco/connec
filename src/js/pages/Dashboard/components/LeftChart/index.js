@@ -17,9 +17,16 @@ const LeftChart = () => {
     <S.ChartWrapper
       className={cx({ 'is--loading': isLoading })}
     >
-      <h1>
-        {currentMonth}
-      </h1>
+      <S.InformationText>
+        <S.InformationTitle>{currentMonth}</S.InformationTitle>
+
+        <S.Information>
+          Dê uma olhada no desempenho do hospital
+          <i>Teste</i>
+          durante o respectivo período e veja como estão andando a performance e
+          eficiência das transações:
+        </S.Information>
+      </S.InformationText>
       <Pie
         data={DoughnutData}
         width={window.innerWidth >= 1500 ? 60 : 40}

@@ -30,6 +30,7 @@ const Cadastro = () => {
         <FormWrapper
           stepTitle='Cadastro de Receptor'
           stepOptions={stepOptions}
+          formType='receptor'
           noBackground
           stepFirst
         />

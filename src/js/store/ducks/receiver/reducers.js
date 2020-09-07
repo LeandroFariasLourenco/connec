@@ -1,8 +1,8 @@
 import * as t from './types';
 
 const INITIAL_STATE = {
-  receptorCount: 0,
-  lastThreeMonthsCount: 0
+  receiverCount: 6,
+  lastThreeMonthsCount: 2
 };
 
 export default function reducer (state = INITIAL_STATE, { type, payload }) {

@@ -2,6 +2,8 @@ import React from 'react';
 import { useSelector } from 'react-redux';
 import PropTypes from 'prop-types';
 
+import { pluralize } from '@Utils/General';
+
 import * as S from './styled';
 
 const ReceiverList = ({
@@ -16,10 +18,18 @@ const ReceiverList = ({
         {title}
       </S.ListTitle>
       <S.ReceiverCount>
-        <span>
-          {count}
-        </span>
-        {title}
+        {count ? (
+          <>
+            <span>
+              {count}
+            </span>
+            {pluralize(title, count)}
+          </>
+        ) : (
+          <span>
+            nenhum {title.toLowerCase()}
+          </span>
+        )}
       </S.ReceiverCount>
     </S.HeadingWrapper>
   );

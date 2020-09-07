@@ -10,6 +10,7 @@ import * as S from './styled';
 
 const Frames = ({
   noBackground,
+  formType,
   ...props
 }) => {
   const { currentStep, formTitle } = useSelector((state) => state.register);
@@ -25,8 +26,8 @@ const Frames = ({
         <Header
           title={formTitle}
         />
-        {currentStep === 0 && <First />}
-        {currentStep === 1 && <Second />}
+        {currentStep === 0 && <First formType={formType}/>}
+        {currentStep === 1 && <Second formType={formType}/>}
       </S.FormField>
       { !noBackground && (
         <>
@@ -39,7 +40,8 @@ const Frames = ({
 };
 
 Frames.propTypes = {
-  noBackground: PropTypes.bool
+  noBackground: PropTypes.bool,
+  formType: PropTypes.string.isRequired
 };
 
 Frames.defaultProps = {
