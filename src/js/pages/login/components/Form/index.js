@@ -1,0 +1,98 @@
+import React, { useState } from 'react';
+import { useForm } from 'react-hook-form';
+import {
+  Link,
+  useHistory
+} from 'react-router-dom';
+import cx from 'classnames';
+
+import { postAuthentication } from '@Requests/Auth';
+
+import LoginFields from '@Resources/Login';
+
+import Field from '@Components/Field';
+import Button from '@Components/Button';
+
+import Logo from '@Images/login/logo.png';
+
+import * as S from './styled';
+
+const Form = () => {
+  const history = useHistory();
+  const [error, setError] = useState(false);
+  const [loading, setLoading] = useState(false);
+  const {
+    register: formField,
+    handleSubmit,
+    errors
+  } = useForm();
+
+  const onSubmit = async ({ email, password }) => {
+    const homePage = '/dashboard';
+
+    try {
+      setLoading(true);
+      await postAuthentication({
+        email: email,
+        password: password
+      });
+    } catch (e) {
+      setLoading(false);
+      return setError(true);
+    }
+
+    history.push(homePage);
+  };
+
+  return (
+    <S.Wrapper>
+      <S.Form
+        onSubmit={handleSubmit(onSubmit)}
+      >
+        <img src={Logo} />
+
+        {error && (
+          <S.ErrorMessage>
+            <span>Ocorreu um erro... :( </span>
+            <strong>A senha e email estão corretas ?</strong>
+          </S.ErrorMessage>
+        )}
+
+        {LoginFields.map((field) => (
+          <Field
+            key={field.id}
+            icon={field.icon}
+          >
+            <S.Input
+              maxLength={field.maxLength}
+              name={field.name}
+              type={field.type}
+              id={field.identifier}
+              className={cx({
+                'has--error': errors[field.name],
+                'is--loading': loading
+              })}
+              ref={formField({
+                required: field.required,
+                pattern: field.pattern
+              })}
+              placeholder={field.placeholder}
+            />
+          </Field>
+        ))}
+
+        <Button
+          text='Entrar'
+          title='Login'
+        />
+        <Link
+          to='/cadastro'
+        >
+          Esqueci minha senha
+        </Link>
+      </S.Form>
+    </S.Wrapper>
+  );
+};
+
+export default Form;

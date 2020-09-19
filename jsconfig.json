@@ -1,12 +1,19 @@
 {
   "compilerOptions": {
-    "baseUrl": "./",
+    "baseUrl": "./src",
     "paths": {
-      "@/*": ["src/js/*"],
-      "@Components/*": ["src/js/components/*"],
-      "@Routes/*": ["src/js/routes/*"],
-      "@Icons/*": ["  src/utils/icons/*"]
+      "@Components/*": ["./src/js/Components/*"],
+      "@Images/*": ["./src/Images/*"],
+      "@Icons/*": ["./src/Icons/*"],
+      "@Routes/*": ["./src/js/Routes/*"],
+      "@Global/*": ["./src/js/Global/*"],
+      "@Pages/*": ["./src/js/Pages/*"],
+      "@Styles/*": ["./src/js/Styles/*"],
+      "@Layouts/*": ["./src/js/Layouts"],
+      "@Utils/*": ["./src/js/Utils/*"],
+      "@Resources/*": ["./src/js/Resources"],
+      "@Store/*": ["./src/js/Store/*"],
+      "@Requests/*": ["./src/js/Requests/*"]
     }
-  },
-  "exclude": ["node_modules", "dist"]
+  }
 }

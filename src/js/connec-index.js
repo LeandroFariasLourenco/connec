@@ -1,18 +1,26 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import Routes from './routes/connec-routes';
-import { GlobalStyles } from './global/style';
+import { ThemeProvider } from 'styled-components';
+import { Provider } from 'react-redux';
 
+import store from '@Store';
+import { GlobalStyles } from '@Global/style';
+import Routes from '@Routes';
+import theme from '@Styles/theme';
+
+console.log(process.env.NODE_ENV);
 const Main = () => {
   return (
-    <>
-      <GlobalStyles />
-      <Routes/>
-    </>
+    <Provider store={store}>
+      <ThemeProvider theme={theme}>
+        <GlobalStyles />
+        <Routes />
+      </ThemeProvider>
+    </Provider>
   );
 };
 
 ReactDOM.render(
-  <Main/>,
+  <Main />,
   document.querySelector('.connec-main')
 );

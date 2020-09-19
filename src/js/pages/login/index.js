@@ -1,16 +1,31 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 
-import * as s from './style';
+import Sidebar from '@Components/Sidebar';
 
-import Sidebar from './sidebar/index';
-import Form from './form/index';
+import Form from './components/Form';
+import { useHistory } from 'react-router-dom';
+
+import * as S from './styled';
 
 const Login = () => {
+  const history = useHistory();
+  const token = sessionStorage.getItem('accessToken');
+
+  useEffect(() => {
+    if (token) {
+      history.push('/dashboard');
+    }
+  }, []);
+
   return (
-    <s.Wrapper>
-      <Sidebar />
-      <Form />
-    </s.Wrapper>
+    <>
+      {!token && (
+        <S.Wrapper>
+          <Sidebar />
+          <Form />
+        </S.Wrapper>
+      )}
+    </>
   );
 };
 

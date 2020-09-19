@@ -12,10 +12,18 @@ module.exports = {
     sourceType: 'module'
   },
   plugins: ['react'],
+  settings: {
+    react: {
+      version: 'detect'
+    }
+  },
   rules: {
-    semi: ['error', 'always'],
+    'no-unused-vars': 'warn',
+    semi: ['warn', 'always'],
     'react/jsx-filename-extension': [0],
     'import/prefer-default-export': 'off',
-    'jsx-quotes': ['error', 'prefer-single']
+    'jsx-quotes': ['warn', 'prefer-single'],
+    'no-console': 'off',
+    indent: ['error', 2]
   }
 };

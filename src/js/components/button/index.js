@@ -1,15 +1,32 @@
-import React from 'react';
-import * as s from './style';
+import React, { memo } from 'react';
 import PropTypes from 'prop-types';
 
-const Button = ({ text }) => (
-  <s.Button>
+import * as S from './styled';
+
+const Button = ({
+  title,
+  text,
+  children,
+  ...props
+}) => (
+  <S.Btn
+    title={title}
+    {...props}
+  >
     {text}
-  </s.Button>
+    {children}
+  </S.Btn>
 );
 
 Button.propTypes = {
-  text: PropTypes.string.isRequired
+  title: PropTypes.string.isRequired,
+  text: PropTypes.string,
+  children: PropTypes.oneOfType([PropTypes.element, PropTypes.node])
 };
 
-export default Button;
+Button.defaultProps = {
+  children: <></>,
+  text: ''
+};
+
+export default memo(Button);
