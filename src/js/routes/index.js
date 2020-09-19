@@ -1,9 +1,12 @@
 import React from 'react';
 import {
   Switch,
-  Route,
   BrowserRouter
 } from 'react-router-dom';
+
+import Private from './Private';
+import Public from './Public';
+
 import Login from '@Pages/Login';
 import Dashboard from '@Pages/Dashboard';
 import Historico from '@Pages/Historico';
@@ -19,20 +22,20 @@ const Routes = () => {
   return (
     <BrowserRouter>
       <Switch>
-        <Route path='/' exact={true} component={Login} />
-        <Route path='/sobre' exact={true} component={Sobre} />
+        <Public path='/' exact={true} component={Login} />
+        <Public path='/sobre' exact={true} component={Sobre} />
 
-        <Route path='/dashboard' exact={true} component={Dashboard} />
-        <Route path='/historico' exact={true} component={Historico} />
+        <Private path='/dashboard' exact={true} component={Dashboard} />
+        <Private path='/historico' exact={true} component={Historico} />
 
-        <Route path='/receptores' exact={true} component={Receptores} />
-        <Route path='/receptores/cadastro' exact={true} component={CadastroReceptores} />
+        <Private path='/receptores' exact={true} component={Receptores} />
+        <Private path='/receptores/cadastro' exact={true} component={CadastroReceptores} />
 
-        <Route path='/doadores' exact={true} component={Doadores} />
-        <Route path='/doadores/cadastro' exact={true} component={CadastroDoadores} />
+        <Private path='/doadores' exact={true} component={Doadores} />
+        <Private path='/doadores/cadastro' exact={true} component={CadastroDoadores} />
 
-        <Route path='/doadores/:id' exact={true} component={InformacoesDoadores} />
-        <Route path='/receptores/:id' exate={true} component={InformacoesReceptores} />
+        <Private path='/doadores/:id' exact={true} component={InformacoesDoadores} />
+        <Private path='/receptores/:id' exate={true} component={InformacoesReceptores} />
       </Switch>
     </BrowserRouter>
   );

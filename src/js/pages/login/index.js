@@ -1,5 +1,7 @@
 import React, { useEffect } from 'react';
 
+import C from '@Constants/';
+
 import Sidebar from '@Components/Sidebar';
 
 import Form from './components/Form';
@@ -9,7 +11,7 @@ import * as S from './styled';
 
 const Login = () => {
   const history = useHistory();
-  const token = sessionStorage.getItem('accessToken');
+  const token = sessionStorage.getItem(C.ACCESSTOKEN);
 
   useEffect(() => {
     if (token) {
