@@ -1,11 +1,11 @@
 import React, { useState, useEffect } from 'react';
 import { useForm } from 'react-hook-form';
-import { useDispatch, useSelector } from 'react-redux';
+// import { useDispatch, useSelector } from 'react-redux';
 import { CSSTransition } from 'react-transition-group';
 import PropTypes from 'prop-types';
 import cx from 'classnames';
 
-import { setActiveStep } from '@Store/ducks/register';
+// import { setActiveStep } from '@Store/ducks/register';
 
 import { setStorage, getStorage } from '@Utils/General';
 import { handleInputMask, handlePostal, fillFormData } from '@Utils/Form';
@@ -14,8 +14,8 @@ import FormInputs from '@Resources/Register/BasicInformations';
 import * as S from './styled';
 
 const First = ({ formType }) => {
-  const dispatch = useDispatch();
-  const { currentStep } = useSelector((state) => state.register);
+  // const dispatch = useDispatch();
+  // const { currentStep } = useSelector((state) => state.register);
   const [isMounted, setIsMounted] = useState(false);
 
   useEffect(() => {

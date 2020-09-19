@@ -1,27 +1,25 @@
 import React, { useEffect } from 'react';
-import { useDispatch } from 'react-redux';
 
 import Sidebar from '@Components/Sidebar';
 
 import Form from './components/Form';
 import { useHistory } from 'react-router-dom';
-import LoginCookies from '@Utils/Login';
 
 import * as S from './styled';
 
 const Login = () => {
   const history = useHistory();
-  const cookie = LoginCookies.getCookie();
+  const token = sessionStorage.getItem('accessToken');
 
   useEffect(() => {
-    if (cookie) {
+    if (token) {
       history.push('/dashboard');
     }
   }, []);
 
   return (
     <>
-      {!cookie && (
+      {!token && (
         <S.Wrapper>
           <Sidebar />
           <Form />

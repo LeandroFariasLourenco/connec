@@ -22,26 +22,26 @@ const Registers = ({
   return (
     <S.ListWrapper>
       {listToMap.map(({
-        id,
-        imageUrl,
-        name,
-        registerDate,
+        codigo,
+        linkImage,
+        nome,
+        dataNascimento,
         score
       }) => (
         <S.Receiver
-          key={id}
+          key={codigo}
         >
           <S.ReceiverThumb
             data-sizes='auto'
-            data-src={imageUrl}
+            data-src={linkImage}
             className='lazyload'
             src={Placeholder}
           />
           <S.ReceiverName>
-            {name}
+            {nome}
           </S.ReceiverName>
           <S.ReceiverRegisterDate>
-            {registerDate}
+            {new Date(dataNascimento).toLocaleDateString('pt-BR')}
           </S.ReceiverRegisterDate>
           <S.ReceiverCount>
             {score}
@@ -49,7 +49,7 @@ const Registers = ({
           <S.ReceiverDetails
             reset
             title='Ver mais'
-            onClick={() => handleViewMore(id)}
+            onClick={() => handleViewMore(codigo)}
           >
             <img src={ArrowSvg} />
           </S.ReceiverDetails>

@@ -1,60 +1,85 @@
-import React from 'react';
+import React, { useState } from 'react';
+import { useForm } from 'react-hook-form';
 import {
   Link,
   useHistory
 } from 'react-router-dom';
+import cx from 'classnames';
 
-import LoginCookies from '@Utils/Login/index';
+import { postAuthentication } from '@Requests/Auth';
+
+import LoginFields from '@Resources/Login';
 
 import Field from '@Components/Field';
 import Button from '@Components/Button';
 
 import Logo from '@Images/login/logo.png';
-import User from '@Icons/login/user.svg';
-import Security from '@Icons/login/security.svg';
 
 import * as S from './styled';
 
 const Form = () => {
   const history = useHistory();
+  const [error, setError] = useState(false);
+  const [loading, setLoading] = useState(false);
+  const {
+    register: formField,
+    handleSubmit,
+    errors
+  } = useForm();
 
-  const handleSubmit = (ev) => {
-    ev.preventDefault();
+  const onSubmit = async ({ email, password }) => {
     const homePage = '/dashboard';
 
-    LoginCookies.setupCookie();
+    try {
+      setLoading(true);
+      await postAuthentication({
+        email: email,
+        password: password
+      });
+    } catch (e) {
+      setLoading(false);
+      return setError(true);
+    }
+
     history.push(homePage);
   };
 
   return (
     <S.Wrapper>
       <S.Form
-        onSubmit={handleSubmit}
+        onSubmit={handleSubmit(onSubmit)}
       >
         <img src={Logo} />
-        <Field
-          icon={User}
-        >
-          <S.Input
-            maxLength={50}
-            name='user-email'
-            type='email'
-            id='email'
-            placeholder='Email...'
-          />
-        </Field>
 
-        <Field
-          icon={Security}
-        >
-          <S.Input
-            maxLength={30}
-            name='user-password'
-            type='password'
-            id='senha'
-            placeholder='Senha...'
-          />
-        </Field>
+        {error && (
+          <S.ErrorMessage>
+            <span>Ocorreu um erro... :( </span>
+            <strong>A senha e email estão corretas ?</strong>
+          </S.ErrorMessage>
+        )}
+
+        {LoginFields.map((field) => (
+          <Field
+            key={field.id}
+            icon={field.icon}
+          >
+            <S.Input
+              maxLength={field.maxLength}
+              name={field.name}
+              type={field.type}
+              id={field.identifier}
+              className={cx({
+                'has--error': errors[field.name],
+                'is--loading': loading
+              })}
+              ref={formField({
+                required: field.required,
+                pattern: field.pattern
+              })}
+              placeholder={field.placeholder}
+            />
+          </Field>
+        ))}
 
         <Button
           text='Entrar'
