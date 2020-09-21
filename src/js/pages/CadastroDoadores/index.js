@@ -10,7 +10,6 @@ import * as S from './styled';
 const Cadastro = () => {
   return (
     <Container>
-
       <S.RegisterFormWrapper>
         <FormWrapper
           stepTitle='Cadastro de Doador'

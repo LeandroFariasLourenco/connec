@@ -5,6 +5,7 @@ import { useSelector } from 'react-redux';
 import Header from '../Header';
 import First from '../First';
 import Second from '../Second';
+import Third from '../Third';
 
 import * as S from './styled';
 
@@ -26,8 +27,13 @@ const Frames = ({
         <Header
           title={formTitle}
         />
-        {currentStep === 0 && <First formType={formType}/>}
-        {currentStep === 1 && <Second formType={formType}/>}
+        {
+          {
+            0: <First formType={formType}/>,
+            1: <Second formType={formType}/>,
+            3: <Third formType={formType}/>
+          }[currentStep]
+        }
       </S.FormField>
       { !noBackground && (
         <>

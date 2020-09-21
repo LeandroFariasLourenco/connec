@@ -2,16 +2,16 @@ export default [
   {
     id: 1,
     stepNumber: 0,
-    title: 'Cadastro do doador'
+    title: 'Informações básicas'
   },
   {
     id: 2,
     stepNumber: 1,
-    title: 'Informações básicas'
+    title: 'Tipo Sanguíneo'
   },
   {
     id: 3,
     stepNumber: 2,
-    title: 'Tipo Sanguíneo'
+    title: 'Detalhes finais'
   }
 ];
