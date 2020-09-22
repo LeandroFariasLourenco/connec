@@ -21,6 +21,7 @@ export const StepWrapper = styled.div`
   justify-content: center;
   max-width: 380px;
 
+  /** */
   ${({ theme }) => theme.mq.lessThan('sm')`
     padding-left: ${rem(25)};
   `}
@@ -69,7 +70,7 @@ export const StepOption = styled.span`
   }
 `;
 
-export const StepTitle = styled(Button)`
+export const StepTitle = styled.span`
   font-weight: 400;
   color: ${({ theme }) => theme.blue};
   margin-bottom: ${rem(40)};

@@ -22,7 +22,7 @@ export default [
     maxLength: 12,
     type: 'text',
     name: 'registroGeral',
-    pattern: /(\d{1,2})\.?(\d{3})\.?(\d{3})-?(\d{1})/gi,
+    pattern: /(\d{1,2})\.?(\d{3})\.?(\d{3})-?(\d{1})/i,
     hasMask: true,
     replace: '$1.$2.$3-$4'
   },
@@ -36,7 +36,7 @@ export default [
     maxLength: 14,
     type: 'text',
     name: 'CPF',
-    pattern: /(\d{3})-?(\d{3})-?(\d{3}).?(\d{2})/gi,
+    pattern: /(\d{3})-?(\d{3})-?(\d{3}).?(\d{2})/i,
     hasMask: true,
     replace: '$1-$2-$3.$4'
   },
@@ -60,7 +60,7 @@ export default [
     maxLength: 15,
     type: 'text',
     name: 'celular',
-    pattern: /[(]?(\d{2})[)]?\s?(\d{5})-?(\d{4})/gi,
+    pattern: /[(]?(\d{2})[)]?\s?(\d{5})-?(\d{4})/i,
     hasMask: true,
     replace: '($1) $2-$3'
   },
@@ -88,7 +88,7 @@ export default [
     readOnly: false,
     type: 'text',
     name: 'cep',
-    pattern: /(\d{5})-?(\d{3})/gi,
+    pattern: /(\d{5})-?(\d{3})/i,
     hasMask: true,
     replace: '$1-$2'
   },

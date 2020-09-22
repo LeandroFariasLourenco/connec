@@ -31,7 +31,7 @@ const Frames = ({
           {
             0: <First formType={formType}/>,
             1: <Second formType={formType}/>,
-            3: <Third formType={formType}/>
+            2: <Third formType={formType}/>
           }[currentStep]
         }
       </S.FormField>

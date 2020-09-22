@@ -36,10 +36,8 @@ const Steps = ({
 
           return (
             <S.StepTitle
-              reset
               key={id}
               title={title}
-              onClick={() => dispatch(setActiveStep(stepNumber))}
             >
               <S.StepOption
                 className={cx(currentActive, completedSteps)}

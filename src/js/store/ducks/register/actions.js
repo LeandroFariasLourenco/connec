@@ -6,7 +6,7 @@ export const setActiveStep = (stepNumber) => {
     buttonTitle: stepNumber < 2 ? 'Próximo' : 'Finalizar',
     formTitle: (stepNumber === 0 && 'Informações Básicas') ||
     (stepNumber === 1 && 'Tipo Sanguíneo') ||
-    (stepNumber === 2 && 'Cadastro de órgão')
+    (stepNumber === 2 && 'Detalhes Finais')
   };
 
   return {

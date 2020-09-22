@@ -5,7 +5,7 @@
  * @param {object} storedFormData // object that contains the information to fill out filling out the fields
  * @example 'fillFormData(receptor, first, ['name, rg'], {name: 'Leandro', rg: 'xx.xxx.xxx-x'})'
  */
-const fillFormData = (formType, formStep, formFieldNames, storedFormData) => {
+const fillFormData = ({ formStep, formFieldNames, storedFormData }) => {
   const getForm = {
     first: () => {
       formFieldNames.forEach(field => {
@@ -15,8 +15,12 @@ const fillFormData = (formType, formStep, formFieldNames, storedFormData) => {
         $input.value = inputStoredValue;
       });
     },
-    second: () => {},
-    third: () => {}
+    second: () => {
+      const radio = [...document.querySelectorAll('input[type="radio"]')].find((input) => (
+        input.value === storedFormData
+      ));
+      radio.checked = true;
+    }
   };
 
   return getForm[`${formStep}`]();
