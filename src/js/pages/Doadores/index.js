@@ -15,6 +15,7 @@ import { getDonors } from '@Requests/Donors';
 const Doadores = () => {
   const dispatch = useDispatch();
   const [donorsList, setDonorsList] = useState([]);
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     getDonors()
@@ -25,9 +26,15 @@ const Doadores = () => {
           count: data.length,
           monthsCount: data.length
         }));
+        setLoading(false);
       })
-      .catch(console.log);
+      .catch((e) => {
+        setLoading(false);
+        console.error(e);
+      });
   }, []);
+
+  if (loading) return <Container className={cx({ 'no--donors': !donorsList.length })}/>;
 
   return (
     <Container

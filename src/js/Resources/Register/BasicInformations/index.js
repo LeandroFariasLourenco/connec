@@ -71,10 +71,10 @@ export default [
     spaced: true,
     fill: false,
     required: null,
-    maxLength: 13,
+    maxLength: 9,
     type: 'text',
     name: 'telefone',
-    pattern: /(\d{4})-?(\d{4})/gi,
+    pattern: /(\d{4})-?(\d{4})/i,
     hasMask: true,
     replace: '$1-$2'
   },

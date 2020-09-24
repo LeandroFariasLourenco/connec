@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { memo } from 'react';
 
 import SupportSvg from '@Icons/login/support.svg';
 
@@ -15,4 +15,4 @@ const Support = () => {
   );
 };
 
-export default Support;
+export default memo(Support);

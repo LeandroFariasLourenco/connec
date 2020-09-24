@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useDispatch } from 'react-redux';
+import cx from 'classnames';
 import C from '@Constants';
 
 import { setReceiverInfo } from '@Store/ducks/receiver';
@@ -13,6 +14,8 @@ import { getReceivers } from '@Requests/Receivers';
 const Receptores = () => {
   const dispatch = useDispatch();
   const [receivers, setReceivers] = useState([]);
+  const [loading, setLoading] = useState(true);
+
   useEffect(() => {
     getReceivers()
       .then(({ data }) => {
@@ -22,12 +25,19 @@ const Receptores = () => {
           receiverCount: data.length,
           lastMonthsCount: data.length
         }));
+
+        setLoading(false);
       })
-      .catch(console.log);
+      .catch((e) => {
+        console.error(e);
+        setLoading(false);
+      });
   }, []);
 
+  if (loading) return <Container className={cx({ 'no--receivers': !receivers.length })}/>;
+
   return (
-    <Container>
+    <Container className={cx({ 'no--receivers': !receivers.length })}>
       {!receivers.length &&
         <NotFound
           type='Receptor'

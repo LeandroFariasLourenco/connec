@@ -1,9 +1,13 @@
 import React from 'react';
 
-// import * as S from './styled';
+import * as S from './styled';
 
 const InformacoesDoadores = () => {
-  return <div />;
+  return (
+    <S.Wrapper>
+      <span>te</span>
+    </S.Wrapper>
+  );
 };
 
 export default InformacoesDoadores;

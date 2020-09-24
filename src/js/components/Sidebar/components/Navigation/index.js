@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { memo } from 'react';
 import { useSelector } from 'react-redux';
 import { useHistory } from 'react-router-dom';
 import cx from 'classnames';
@@ -34,4 +34,4 @@ const Support = () => {
   );
 };
 
-export default Support;
+export default memo(Support);

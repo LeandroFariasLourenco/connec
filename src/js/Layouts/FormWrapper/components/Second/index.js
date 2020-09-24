@@ -10,6 +10,8 @@ import { fillFormData } from '@Utils/Form';
 import { setActiveStep } from '@Store/ducks/register';
 import BloodTypes from '@Resources/Register/BloodType';
 
+import FormButtons from '@Components/FormButtons';
+
 import './style.scss';
 import * as S from './styled';
 
@@ -72,18 +74,7 @@ const Second = ({ formType }) => {
             </S.RadioWrapper>
           ))}
         </S.OptionsWrapper>
-
-        <S.ButtonsWrapper>
-          <S.GoBack
-            title='Anterior'
-            text='Voltar'
-            onClick={() => dispatch(setActiveStep(currentStep - 1))}
-          />
-          <S.Continue
-            title='Continuar'
-            text='Próximo'
-          />
-        </S.ButtonsWrapper>
+        <FormButtons callback={() => dispatch(setActiveStep(currentStep - 1))} />
       </S.FormWrapper>
     </CSSTransition>
   );

@@ -26,11 +26,17 @@ export const ChooseImage = styled.input`
 
 export const InputFileLabel = styled.label`
   width: ${rem(160)};
+  height: ${rem(160)};
   display: block;
-  margin: 0 auto;
+  margin: ${rem(30)} auto;
   cursor: pointer;
 
   img {
+    &.image-selected {
+      border-radius: 100%;
+    }
+
+    height: 100%;
     width: 100%;
   }
 `;

@@ -1,14 +1,21 @@
 import React, { useState, useEffect, useRef } from 'react';
 import PropTypes from 'prop-types';
 import { useForm } from 'react-hook-form';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { CSSTransition } from 'react-transition-group';
+import cx from 'classnames';
 
 import AddImage from '@Images/register/AddImage.png';
+
+import { setActiveStep } from '@Store/ducks/register';
+
+import FormButtons from '@Components/FormButtons';
 
 import * as S from './styled';
 
 const Third = () => {
+  const dispatch = useDispatch();
+  const { currentStep } = useSelector((state) => state.register);
   const [previewImg, setPreviewImg] = useState('');
   const fileRef = useRef();
   const [isMounted, setIsMounted] = useState(false);
@@ -51,7 +58,7 @@ const Third = () => {
         </S.NotificationText>
 
         <S.InputFileLabel htmlFor='fileInput'>
-          <img src={previewImg || AddImage} />
+          <img className={cx({ 'image-selected': !!previewImg })} src={previewImg || AddImage} />
         </S.InputFileLabel>
 
         <S.ChooseImage
@@ -65,7 +72,11 @@ const Third = () => {
           multiple={false}
           onChange={handleFile}
         />
-        <button>sumbit</button>
+
+        <FormButtons
+          callback={() => dispatch(setActiveStep(currentStep - 1))}
+          centered
+        />
       </S.FormWrapper>
     </CSSTransition>
   );

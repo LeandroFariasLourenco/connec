@@ -4,10 +4,10 @@ import { rem } from 'polished';
 import { Btn } from '@Components/Button/styled';
 
 export const MessageWrapper = styled.div`
-  border: ${rem(1)} solid red;
+  border: ${rem(1)} solid green;
   border-radius: ${rem(10)};
   padding: ${rem(20)} ${rem(10)};
-  background: rgba(247, 35, 35, 0.2);
+  background: rgba(134, 214, 84, 0.2);
   margin: 0 auto;
   display: flex;
   flex-flow: column;

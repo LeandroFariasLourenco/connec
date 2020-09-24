@@ -1,11 +1,15 @@
 import React, { useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
 
+import { isEmpty } from '@Utils/Object';
+
 import Container from '@Layouts/Container';
 
 import { getReceivers } from '@Requests/Receivers';
 
-// import * as S from './styled';
+import Header from './components/Header';
+
+import * as S from './styled';
 
 const InformacoesReceptores = ({ match: { params: { id } } }) => {
   const [receiver, setReceiver] = useState({});
@@ -20,7 +24,17 @@ const InformacoesReceptores = ({ match: { params: { id } } }) => {
 
   return (
     <Container>
-      {console.log(receiver)}
+      <S.Wrapper>
+        <S.Return>
+
+        </S.Return>
+
+        <S.Content>
+          {!isEmpty(receiver) && <Header receiver={receiver}/>}
+          {console.log(receiver)}
+
+        </S.Content>
+      </S.Wrapper>
     </Container>
   );
 };
