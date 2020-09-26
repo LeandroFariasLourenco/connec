@@ -6,7 +6,6 @@
  */
 const setFormStorage = (key, json, isLocal = true) => {
   const newObj = {
-    type: key,
     ...json
   };
   const parsedJson = JSON.stringify(newObj);

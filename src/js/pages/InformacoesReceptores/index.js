@@ -7,23 +7,30 @@ import Container from '@Layouts/Container';
 
 import { getReceivers } from '@Requests/Receivers';
 
+import Loader from '@Components/Loader';
+
 import Header from './components/Header';
 
 import * as S from './styled';
 
 const InformacoesReceptores = ({ match: { params: { id } } }) => {
   const [receiver, setReceiver] = useState({});
+  const [loading, setLoading] = useState(false);
 
   useEffect(() => {
+    setLoading(true);
     getReceivers(id)
       .then(({ data }) => {
         setReceiver(data);
+        setLoading(false);
       })
       .catch(console.log);
   }, []);
 
   return (
     <Container>
+      {loading && <Loader />}
+
       <S.Wrapper>
         <S.Return>
 

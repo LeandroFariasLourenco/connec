@@ -2,6 +2,7 @@ import styled from 'styled-components';
 import { rem } from 'polished';
 
 import Form from '@Components/Form';
+import Button from '@Components/Button';
 
 export const FormWrapper = styled(Form)`
   padding: ${rem(14)} ${rem(44)};
@@ -9,6 +10,7 @@ export const FormWrapper = styled(Form)`
   height: calc(90% - 77px);
   display: flex;
   flex-flow: column;
+  position: relative;
 `;
 
 export const NotificationText = styled.span`
@@ -18,6 +20,12 @@ export const NotificationText = styled.span`
   font-size: ${rem(16)};
   margin-bottom: ${rem(10)};
   color: #666;
+`;
+
+export const RedirectButton = styled(Button)`
+  display: block;
+  margin: 0 auto;
+  margin-top: ${rem(10)};
 `;
 
 export const ChooseImage = styled.input`

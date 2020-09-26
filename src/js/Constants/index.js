@@ -13,5 +13,15 @@ export default {
     DASHBOARD: '/dashboard',
     SOBRE: '/sobre',
     HOME: '/'
+  },
+  BLOODTYPES: {
+    'A+': 'A_POS',
+    'A-': 'A_NEG',
+    'B+': 'B_POS',
+    'B-': 'B_NEG',
+    'AB+': 'AB_POS',
+    'AB-': 'AB_NEG',
+    'O+': 'O_POS',
+    'O-': 'O_NEG'
   }
 };

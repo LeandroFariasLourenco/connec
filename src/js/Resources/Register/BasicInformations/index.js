@@ -21,7 +21,7 @@ export default [
     spaced: false,
     maxLength: 12,
     type: 'text',
-    name: 'registroGeral',
+    name: 'rg',
     pattern: /(\d{1,2})\.?(\d{3})\.?(\d{3})-?(\d{1})/i,
     hasMask: true,
     replace: '$1.$2.$3-$4'
@@ -35,7 +35,7 @@ export default [
     spaced: true,
     maxLength: 14,
     type: 'text',
-    name: 'CPF',
+    name: 'cpf',
     pattern: /(\d{3})-?(\d{3})-?(\d{3}).?(\d{2})/i,
     hasMask: true,
     replace: '$1-$2-$3.$4'
@@ -112,7 +112,7 @@ export default [
     maxLength: 13,
     readOnly: true,
     type: 'text',
-    name: 'localidade'
+    name: 'cidade'
   },
   {
     id: 10,

@@ -24,18 +24,18 @@ const Second = ({ formType }) => {
   useEffect(() => {
     setIsMounted(true);
 
-    const { bloodType } = getStorage(formType, false) || {};
-    if (!bloodType) return;
+    const { tipoSanguineo } = getStorage(formType, false) || {};
+    if (!tipoSanguineo) return;
 
     fillFormData({
       formStep: 'second',
-      storedFormData: bloodType
+      storedFormData: tipoSanguineo
     });
   }, []);
 
   const onSubmit = ({ tipoSangue }) => {
     const storedData = getStorage(formType, false);
-    storedData.bloodType = tipoSangue;
+    storedData.tipoSanguineo = tipoSangue;
     setStorage(formType, { ...storedData });
     dispatch(setActiveStep(currentStep + 1));
   };

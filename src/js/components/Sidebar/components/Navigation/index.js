@@ -1,17 +1,21 @@
 import React, { memo } from 'react';
-import { useSelector } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
 import { useHistory } from 'react-router-dom';
 import cx from 'classnames';
+
+import { setNavigation } from '@Store/ducks/navbar';
 
 import sidebarOptions from '@Resources/Sidebar';
 
 import * as S from './styled';
 
 const Support = () => {
+  const dispatch = useDispatch();
   const { currentPage } = useSelector(state => state.navbar);
   const history = useHistory();
 
   const handleDispatch = (pathname) => {
+    dispatch(setNavigation(pathname));
     history.push(pathname);
   };
 

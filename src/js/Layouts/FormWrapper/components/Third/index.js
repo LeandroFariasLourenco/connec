@@ -3,25 +3,34 @@ import PropTypes from 'prop-types';
 import { useForm } from 'react-hook-form';
 import { useDispatch, useSelector } from 'react-redux';
 import { CSSTransition } from 'react-transition-group';
+import { useHistory } from 'react-router-dom';
 import cx from 'classnames';
 
 import AddImage from '@Images/register/AddImage.png';
 
+import { postReceivers } from '@Requests/Receivers';
+
+import { getStorage } from '@Utils/General';
+
 import { setActiveStep } from '@Store/ducks/register';
+import { setNavigation } from '@Store/ducks/navbar';
 
 import FormButtons from '@Components/FormButtons';
+import Loader from '@Components/Loader';
 
 import * as S from './styled';
 
-const Third = () => {
+const Third = ({ formType }) => {
   const dispatch = useDispatch();
-  const { currentStep } = useSelector((state) => state.register);
   const [previewImg, setPreviewImg] = useState('');
-  const fileRef = useRef();
   const [isMounted, setIsMounted] = useState(false);
+  const [loading, setLoading] = useState(false);
+  const [finishedLoading, setFinishedLoading] = useState(false);
+  const { currentStep } = useSelector((state) => state.register);
+  const fileRef = useRef();
+  const history = useHistory();
   const {
     register: field,
-    errors,
     handleSubmit
   } = useForm();
 
@@ -29,8 +38,26 @@ const Third = () => {
     setIsMounted(true);
   }, []);
 
-  const onSubmit = (data) => {
-    console.log(data);
+  const onSubmit = async () => {
+    setLoading(true);
+    const patient = getStorage(formType, false);
+    patient.foto = previewImg;
+    patient.score = 2;
+    patient.orgao = 'Coração';
+    patient.sobrenome = patient.nome.split(/\s/g)[1];
+    patient.telefone = '123';
+
+    try {
+      await postReceivers({
+        receiver: { ...patient }
+      });
+    } catch (e) {
+      return console.warn(e);
+    }
+
+    setLoading(false);
+    setFinishedLoading(true);
+    sessionStorage.removeItem(formType);
   };
 
   const handleFile = ({ target: { files } }) => {
@@ -38,6 +65,11 @@ const Third = () => {
     reader.readAsDataURL(files[0]);
 
     reader.onloadend = () => setPreviewImg(reader.result);
+  };
+
+  const handleRedirect = () => {
+    dispatch(setNavigation(`/${formType}s/1`));
+    history.push(`/${formType}s/1`);
   };
 
   return (
@@ -50,36 +82,55 @@ const Third = () => {
         active
         onSubmit={handleSubmit(onSubmit)}
       >
-        <S.NotificationText>
-          Você também pode optar por cadastrar uma foto da pessoa se desejar;
-        </S.NotificationText>
-        <S.NotificationText>
-          Clicando na imagem abaixo &#128516;
-        </S.NotificationText>
+        {loading && <Loader />}
 
-        <S.InputFileLabel htmlFor='fileInput'>
-          <img className={cx({ 'image-selected': !!previewImg })} src={previewImg || AddImage} />
-        </S.InputFileLabel>
+        {!finishedLoading ? (
+          <div className={cx({
+            'is--loading': loading
+          })}>
+            <S.NotificationText>
+              Você também pode optar por cadastrar uma foto da pessoa se desejar;
+            </S.NotificationText>
+            <S.NotificationText>
+              Clicando na imagem abaixo &#128516;
+            </S.NotificationText>
 
-        <S.ChooseImage
-          type='file'
-          id='fileInput'
-          ref={(ref) => {
-            fileRef.current = ref;
-            field({ required: false });
-          }}
-          name='imagem'
-          multiple={false}
-          onChange={handleFile}
-        />
+            <S.InputFileLabel htmlFor='fileInput'>
+              <img className={cx({ 'image-selected': !!previewImg })} src={previewImg || AddImage} />
+            </S.InputFileLabel>
 
-        <FormButtons
-          callback={() => dispatch(setActiveStep(currentStep - 1))}
-          centered
-        />
+            <S.ChooseImage
+              type='file'
+              id='fileInput'
+              ref={(ref) => {
+                fileRef.current = ref;
+                field({ required: false });
+              }}
+              name='imagem'
+              multiple={false}
+              onChange={handleFile}
+            />
+
+            <FormButtons
+              callback={() => dispatch(setActiveStep(currentStep - 1))}
+              centered
+            />
+          </div>
+        ) : (
+          <S.NotificationText>
+            Cadastrado com sucesso!
+            <S.RedirectButton onClick={() => handleRedirect()}>
+              Clique aqui e veja as informações do ${formType}
+            </S.RedirectButton>
+          </S.NotificationText>
+        )}
       </S.FormWrapper>
     </CSSTransition>
   );
+};
+
+Third.propTypes = {
+  formType: PropTypes.string.isRequired
 };
 
 export default Third;

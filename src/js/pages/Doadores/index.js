@@ -12,6 +12,8 @@ import NotFound from '@Layouts/NotFound';
 
 import { getDonors } from '@Requests/Donors';
 
+import Loader from '@Components/Loader';
+
 const Doadores = () => {
   const dispatch = useDispatch();
   const [donorsList, setDonorsList] = useState([]);
@@ -34,7 +36,14 @@ const Doadores = () => {
       });
   }, []);
 
-  if (loading) return <Container className={cx({ 'no--donors': !donorsList.length })}/>;
+  if (loading) {
+    return (
+      <Container
+        className={cx({ 'no--donors': !donorsList.length })}>
+        <Loader />
+      </Container>
+    );
+  }
 
   return (
     <Container

@@ -2,6 +2,7 @@ import React, { useState, useEffect, useRef } from 'react';
 import { useForm } from 'react-hook-form';
 import { useDispatch, useSelector } from 'react-redux';
 import { CSSTransition } from 'react-transition-group';
+import _ from 'lodash';
 import PropTypes from 'prop-types';
 import cx from 'classnames';
 
@@ -45,7 +46,9 @@ const First = ({ formType }) => {
       return;
     };
 
-    setStorage(formType, getStorage(formType, false) || { ...data });
+    const storedObject = getStorage(formType, false);
+
+    setStorage(formType, _.isEqual(storedObject, { ...data }) ? storedObject : { ...data });
     dispatch(setActiveStep(currentStep + 1));
   };
 
@@ -87,7 +90,7 @@ const First = ({ formType }) => {
                 target: { value }
               }) => {
                 if (input.label.includes('Cep')) {
-                  handlePostal(value, ['logradouro', 'uf', 'localidade']);
+                  handlePostal(value, ['logradouro', 'uf', 'cidade']);
                 }
 
                 if (input.hasMask) {

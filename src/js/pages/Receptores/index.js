@@ -11,6 +11,8 @@ import NotFound from '@Layouts/NotFound';
 
 import { getReceivers } from '@Requests/Receivers';
 
+import Loader from '@Components/Loader';
+
 const Receptores = () => {
   const dispatch = useDispatch();
   const [receivers, setReceivers] = useState([]);
@@ -34,7 +36,15 @@ const Receptores = () => {
       });
   }, []);
 
-  if (loading) return <Container className={cx({ 'no--receivers': !receivers.length })}/>;
+  if (loading) {
+    return (
+      <Container
+        className={cx({ 'no--receivers': !receivers.length })}
+      >
+        <Loader />
+      </Container>
+    );
+  }
 
   return (
     <Container className={cx({ 'no--receivers': !receivers.length })}>
