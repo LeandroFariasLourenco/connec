@@ -6,10 +6,7 @@ const PublicRoute = ({
   component: Component,
   ...rest
 }) => (
-  <Route {...rest} component={Component} render={props => (
-    <Component {...props}/>
-  )}
-  />
+  <Route {...rest} component={Component} render={props => <Component {...props}/>} />
 );
 
 PublicRoute.propTypes = {

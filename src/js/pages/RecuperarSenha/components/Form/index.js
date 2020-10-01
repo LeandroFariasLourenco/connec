@@ -7,7 +7,7 @@ import C from '@Constants';
 
 import { postAuthentication } from '@Requests/Auth';
 
-import LoginFields from '@Resources/Login';
+import ForgotFields from '@Resources/Forgot';
 
 import Field from '@Components/Field';
 import Button from '@Components/Button';
@@ -41,8 +41,8 @@ const Form = () => {
     history.push(C.PATHS.HOME);
   };
 
-  const handleForget = () => {
-    history.push(C.PATHS.ESQUECER_SENHA);
+  const handleRedirect = () => {
+    history.push(C.PATHS.HOME);
   };
 
   return (
@@ -59,7 +59,7 @@ const Form = () => {
           </S.ErrorMessage>
         )}
 
-        {LoginFields.map((field) => (
+        {ForgotFields.map((field) => (
           <Field
             key={field.id}
             icon={field.icon}
@@ -89,10 +89,10 @@ const Form = () => {
         <S.Btn
           reset
           type='button'
-          onClick={() => handleForget()}
+          onClick={() => handleRedirect()}
           title='esqueci'
         >
-          Esqueci minha senha
+          Voltar ao login
         </S.Btn>
       </S.Form>
     </S.Wrapper>

@@ -9,6 +9,7 @@ export default {
     RECEPTORES_CADASTRO: '/receptores/cadastro',
     RECEPTOR: '/receptores/:id',
 
+    ESQUECER_SENHA: '/recuperar-senha',
     HISTORICO: '/historico',
     DASHBOARD: '/dashboard',
     SOBRE: '/sobre',

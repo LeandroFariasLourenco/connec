@@ -10,7 +10,7 @@ import Container from '@Layouts/Container';
 import ListWrapper from '@Layouts/ListWrapper';
 import NotFound from '@Layouts/NotFound';
 
-import { getDonors } from '@Requests/Donors';
+import { getPatient } from '@Requests/Patient';
 
 import Loader from '@Components/Loader';
 
@@ -20,7 +20,7 @@ const Doadores = () => {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    getDonors()
+    getPatient('doadores')
       .then(({ data }) => {
         setDonorsList(data);
 

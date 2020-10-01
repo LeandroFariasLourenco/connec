@@ -8,7 +8,7 @@ import cx from 'classnames';
 
 import AddImage from '@Images/register/AddImage.png';
 
-import { postReceivers } from '@Requests/Receivers';
+import { postPatient } from '@Requests/Patient';
 
 import { getStorage } from '@Utils/General';
 
@@ -40,16 +40,34 @@ const Third = ({ formType }) => {
 
   const onSubmit = async () => {
     setLoading(true);
-    const patient = getStorage(formType, false);
-    patient.foto = previewImg;
-    patient.score = 2;
-    patient.orgao = 'Coração';
-    patient.sobrenome = patient.nome.split(/\s/g)[1];
-    patient.telefone = '123';
+    const stored = getStorage(formType, false);
 
+    const patient = {
+      celular: stored.celular,
+      cpf: stored.cpf,
+      dataNascimento: stored.dataNascimento,
+      nome: stored.nome.split(/\s/g)[0],
+      sobrenome: stored.nome.split(/\s/g)[1],
+      rg: stored.rg,
+      score: 2,
+      orgao: 'Coração',
+      foto: previewImg,
+      telefone: stored.telefone,
+      tipoSanguineo: stored.tipoSanguineo,
+      endereco: {
+        numero: stored.numero,
+        complemento: stored.complemento,
+        cidade: stored.cidade,
+        uf: stored.uf,
+        logradouro: stored.logradouro,
+        cep: stored.cep
+      }
+    };
+
+    console.log(formType);
     try {
-      await postReceivers({
-        receiver: { ...patient }
+      await postPatient(`${formType}es`, {
+        patient: { ...patient }
       });
     } catch (e) {
       return console.warn(e);

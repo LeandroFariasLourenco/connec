@@ -48,6 +48,7 @@ export default [
     fill: true,
     required: true,
     type: 'date',
+    maxDate: new Date().toISOString().split('T')[0],
     name: 'dataNascimento'
   },
   {
@@ -128,11 +129,21 @@ export default [
   {
     id: 11,
     label: 'Complemento:',
-    fill: true,
+    fill: false,
     required: true,
     spaced: false,
     maxLength: 13,
     type: 'text',
     name: 'complemento'
+  },
+  {
+    id: 12,
+    label: 'Número:',
+    fill: false,
+    required: true,
+    spaced: true,
+    maxLength: 10,
+    type: 'text',
+    name: 'numero'
   }
 ];

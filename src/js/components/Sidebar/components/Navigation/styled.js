@@ -13,7 +13,7 @@ export const Navigation = styled.div`
 `;
 
 export const MenuWrapper = styled.div`
-  width: 25%;
+  width: 35%;
   height: auto;
 `;
 
@@ -27,10 +27,11 @@ export const MenuOption = styled(Button)`
   position: relative;
   color: white;
   background-color: transparent;
+  white-space: nowrap;
   ${g.transition('background', '400ms')};
 
   &:hover {
-    background-color: rgba(255, 255, 255, .2);
+    background-color: rgba(255, 255, 255, 0.2);
     ${g.transition('background', '400ms')};
   }
 

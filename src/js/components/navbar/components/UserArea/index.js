@@ -2,6 +2,8 @@ import React from 'react';
 import { useHistory } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 
+import C from '@Constants';
+
 import LogoutIcon from '@Icons/logout.svg';
 
 import { setNavigation } from '@Store/ducks/navbar';
@@ -16,8 +18,8 @@ const UserArea = () => {
 
   const handleLogout = () => {
     sessionStorage.removeItem('accesstoken');
-    dispatch(setNavigation('/'));
-    history.push('/');
+    dispatch(setNavigation(C.PATHS.HOME));
+    history.push(C.PATHS.HOME);
   };
 
   return (

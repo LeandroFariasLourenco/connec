@@ -45,7 +45,6 @@ const First = ({ formType }) => {
     if (!celular && !telefone) {
       return;
     };
-
     const storedObject = getStorage(formType, false);
 
     setStorage(formType, _.isEqual(storedObject, { ...data }) ? storedObject : { ...data });
@@ -102,6 +101,7 @@ const First = ({ formType }) => {
               maxLength={input.maxLength}
               autoComplete='new-password'
               readOnly={input.readOnly}
+              max={input.type === 'date' ? input.maxDate : undefined}
             />
           </S.InputWrapper>
         ))}

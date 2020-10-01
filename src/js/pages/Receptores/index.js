@@ -9,7 +9,7 @@ import Container from '@Layouts/Container';
 import ListWrapper from '@Layouts/ListWrapper';
 import NotFound from '@Layouts/NotFound';
 
-import { getReceivers } from '@Requests/Receivers';
+import { getPatient } from '@Requests/Patient';
 
 import Loader from '@Components/Loader';
 
@@ -19,7 +19,7 @@ const Receptores = () => {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    getReceivers()
+    getPatient('receptores')
       .then(({ data }) => {
         setReceivers(data);
 

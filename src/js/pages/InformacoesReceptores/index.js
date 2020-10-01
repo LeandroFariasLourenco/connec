@@ -5,7 +5,7 @@ import { isEmpty } from '@Utils/Object';
 
 import Container from '@Layouts/Container';
 
-import { getReceivers } from '@Requests/Receivers';
+import { getPatient } from '@Requests/Patient';
 
 import Loader from '@Components/Loader';
 
@@ -19,7 +19,7 @@ const InformacoesReceptores = ({ match: { params: { id } } }) => {
 
   useEffect(() => {
     setLoading(true);
-    getReceivers(id)
+    getPatient('receptores', id)
       .then(({ data }) => {
         setReceiver(data);
         setLoading(false);
