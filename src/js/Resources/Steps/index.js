@@ -12,6 +12,11 @@ export default [
   {
     id: 3,
     stepNumber: 2,
+    title: 'Escolha do órgão'
+  },
+  {
+    id: 4,
+    stepNumber: 3,
     title: 'Detalhes finais'
   }
 ];

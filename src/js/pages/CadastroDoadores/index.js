@@ -3,7 +3,7 @@ import React from 'react';
 import Container from '@Layouts/Container';
 import FormWrapper from '@Layouts/FormWrapper';
 
-import stepOptions from '@Resources/Steps/Doadores';
+import stepOptions from '@Resources/Steps';
 
 import * as S from './styled';
 

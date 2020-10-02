@@ -2,7 +2,6 @@ import React, { useState, useEffect, useRef } from 'react';
 import { useForm } from 'react-hook-form';
 import { useDispatch, useSelector } from 'react-redux';
 import { CSSTransition } from 'react-transition-group';
-import _ from 'lodash';
 import PropTypes from 'prop-types';
 import cx from 'classnames';
 
@@ -45,9 +44,8 @@ const First = ({ formType }) => {
     if (!celular && !telefone) {
       return;
     };
-    const storedObject = getStorage(formType, false);
-
-    setStorage(formType, _.isEqual(storedObject, { ...data }) ? storedObject : { ...data });
+    const storedObject = getStorage(formType, false) || {};
+    setStorage(formType, Object.assign(storedObject, data));
     dispatch(setActiveStep(currentStep + 1));
   };
 

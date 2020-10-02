@@ -1,8 +1,7 @@
-import styled, { css } from 'styled-components';
+import styled from 'styled-components';
 import { rem } from 'polished';
 
 import Form from '@Components/Form';
-import Button from '@Components/Button';
 
 export const FormWrapper = styled(Form)`
   padding: ${rem(14)} ${rem(44)};

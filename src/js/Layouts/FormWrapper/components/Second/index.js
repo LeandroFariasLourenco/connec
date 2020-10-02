@@ -64,11 +64,12 @@ const Second = ({ formType }) => {
                 type='radio'
                 name={name}
                 value={value}
+                id={value}
                 ref={field({
                   required: true
                 })}
               />
-              <S.Label>
+              <S.Label htmlFor={value}>
                 {label}
               </S.Label>
             </S.RadioWrapper>

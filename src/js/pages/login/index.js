@@ -1,6 +1,7 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useHistory } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
+import { CSSTransition } from 'react-transition-group';
 
 import C from '@Constants';
 
@@ -13,11 +14,13 @@ import Form from './components/Form';
 import * as S from './styled';
 
 const Login = () => {
+  const [loading, setLoading] = useState(false);
   const dispatch = useDispatch();
   const history = useHistory();
   const token = sessionStorage.getItem(C.ACCESSTOKEN);
 
   useEffect(() => {
+    setLoading(true);
     dispatch(setNavigation(C.PATHS.HOME));
 
     if (token) {
@@ -30,7 +33,13 @@ const Login = () => {
       {!token && (
         <S.Wrapper>
           <Sidebar />
-          <Form />
+          <CSSTransition
+            in={loading}
+            classNames='transition'
+            timeout={300}
+          >
+            <Form />
+          </CSSTransition>
         </S.Wrapper>
       )}
     </>

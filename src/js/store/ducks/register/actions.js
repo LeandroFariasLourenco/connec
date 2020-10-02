@@ -5,7 +5,8 @@ export const setActiveStep = (stepNumber) => {
     currentStep: stepNumber,
     formTitle: (stepNumber === 0 && 'Informações Básicas') ||
     (stepNumber === 1 && 'Tipo Sanguíneo') ||
-    (stepNumber === 2 && 'Detalhes Finais')
+    (stepNumber === 2 && 'Informações Médicas') ||
+    (stepNumber === 3 && 'Detalhes Finais')
   };
 
   return {

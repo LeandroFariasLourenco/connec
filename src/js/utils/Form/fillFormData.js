@@ -15,15 +15,18 @@ const fillFormData = ({ formStep, formFieldNames, storedFormData }) => {
         $input.value = inputStoredValue;
       });
     },
-    second: () => {
-      const radio = [...document.querySelectorAll('input[type="radio"]')].find((input) => (
-        input.value === storedFormData
-      ));
-      radio.checked = true;
-    }
+    second: () => setupRadio(storedFormData),
+    third: () => setupRadio(storedFormData)
   };
 
   return getForm[`${formStep}`]();
+};
+
+const setupRadio = (storedFormData) => {
+  const radio = [...document.querySelectorAll('input[type="radio"]')].find((input) => (
+    input.value === storedFormData
+  ));
+  radio.checked = true;
 };
 
 export default fillFormData;

@@ -38,7 +38,7 @@ const Form = () => {
       return setError(true);
     }
 
-    history.push(C.PATHS.HOME);
+    history.push(C.PATHS.DASHBOARD);
   };
 
   const handleForget = () => {

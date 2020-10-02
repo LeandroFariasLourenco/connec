@@ -6,6 +6,7 @@ import Header from '../Header';
 import First from '../First';
 import Second from '../Second';
 import Third from '../Third';
+import Fourth from '../Fourth';
 
 import * as S from './styled';
 
@@ -31,7 +32,8 @@ const Frames = ({
           {
             0: <First formType={formType}/>,
             1: <Second formType={formType}/>,
-            2: <Third formType={formType}/>
+            2: <Third formType={formType} />,
+            3: <Fourth formType={formType}/>
           }[currentStep]
         }
       </S.FormField>
