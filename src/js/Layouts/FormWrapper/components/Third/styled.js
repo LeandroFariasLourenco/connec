@@ -59,6 +59,10 @@ export const RadioWrapper = styled.div`
   justify-content: flex-end;
   position: relative;
 
+  &:last-of-type {
+    justify-content: center;
+  }
+
   &:nth-of-type(2n) {
     margin-left: ${rem(38)};
     justify-content: flex-start;

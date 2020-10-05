@@ -9,7 +9,7 @@ import { getPatient } from '@Requests/Patient';
 
 import Loader from '@Components/Loader';
 
-import Header from './components/Header';
+import InformationWrapper from '@Layouts/InformationWrapper';
 
 import * as S from './styled';
 
@@ -37,7 +37,7 @@ const InformacoesReceptores = ({ match: { params: { id } } }) => {
         </S.Return>
 
         <S.Content>
-          {!isEmpty(receiver) && <Header receiver={receiver}/>}
+          {!isEmpty(receiver) && <InformationWrapper patient={receiver} />}
           {console.log(receiver)}
 
         </S.Content>

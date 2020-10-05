@@ -9,6 +9,7 @@ export const Heading = styled.div`
   min-height: ${rem(210)};
   display: flex;
   box-shadow: 0 ${rem(3)} ${rem(6)} #00000040;
+  position: relative;
 `;
 
 const information = css`
@@ -28,7 +29,6 @@ export const UserImage = styled.div`
     top: 0;
     height: ${rem(142)};
     width: 100%;
-    background-color: #fff;
     border-radius: 100%;
     z-index: 1;
   }
@@ -66,4 +66,17 @@ export const UserRegister = styled.span`
 
 export const UserAddress = styled.span`
   ${information}
+`;
+
+export const UserContact = styled.div`
+  position: absolute;
+  right: ${rem(40)};
+  bottom: ${rem(20)};
+
+  img {
+    padding: ${rem(10)};
+    border-radius: 100%;
+    background-color: #ffffff7a;
+    margin: ${rem(10)};
+  }
 `;

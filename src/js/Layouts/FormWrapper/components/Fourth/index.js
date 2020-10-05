@@ -140,7 +140,7 @@ const Third = ({ formType }) => {
           <S.NotificationText>
             Cadastrado com sucesso!
             <S.RedirectButton onClick={() => handleRedirect()}>
-              Clique aqui e veja as informações do ${formType}
+              Clique aqui e veja as informações do {formType}
             </S.RedirectButton>
           </S.NotificationText>
         )}
