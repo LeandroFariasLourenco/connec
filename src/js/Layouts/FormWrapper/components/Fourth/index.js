@@ -10,6 +10,7 @@ import AddImage from '@Images/register/AddImage.png';
 
 import { postPatient } from '@Requests/Patient';
 
+import { getPatient } from '@Utils/Object';
 import { getStorage } from '@Utils/General';
 
 import { setActiveStep } from '@Store/ducks/register';
@@ -43,27 +44,7 @@ const Third = ({ formType }) => {
     setLoading(true);
     const stored = getStorage(formType, false);
 
-    const patient = {
-      celular: stored.celular,
-      cpf: stored.cpf,
-      dataNascimento: stored.dataNascimento,
-      nome: stored.nome.split(/\s/g)[0],
-      sobrenome: stored.nome.split(/\s/g)[1],
-      rg: stored.rg,
-      score: 2,
-      orgao: stored.orgao,
-      foto: previewImg,
-      telefone: stored.telefone,
-      tipoSanguineo: stored.tipoSanguineo,
-      endereco: {
-        numero: stored.numero,
-        complemento: stored.complemento,
-        cidade: stored.cidade,
-        uf: stored.uf,
-        logradouro: stored.logradouro,
-        cep: stored.cep
-      }
-    };
+    const patient = getPatient(stored, previewImg);
 
     try {
       await postPatient(`${formType}es`, {

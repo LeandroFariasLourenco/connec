@@ -16,12 +16,11 @@ import axios from '@Requests/Axios/crossDomain';
  *  ])
  */
 const handlePostal = async (cep, fields) => {
-  if (cep.length < 8) return;
+  if (cep.length !== 8) return;
   try {
     const { data } = await axios.get(`viacep.com.br/ws/${cep}/json/`);
     const address = { ...data };
     address.cidade = data.localidade;
-    console.log(address);
 
     fields.forEach((field) => {
       console.log(field);
@@ -29,7 +28,7 @@ const handlePostal = async (cep, fields) => {
       inputField.classList.add('is--loading');
       const loadingInputs = Array.from(document.querySelectorAll('input.is--loading'));
 
-      inputField.value = address[field];
+      inputField.value = !address[field] ? '' : address[field];
       loadingInputs.forEach((input) => input.classList.remove('is--loading'));
     });
   } catch (e) {

@@ -8,4 +8,9 @@ const backEndService = axios.create({
   }
 });
 
+backEndService.interceptors.request.use((config) => {
+  console.log(config);
+  return config;
+}, (error) => Promise.reject(error));
+
 export default backEndService;

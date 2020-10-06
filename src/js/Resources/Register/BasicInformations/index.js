@@ -2,14 +2,14 @@ export default [
   {
     id: 1,
     readOnly: false,
-    label: 'Nome:',
+    label: 'Nome Completo:',
     fill: true,
     required: true,
     spaced: false,
-    maxLength: 50,
+    maxLength: 70,
     type: 'text',
     name: 'nome',
-    pattern: /[a-zA-ZáàâãéèêíïóôõöúçñÁÀÂÃÉÈÊÍÏÓÒÖÚÇÑ]/gi,
+    pattern: /^[a-záàâãéèêíïóôõöúçñ]([-']?[a-záàâãéèêíïóôõöúçñ]+)*( [a-záàâãéèêíïóôõöúçñ]([-']?[a-záàâãéèêíïóôõöúçñ]+)*)+$/i,
     hasMask: false
   },
   {

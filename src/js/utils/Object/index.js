@@ -1,12 +1,2 @@
-/**
- * @param {object} object
- * @example isEmpty({}) Will return true
- */
-export const isEmpty = (object) => {
-  for (const key in object) {
-    if (Object.prototype.hasOwnProperty.call(object, key)) {
-      return false;
-    }
-  }
-  return true;
-};
+export { default as getPatient } from './getPatient';
+export { default as isEmpty } from './isEmpty';

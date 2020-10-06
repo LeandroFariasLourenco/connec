@@ -74,3 +74,39 @@ export const RadioIcon = styled.img`
   position: absolute;
   left: ${rem(10)};
 `;
+
+export const ScoreWrapper = styled.div`
+  width: 100%;
+  display: flex;
+  justify-content: center;
+`;
+
+export const Score = styled.input`
+  border-bottom: ${rem(1.5)} solid #707070;
+  padding: ${rem(8)} ${rem(6)};
+  transition: opacity 200ms ease-in-out;
+  margin-top: ${rem(20)};
+  width: ${rem(270)};
+  color: ${({ theme }) => theme.purple};
+  font-size: ${rem(17)};
+  text-align: center;
+
+  &::-webkit-outer-spin-button,
+  &::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+  }
+
+  &:focus {
+    border-color: ${({ theme }) => theme.purple};
+  }
+
+  &.has--error {
+    border-color: red;
+    color: red;
+
+    &::placeholder {
+      color: red;
+    }
+  }
+`;
