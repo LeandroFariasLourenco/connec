@@ -26,7 +26,8 @@ const Registers = ({
         linkImage,
         nome,
         dataNascimento,
-        score
+        score,
+        foto
       }) => (
         <S.Receiver
           key={codigo}
@@ -35,7 +36,7 @@ const Registers = ({
             data-sizes='auto'
             data-src={linkImage}
             className='lazyload'
-            src={Placeholder}
+            src={foto || Placeholder}
           />
           <S.ReceiverName>
             {nome}

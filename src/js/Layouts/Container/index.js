@@ -36,7 +36,11 @@ const Container = ({ children, ...props }) => {
 };
 
 Container.propTypes = {
-  children: Proptypes.node.isRequired
+  children: Proptypes.node
+};
+
+Container.defaultProps = {
+  children: <> </>
 };
 
 export default memo(Container);

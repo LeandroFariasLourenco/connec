@@ -18,8 +18,9 @@ export default function reducer (state = INITIAL_STATE, { type, payload }) {
   case t.RESETSTEP:
     return {
       ...state,
-      currentStep: INITIAL_STATE.currentStep,
-      buttonTitle: INITIAL_STATE.buttonTitle
+      currentStep: 0,
+      buttonTitle: 'Próximo',
+      formTitle: 'Informações Básicas'
     };
   default:
     return state;
