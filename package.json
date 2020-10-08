@@ -38,6 +38,7 @@
     "css-loader": "^4.2.0",
     "js-cookie": "^2.2.1",
     "lazysizes": "^5.2.2",
+    "lodash": "^4.17.20",
     "polished": "^3.6.5",
     "prop-types": "^15.7.2",
     "pug-lint": "^2.6.0",

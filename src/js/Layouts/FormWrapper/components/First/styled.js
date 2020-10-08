@@ -75,7 +75,7 @@ export const InputWrapper = styled.div`
   }
 `;
 
-export const Submit = styled(Button)`
+export const Btn = styled(Button)`
   width: 30%;
   margin: 0 auto;
   margin-top: ${rem(38)};
@@ -85,4 +85,10 @@ export const Submit = styled(Button)`
   ${({ theme }) => theme.mq.lessThan('md')`
     margin-top: ${rem(14)};
   `}
+`;
+
+export const ButtonWrapper = styled.div`
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
 `;

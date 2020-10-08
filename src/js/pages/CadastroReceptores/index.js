@@ -4,7 +4,7 @@ import { useHistory } from 'react-router-dom';
 import Container from '@Layouts/Container';
 import FormWrapper from '@Layouts/FormWrapper';
 
-import stepOptions from '@Resources/Steps/Receptores';
+import stepOptions from '@Resources/Steps';
 
 import * as S from './styled';
 

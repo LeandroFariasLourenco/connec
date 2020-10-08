@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { memo } from 'react';
 
 import Appstore from '@Images/login/appstore.png';
 import Googlestore from '@Images/login/googleplaystore.png';
@@ -14,4 +14,4 @@ const Store = () => {
   );
 };
 
-export default Store;
+export default memo(Store);

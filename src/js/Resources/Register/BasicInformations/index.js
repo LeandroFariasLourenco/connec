@@ -2,14 +2,14 @@ export default [
   {
     id: 1,
     readOnly: false,
-    label: 'Nome:',
+    label: 'Nome Completo:',
     fill: true,
     required: true,
     spaced: false,
-    maxLength: 50,
+    maxLength: 70,
     type: 'text',
     name: 'nome',
-    pattern: /[a-zA-ZáàâãéèêíïóôõöúçñÁÀÂÃÉÈÊÍÏÓÒÖÚÇÑ]/gi,
+    pattern: /^[a-záàâãéèêíïóôõöúçñ]([-']?[a-záàâãéèêíïóôõöúçñ]+)*( [a-záàâãéèêíïóôõöúçñ]([-']?[a-záàâãéèêíïóôõöúçñ]+)*)+$/i,
     hasMask: false
   },
   {
@@ -21,8 +21,8 @@ export default [
     spaced: false,
     maxLength: 12,
     type: 'text',
-    name: 'registroGeral',
-    pattern: /(\d{1,2})\.?(\d{3})\.?(\d{3})-?(\d{1})/gi,
+    name: 'rg',
+    pattern: /(\d{1,2})\.?(\d{3})\.?(\d{3})-?(\d{1})/i,
     hasMask: true,
     replace: '$1.$2.$3-$4'
   },
@@ -35,8 +35,8 @@ export default [
     spaced: true,
     maxLength: 14,
     type: 'text',
-    name: 'CPF',
-    pattern: /(\d{3})-?(\d{3})-?(\d{3}).?(\d{2})/gi,
+    name: 'cpf',
+    pattern: /(\d{3})-?(\d{3})-?(\d{3}).?(\d{2})/i,
     hasMask: true,
     replace: '$1-$2-$3.$4'
   },
@@ -48,6 +48,7 @@ export default [
     fill: true,
     required: true,
     type: 'date',
+    maxDate: new Date().toISOString().split('T')[0],
     name: 'dataNascimento'
   },
   {
@@ -60,7 +61,7 @@ export default [
     maxLength: 15,
     type: 'text',
     name: 'celular',
-    pattern: /[(]?(\d{2})[)]?\s?(\d{5})-?(\d{4})/gi,
+    pattern: /[(]?(\d{2})[)]?\s?(\d{5})-?(\d{4})/i,
     hasMask: true,
     replace: '($1) $2-$3'
   },
@@ -71,10 +72,10 @@ export default [
     spaced: true,
     fill: false,
     required: null,
-    maxLength: 13,
+    maxLength: 9,
     type: 'text',
     name: 'telefone',
-    pattern: /(\d{4})-?(\d{4})/gi,
+    pattern: /(\d{4})-?(\d{4})/i,
     hasMask: true,
     replace: '$1-$2'
   },
@@ -88,7 +89,7 @@ export default [
     readOnly: false,
     type: 'text',
     name: 'cep',
-    pattern: /(\d{5})-?(\d{3})/gi,
+    pattern: /(\d{5})-?(\d{3})/i,
     hasMask: true,
     replace: '$1-$2'
   },
@@ -112,7 +113,7 @@ export default [
     maxLength: 13,
     readOnly: true,
     type: 'text',
-    name: 'localidade'
+    name: 'cidade'
   },
   {
     id: 10,
@@ -128,11 +129,21 @@ export default [
   {
     id: 11,
     label: 'Complemento:',
-    fill: true,
+    fill: false,
     required: true,
     spaced: false,
     maxLength: 13,
     type: 'text',
     name: 'complemento'
+  },
+  {
+    id: 12,
+    label: 'Número:',
+    fill: false,
+    required: true,
+    spaced: true,
+    maxLength: 10,
+    type: 'text',
+    name: 'numero'
   }
 ];

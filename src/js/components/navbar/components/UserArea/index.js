@@ -1,7 +1,12 @@
 import React from 'react';
 import { useHistory } from 'react-router-dom';
+import { useDispatch } from 'react-redux';
+
+import C from '@Constants';
 
 import LogoutIcon from '@Icons/logout.svg';
+
+import { setNavigation } from '@Store/ducks/navbar';
 
 import UserImage from '../UserImg';
 
@@ -9,9 +14,12 @@ import * as S from './styled';
 
 const UserArea = () => {
   const history = useHistory();
+  const dispatch = useDispatch();
 
   const handleLogout = () => {
-    history.push('/');
+    sessionStorage.removeItem('accesstoken');
+    dispatch(setNavigation(C.PATHS.HOME));
+    history.push(C.PATHS.HOME);
   };
 
   return (
