@@ -1,10 +1,10 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import PropTypes from 'prop-types';
 
 import Placeholder from '@Images/lazyload/placeholder.jpg';
 import EditIcon from '@Icons/general/edit.svg';
 import PhoneIcon from '@Icons/general/phone.svg';
-import ProgressIcon from '@Icons/general/progress-bar.svg';
+import { ReactComponent as ProgressIcon } from '@Icons/general/progress-bar.svg';
 
 import Button from '@Components/Button';
 
@@ -13,13 +13,26 @@ import * as S from './styled';
 const Header = ({
   patient
 }) => {
+  useEffect(() => {
+    const progress = document.querySelector('circle');
+    const radius = progress.r.baseVal.value;
+    const circumference = radius * 2 * Math.PI;
+
+    progress.style.strokeDasharray = `${circumference} ${circumference}`;
+    progress.style.strokeDashoffset = circumference - patient.score / 100 * circumference;
+  }, []);
+
   return (
     <S.Heading>
       <S.ImageWrapper>
         <S.UserImage src={patient.foto || Placeholder} />
-        <S.Progress src={ProgressIcon} />
+        <ProgressIcon />
+
+        <S.Score>
+          <span className='number'>{patient.score}</span>
+          <span className='text'>score</span>
+        </S.Score>
       </S.ImageWrapper>
-      {console.log(patient)}
 
       <S.UserInfo>
         <S.UserTitle>{`${patient.nome} ${patient.sobrenome}`}</S.UserTitle>
@@ -76,7 +89,7 @@ Header.propTypes = {
     score: PropTypes.number.isRequired,
     sobrenome: PropTypes.string.isRequired,
     tipoSanguineo: PropTypes.string.isRequired,
-    foto: PropTypes.string.isRequired,
+    foto: PropTypes.string,
     endereco: PropTypes.object,
     telefone: PropTypes.string,
     celular: PropTypes.string

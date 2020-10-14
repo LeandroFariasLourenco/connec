@@ -43,4 +43,28 @@ export const Navigation = styled.nav`
   `}
 `;
 
-export const Sac = styled.span``;
+export const SacWrapper = styled.span`
+  display: flex;
+  justify-content: flex-end;
+  width: 100%;
+`;
+
+export const SacInfo = styled.a`
+  background-color: #6dc9fa;
+  width: 80%;
+  border-top-left-radius: ${rem(10)};
+  border-bottom-left-radius: ${rem(10)};
+  font-size: ${rem(13)};
+  ${({ theme }) => theme.flexCentered};
+  padding: ${rem(5)};
+  margin-bottom: ${rem(10)};
+  color: #fff;
+
+  &:visited {
+    color: #fff;
+  }
+
+  svg {
+    margin-right: ${rem(10)};
+  }
+`;

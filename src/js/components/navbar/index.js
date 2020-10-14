@@ -1,9 +1,13 @@
 import React, { useEffect, memo } from 'react';
 import { useDispatch } from 'react-redux';
 
+import C from '@Constants';
+
 import { setNavigation } from '@Store/ducks/navbar';
 
+import { ReactComponent as SupportSvg } from '@Icons/login/support.svg';
 import Logo from '@Icons/navbar/logo.svg';
+
 import navbarOptions from '@Resources/Navbar';
 
 import Option from './components/Option';
@@ -39,9 +43,16 @@ const Navbar = () => {
 
       <UserArea />
 
-      <S.Sac>
-
-      </S.Sac>
+      <S.SacWrapper>
+        <S.SacInfo
+          href={`https://api.whatsapp.com/send?phone=${C.SACNUMBER}`}
+          title='Atendimento'
+          target='_blank'
+        >
+          <SupportSvg />
+          {C.SACNUMBER}
+        </S.SacInfo>
+      </S.SacWrapper>
     </S.Wrapper>
   );
 };

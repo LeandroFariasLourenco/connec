@@ -1,5 +1,7 @@
 import React, { memo } from 'react';
 
+import C from '@Constants';
+
 import SupportSvg from '@Icons/login/support.svg';
 
 import * as S from './styled';
@@ -9,7 +11,7 @@ const Support = () => {
     <S.SupportWrapper>
       <S.SupportLogo src={SupportSvg} />
       <S.Phone>
-        0800 <span>5652</span> 2452
+        {C.SACNUMBER}
       </S.Phone>
     </S.SupportWrapper>
   );

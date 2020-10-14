@@ -4,7 +4,7 @@ import { rem } from 'polished';
 export const Heading = styled.div`
   width: 100%;
   border-radius: ${rem(30)};
-  background-color: #6D71F9BF;
+  background-color: #6d71f9bf;
   padding: ${rem(44)} ${rem(32)};
   min-height: ${rem(210)};
   display: flex;
@@ -18,17 +18,28 @@ export const ImageWrapper = styled.div`
   position: relative;
   ${({ theme }) => theme.flexCentered};
   margin-left: ${rem(10)};
+
+  svg {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+  }
+
+  circle {
+    transition: stroke-dashoffset 0.35s;
+    transform-origin: 50% 50%;
+    transform: rotate(-90deg);
+  }
 `;
 
 export const UserImage = styled.img`
   border-radius: 100%;
-  max-width: 100%;
-  max-height: 100%;
+  width: 100%;
+  height: ${rem(140)};
   object-fit: cover;
   z-index: 2;
 `;
-
-export const Progress = styled.img``;
 
 export const UserInfo = styled.div`
   display: flex;
@@ -59,5 +70,27 @@ export const UserContact = styled.div`
     border-radius: 100%;
     background-color: #ffffff7a;
     margin: ${rem(10)};
+  }
+`;
+
+export const Score = styled.div`
+  position: absolute;
+  bottom: ${rem(-25)};
+  color: #fff;
+  width: 100%;
+
+  .number,
+  .text {
+    display: block;
+    text-align: center;
+  }
+
+  .number {
+    font-size: ${rem(20)};
+    font-weight: bold;
+  }
+
+  .text {
+    font-size: ${rem(14)};
   }
 `;

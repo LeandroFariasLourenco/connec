@@ -15,6 +15,7 @@ export default {
     SOBRE: '/sobre',
     HOME: '/'
   },
+  SACNUMBER: '0800 5652 2452',
   BLOODTYPES: {
     'A+': 'A_POS',
     'A-': 'A_NEG',
