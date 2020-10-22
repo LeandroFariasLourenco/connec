@@ -3,7 +3,8 @@ import * as t from './types';
 const INITIAL_STATE = {
   currentStep: 0,
   buttonTitle: 'Próximo',
-  formTitle: 'Informações Básicas'
+  formTitle: 'Informações Básicas',
+  isReceiver: false
 };
 
 export default function reducer (state = INITIAL_STATE, { type, payload }) {
@@ -21,6 +22,11 @@ export default function reducer (state = INITIAL_STATE, { type, payload }) {
       currentStep: 0,
       buttonTitle: 'Próximo',
       formTitle: 'Informações Básicas'
+    };
+  case t.SET_IS_RECEIVER:
+    return {
+      ...state,
+      isReceiver: payload
     };
   default:
     return state;

@@ -1,9 +1,9 @@
 import * as t from './types';
 
-export const setDonors = (count, monthsCount) => ({
-  type: t.SET_DONOR,
+export const setDonors = ({ donorsCount, lastThreeMonthsCount }) => ({
+  type: t.SET_DONORS,
   payload: {
-    count: count,
-    monthsCount: monthsCount
+    count: donorsCount,
+    monthsCount: lastThreeMonthsCount
   }
 });

@@ -1,10 +1,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import cx from 'classnames';
 
 import { getBloodType, getOrgan } from '@Utils/PatientInfo';
 
-import PatientBlocks from '@Resources/Patient/Details';
+import { ReactComponent as BloodTypeIcon } from '@Icons/patient/bloodtype.svg';
 
 import * as S from './styled';
 
@@ -12,17 +11,22 @@ const Information = ({
   patient
 }) => (
   <S.Wrapper>
-    {PatientBlocks.map(({
-      id,
-      icon,
-      title
-    }) => (
-      <S.InfoBlock key={id} className={cx({ 'has--organ': !icon })}>
-        {icon ? <img src={icon} /> : getOrgan(patient[title])}
-        <S.Content>
-          {getBloodType(patient[title])
-            ? getBloodType(patient[title])
-            : patient[title]}
+    <S.InfoBlock className='has--organ'>
+      <BloodTypeIcon />
+      <S.Content>
+        {getBloodType(patient.tipoSanguineo)}
+      </S.Content>
+    </S.InfoBlock>
+
+    {patient.orgaos.map(({ nome, id }) => (
+      <S.InfoBlock
+        key={id}
+      >
+        {getOrgan(nome)}
+        <S.Content
+          key={id}
+        >
+          {nome}
         </S.Content>
       </S.InfoBlock>
     ))}
@@ -34,9 +38,9 @@ Information.propTypes = {
     cpf: PropTypes.string.isRequired,
     dataNascimento: PropTypes.number.isRequired,
     nome: PropTypes.string.isRequired,
-    orgao: PropTypes.string.isRequired,
+    orgaos: PropTypes.array.isRequired,
     rg: PropTypes.string.isRequired,
-    score: PropTypes.number.isRequired,
+    score: PropTypes.number,
     sobrenome: PropTypes.string.isRequired,
     tipoSanguineo: PropTypes.string.isRequired,
     foto: PropTypes.string,

@@ -28,10 +28,14 @@ const Header = ({
         <S.UserImage src={patient.foto || Placeholder} />
         <ProgressIcon />
 
-        <S.Score>
-          <span className='number'>{patient.score}</span>
-          <span className='text'>score</span>
-        </S.Score>
+        {console.log(patient)}
+
+        {!!patient.score && (
+          <S.Score>
+            <span className='number'>{patient.score}</span>
+            <span className='text'>score</span>
+          </S.Score>
+        )}
       </S.ImageWrapper>
 
       <S.UserInfo>
@@ -84,9 +88,9 @@ Header.propTypes = {
     cpf: PropTypes.string.isRequired,
     dataNascimento: PropTypes.number.isRequired,
     nome: PropTypes.string.isRequired,
-    orgao: PropTypes.string.isRequired,
+    orgaos: PropTypes.array.isRequired,
     rg: PropTypes.string.isRequired,
-    score: PropTypes.number.isRequired,
+    score: PropTypes.number,
     sobrenome: PropTypes.string.isRequired,
     tipoSanguineo: PropTypes.string.isRequired,
     foto: PropTypes.string,

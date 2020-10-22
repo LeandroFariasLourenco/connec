@@ -1,1 +1,1 @@
-export const SET_DONOR = 'donors/setDonor';
+export const SET_DONORS = 'donors/setDonor';

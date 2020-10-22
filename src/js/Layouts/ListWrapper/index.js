@@ -29,7 +29,6 @@ const Receptores = ({
           redirect={redirect}
           listToMap={data}
         />
-        {console.log(data)}
       </S.FrameWrapper>
     </S.ReceiverWrapper>
   );

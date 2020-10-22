@@ -24,6 +24,7 @@ export const ImageWrapper = styled.div`
     left: 50%;
     top: 50%;
     transform: translate(-50%, -50%);
+    border-radius: 100%;
   }
 
   circle {

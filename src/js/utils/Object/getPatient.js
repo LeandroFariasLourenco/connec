@@ -10,7 +10,7 @@ const getPatient = (stored, image) => ({
   sobrenome: stored.nome.split(/\s/g)[1],
   rg: stored.rg,
   score: stored.score,
-  orgao: stored.orgao,
+  orgaos: stored.orgaos,
   foto: image,
   telefone: stored.telefone,
   tipoSanguineo: stored.tipoSanguineo,

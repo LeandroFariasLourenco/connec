@@ -39,7 +39,7 @@ export const Label = styled.label`
   }
 `;
 
-export const Radio = styled.input`
+export const Input = styled.input`
   width: 100%;
   position: absolute;
   opacity: 0;
@@ -53,7 +53,7 @@ export const Radio = styled.input`
   }
 `;
 
-export const RadioWrapper = styled.div`
+export const InputWrapper = styled.div`
   width: calc(50% - 38px);
   display: flex;
   justify-content: flex-end;
@@ -69,7 +69,7 @@ export const RadioWrapper = styled.div`
   }
 `;
 
-export const RadioIcon = styled.img`
+export const InputIcon = styled.img`
   width: ${rem(30)};
   position: absolute;
   left: ${rem(10)};

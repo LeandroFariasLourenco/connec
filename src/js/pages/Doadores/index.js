@@ -25,14 +25,15 @@ const Doadores = () => {
         setDonorsList(data);
 
         dispatch(setDonors({
-          count: data.length,
-          monthsCount: data.length
+          donorsCount: data.length,
+          lastThreeMonthsCount: data.length
         }));
+
         setLoading(false);
       })
       .catch((e) => {
+        console.warn(e);
         setLoading(false);
-        console.error(e);
       });
   }, []);
 

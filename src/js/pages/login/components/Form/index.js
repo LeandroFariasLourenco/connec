@@ -34,8 +34,9 @@ const Form = () => {
         password: password
       });
     } catch (e) {
-      setLoading(false);
       return setError(true);
+    } finally {
+      setLoading(false);
     }
 
     history.push(C.PATHS.DASHBOARD);

@@ -9,8 +9,8 @@ import OrgansArray from '@Resources/Register/Organs';
 const getOrgan = (organ) => {
   const organs = [];
 
-  OrgansArray.forEach(({ value, icon }) => organs.push({
-    title: value,
+  OrgansArray.forEach(({ label, icon }) => organs.push({
+    title: label,
     svg: icon
   }));
 
