@@ -23,7 +23,6 @@ const handlePostal = async (cep, fields) => {
     address.cidade = data.localidade;
 
     fields.forEach((field) => {
-      console.log(field);
       const inputField = document.querySelector(`input[name=${field}]`);
       inputField.classList.add('is--loading');
       const loadingInputs = Array.from(document.querySelectorAll('input.is--loading'));

@@ -24,7 +24,7 @@ const InformacoesReceptores = ({ match: { params: { id } } }) => {
         setReceiver(data);
         setLoading(false);
       })
-      .catch(console.log);
+      .catch(console.warn);
   }, []);
 
   return (
@@ -38,7 +38,6 @@ const InformacoesReceptores = ({ match: { params: { id } } }) => {
 
         <S.Content>
           {!isEmpty(receiver) && <InformationWrapper patient={receiver} />}
-          {console.log(receiver)}
 
         </S.Content>
       </S.Wrapper>

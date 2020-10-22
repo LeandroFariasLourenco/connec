@@ -18,3 +18,8 @@ export const setActiveStep = (stepNumber) => {
 export const resetStep = () => ({
   type: t.RESETSTEP
 });
+
+export const setIsReceiver = (state) => ({
+  type: t.SET_IS_RECEIVER,
+  payload: state
+});

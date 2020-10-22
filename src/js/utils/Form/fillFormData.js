@@ -12,7 +12,7 @@ const fillFormData = ({ formStep, formFieldNames, storedFormData }) => {
     },
     second: () => setupRadio(storedFormData),
     third: () => {
-      setupRadio(storedFormData.orgao);
+      // setupRadio(storedFormData.orgao);
       setupInput(formFieldNames, storedFormData);
     }
   };

@@ -1,9 +1,12 @@
-import React, { memo } from 'react';
+import React, { memo, useEffect } from 'react';
+import { useDispatch } from 'react-redux';
 import PropTypes from 'prop-types';
 
-import Frames from './components/Frames';
+import { setIsReceiver } from '@Store/ducks/register';
 
 import Steps from '@Components/Steps';
+
+import Frames from './components/Frames';
 
 import * as S from './styled';
 
@@ -13,22 +16,30 @@ const Form = ({
   stepFirst,
   formType,
   ...props
-}) => (
-  <S.FormWrapper>
-    {stepFirst && <Frames
-      formType={formType}
-      {...props}
-    />}
-    <Steps
-      subTitle={stepTitle}
-      stepOptions={stepOptions}
-    />
-    {!stepFirst && <Frames
-      formType={formType}
-      {...props}
-    />}
-  </S.FormWrapper>
-);
+}) => {
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(setIsReceiver(formType === 'receptor'));
+  }, []);
+
+  return (
+    <S.FormWrapper>
+      {stepFirst && <Frames
+        formType={formType}
+        {...props}
+      />}
+      <Steps
+        subTitle={stepTitle}
+        stepOptions={stepOptions}
+      />
+      {!stepFirst && <Frames
+        formType={formType}
+        {...props}
+      />}
+    </S.FormWrapper>
+  );
+};
 
 Form.propTypes = {
   stepTitle: PropTypes.string.isRequired,

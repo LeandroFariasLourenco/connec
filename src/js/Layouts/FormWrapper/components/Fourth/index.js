@@ -43,7 +43,6 @@ const Third = ({ formType }) => {
   const onSubmit = async () => {
     setLoading(true);
     const stored = getStorage(formType, false);
-
     const patient = getPatient(stored, previewImg);
 
     try {

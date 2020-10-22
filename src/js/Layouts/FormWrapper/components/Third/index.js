@@ -9,7 +9,7 @@ import { setStorage, getStorage } from '@Utils/General';
 import { fillFormData } from '@Utils/Form';
 
 import { setActiveStep } from '@Store/ducks/register';
-import OrgansList from '@Resources/Register/Organs';
+import organsList from '@Resources/Register/Organs';
 
 import FormButtons from '@Components/FormButtons';
 
@@ -19,7 +19,7 @@ import * as S from './styled';
 const Second = ({ formType }) => {
   const dispatch = useDispatch();
   const [isMounted, setIsMounted] = useState(false);
-  const { currentStep } = useSelector((state) => state.register);
+  const { currentStep, isReceiver } = useSelector((state) => state.register);
   const { handleSubmit, register: field, errors } = useForm();
 
   useEffect(() => {
@@ -35,15 +35,28 @@ const Second = ({ formType }) => {
     });
   }, []);
 
-  const onSubmit = ({ orgao, score }) => {
+  const onSubmit = ({ orgao, score = null }) => {
     const storedData = getStorage(formType, false);
-    storedData.orgao = orgao;
-    storedData.score = score;
+    const receiverOrgans = [];
+
+    if (isReceiver) {
+      storedData.score = parseInt(score);
+    }
+
+    if (!Array.isArray(orgao)) orgao = [orgao];
+
+    orgao.forEach((chosenOrgan) => {
+      receiverOrgans.push({
+        nome: chosenOrgan.split('|')[0],
+        numeroIsquemia: parseInt(chosenOrgan.split('|')[1])
+      });
+    });
+
+    storedData.orgaos = receiverOrgans;
+
     setStorage(formType, { ...storedData });
     dispatch(setActiveStep(currentStep + 1));
   };
-
-  console.log(errors);
 
   return (
     <CSSTransition
@@ -56,18 +69,18 @@ const Second = ({ formType }) => {
         onSubmit={handleSubmit(onSubmit)}
       >
         <S.OptionsWrapper>
-          {OrgansList.map(({
+          {organsList.map(({
             id,
             name,
             value,
             label,
             icon
           }) => (
-            <S.RadioWrapper
+            <S.InputWrapper
               key={id}
             >
-              <S.Radio
-                type='radio'
+              <S.Input
+                type={isReceiver ? 'checkbox' : 'radio'}
                 name={name}
                 value={value}
                 id={value}
@@ -76,30 +89,32 @@ const Second = ({ formType }) => {
               <S.Label
                 htmlFor={value}
               >
-                <S.RadioIcon src={icon} alt={value} title={value} />
+                <S.InputIcon src={icon} alt={value} title={value} />
                 {label}
               </S.Label>
-            </S.RadioWrapper>
+            </S.InputWrapper>
           ))}
         </S.OptionsWrapper>
 
-        <S.ScoreWrapper>
-          <S.Score
-            className={cx({
-              'has--error': errors.score
-            })}
-            placeholder={`Digite o score do ${formType} (1 - 100)`}
-            type='number'
-            id='score'
-            name='score'
-            ref={field({
-              required: true,
-              pattern: /[0-9]/,
-              max: 100,
-              min: 1
-            })}
-          />
-        </S.ScoreWrapper>
+        {isReceiver && (
+          <S.ScoreWrapper>
+            <S.Score
+              className={cx({
+                'has--error': errors.score
+              })}
+              placeholder={`Digite o score do ${formType} (1 - 100)`}
+              type='number'
+              id='score'
+              name='score'
+              ref={field({
+                required: true,
+                pattern: /[0-9]/,
+                max: 100,
+                min: 1
+              })}
+            />
+          </S.ScoreWrapper>
+        )}
         <FormButtons callback={() => dispatch(setActiveStep(currentStep - 1))} />
       </S.FormWrapper>
     </CSSTransition>
