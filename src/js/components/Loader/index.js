@@ -4,8 +4,6 @@ import { CSSTransition } from 'react-transition-group';
 
 import LoaderGif from '@Icons/General/loader.gif';
 
-import './style.scss';
-
 import * as S from './styled';
 
 const Loader = ({ message }) => {

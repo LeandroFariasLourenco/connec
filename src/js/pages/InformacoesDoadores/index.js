@@ -27,6 +27,7 @@ const InformacoesDoadores = ({ match: { params: { id } } }) => {
       .catch((e) => {
         console.warn(e);
         setLoading(false);
+        return e;
       });
   }, []);
 

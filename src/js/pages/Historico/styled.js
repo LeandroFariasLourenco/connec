@@ -9,6 +9,7 @@ export const HistoryWrapper = styled.section`
   position: relative;
   padding-top: ${rem(60)};
 
+  /** */
   ${({ theme }) => theme.mq.lessThan('md')`
     padding-top: ${rem(60)};
   `}

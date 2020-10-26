@@ -12,7 +12,6 @@ import BloodTypes from '@Resources/Register/BloodType';
 
 import FormButtons from '@Components/FormButtons';
 
-import './style.scss';
 import * as S from './styled';
 
 const Second = ({ formType }) => {
@@ -45,6 +44,7 @@ const Second = ({ formType }) => {
       in={isMounted}
       timeout={600}
       classNames='transition'
+      mountOnEnter
     >
       <S.FormWrapper
         active

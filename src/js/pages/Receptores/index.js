@@ -29,10 +29,11 @@ const Receptores = () => {
         }));
 
         setLoading(false);
-      })
+      }, (e) => e)
       .catch((e) => {
         console.error(e);
         setLoading(false);
+        return e;
       });
   }, []);
 

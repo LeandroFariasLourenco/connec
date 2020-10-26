@@ -50,7 +50,7 @@ const Third = ({ formType }) => {
         patient: { ...patient }
       }).then(({ data: { codigo } }) => {
         setPatientId(codigo);
-      });
+      }, (err) => err);
     } catch (e) {
       return console.warn(e);
     }

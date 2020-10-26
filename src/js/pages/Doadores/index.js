@@ -34,6 +34,7 @@ const Doadores = () => {
       .catch((e) => {
         console.warn(e);
         setLoading(false);
+        return e;
       });
   }, []);
 

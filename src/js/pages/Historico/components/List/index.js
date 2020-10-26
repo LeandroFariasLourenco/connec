@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { useSelector } from 'react-redux';
 import cx from 'classnames';
 
@@ -6,15 +6,35 @@ import Filters from '../Filters';
 import SearchTerm from '../SearchTerm';
 
 import ListOptions from '@Resources/HistoryList';
-import History from '@Requests/History';
+import { getMatches } from '@Requests/History';
+
+import Loader from '@Components/Loader';
 
 import * as S from './styled';
 
 const List = () => {
   const { searchBar } = useSelector(state => state.history);
+  const [loading, setLoading] = useState(true);
+  const [historyList, setHistoryList] = useState([]);
+
+  useEffect(() => {
+    getMatches()
+      .then((response) => {
+        console.log(response.data);
+        setHistoryList(response.data);
+        setLoading(false);
+        return response;
+      })
+      .catch((err) => {
+        console.warn(err);
+        setLoading(false);
+        return err;
+      });
+  }, []);
 
   return (
     <S.ListWrapper>
+      {loading && <Loader />}
       <Filters />
       {!!searchBar && <SearchTerm />}
 
@@ -35,10 +55,10 @@ const List = () => {
         </S.THead>
 
         <S.Body>
-          {History.map((patient) => (
+          {historyList.map((patient, i) => (
             <S.Row
               className='has--data'
-              key={patient.id}
+              key={i}
             >
               <S.Data>{patient.date}</S.Data>
               <S.Data>{patient.method}</S.Data>
@@ -47,10 +67,10 @@ const List = () => {
               <S.Data>
                 <span
                   className={cx(
-                    `aproved-${patient.aproved}`
+                    `aproved-${patient.status}`
                   )}
                 >
-                  {patient.aproved ? 'Aceito' : 'Negado'}
+                  {patient.status ? 'Aceito' : 'Negado'}
                 </span>
               </S.Data>
             </S.Row>

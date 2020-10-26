@@ -8,7 +8,7 @@ import LogoutIcon from '@Icons/logout.svg';
 
 import { setNavigation } from '@Store/ducks/navbar';
 
-import UserImage from '../UserImg';
+import UserImage from '../UserImage';
 
 import * as S from './styled';
 

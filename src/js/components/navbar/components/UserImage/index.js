@@ -1,6 +1,5 @@
 import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import 'lazysizes';
 
 import Placeholder from '@Images/lazyload/placeholder.jpg';
 
@@ -9,6 +8,8 @@ import Notifications from '../Notifications';
 import { openNotification as openNotify } from '@Store/ducks/general';
 
 import * as S from './styled';
+
+import 'lazysizes';
 
 const UserImg = () => {
   const { notificationOpen: isOpen } = useSelector(state => state.general);

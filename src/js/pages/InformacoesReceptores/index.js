@@ -24,7 +24,10 @@ const InformacoesReceptores = ({ match: { params: { id } } }) => {
         setReceiver(data);
         setLoading(false);
       })
-      .catch(console.warn);
+      .catch((e) => {
+        console.warn(e);
+        return e;
+      });
   }, []);
 
   return (

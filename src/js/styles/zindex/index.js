@@ -22,5 +22,3 @@ export default function getZindex (labels) {
     )
   );
 }
-
-// Créditos ao zeindelf e patrick vieira. Esse código é uma adaptação e não uma idéia minha !!!

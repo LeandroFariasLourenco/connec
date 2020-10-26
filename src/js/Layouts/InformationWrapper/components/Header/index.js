@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useRef } from 'react';
 import PropTypes from 'prop-types';
 
 import Placeholder from '@Images/lazyload/placeholder.jpg';
@@ -13,6 +13,8 @@ import * as S from './styled';
 const Header = ({
   patient
 }) => {
+  const progressRef = useRef();
+
   useEffect(() => {
     const progress = document.querySelector('circle');
     const radius = progress.r.baseVal.value;
@@ -26,9 +28,7 @@ const Header = ({
     <S.Heading>
       <S.ImageWrapper>
         <S.UserImage src={patient.foto || Placeholder} />
-        <ProgressIcon />
-
-        {console.log(patient)}
+        <ProgressIcon ref={progressRef}/>
 
         {!!patient.score && (
           <S.Score>

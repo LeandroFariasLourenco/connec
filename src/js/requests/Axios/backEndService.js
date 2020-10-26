@@ -8,9 +8,14 @@ const backEndService = axios.create({
   }
 });
 
-backEndService.interceptors.request.use((config) => {
-  console.log(config);
-  return config;
-}, (error) => Promise.reject(error));
+backEndService.interceptors.response.use((res) => {
+  console.log(res);
+  return res;
+}, (error) => {
+  if (error.message === 'Request failed with status code 403') {
+    console.log(error.toJSON());
+  }
+  return Promise.reject(error);
+});
 
 export default backEndService;

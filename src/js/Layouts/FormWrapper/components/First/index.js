@@ -59,6 +59,7 @@ const First = ({ formType }) => {
       in={isMounted}
       timeout={600}
       classNames='transition'
+      mountOnEnter
     >
       <S.FormData
         active
