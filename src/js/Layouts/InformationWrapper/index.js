@@ -6,17 +6,18 @@ import Information from './components/Information';
 
 import * as S from './styled';
 
-const InformationWrapper = ({ patient }) => {
+const InformationWrapper = ({ patient, patientId }) => {
   return (
     <S.Wrapper>
-      <Header patient={patient}/>
+      <Header patient={patient} patientId={patientId}/>
       <Information patient={patient}/>
     </S.Wrapper>
   );
 };
 
 InformationWrapper.propTypes = {
-  patient: PropTypes.object.isRequired
+  patient: PropTypes.object.isRequired,
+  patientId: PropTypes.string.isRequired
 };
 
 export default InformationWrapper;

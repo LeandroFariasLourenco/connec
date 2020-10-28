@@ -30,11 +30,10 @@ export const InformationTitle = styled.h2`
 export const Information = styled.span`
   ${({ theme }) => css`
     display: block;
-    text-align: center;
     padding-left: ${rem(10)};
-    font-size: ${rem(15)};
+    font-size: ${rem(12)};
     line-height: ${rem(20)};
-  
+
     &::first-letter {
       margin-left: ${rem(5)};
     }

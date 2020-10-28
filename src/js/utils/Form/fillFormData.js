@@ -12,7 +12,6 @@ const fillFormData = ({ formStep, formFieldNames, storedFormData }) => {
     },
     second: () => setupRadio(storedFormData),
     third: () => {
-      // setupRadio(storedFormData.orgao);
       setupInput(formFieldNames, storedFormData);
     }
   };
@@ -23,7 +22,9 @@ const fillFormData = ({ formStep, formFieldNames, storedFormData }) => {
 const setupInput = (formFieldNames, storedFormData) => {
   formFieldNames.forEach((field) => {
     const $input = document.querySelector(`input[name="${field}"]`);
-    const inputStoredValue = storedFormData[`${field}`];
+    const inputStoredValue = storedFormData[field];
+
+    if (!inputStoredValue) return;
 
     $input.value = inputStoredValue;
   });

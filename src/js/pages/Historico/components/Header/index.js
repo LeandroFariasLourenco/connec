@@ -1,11 +1,11 @@
 import React from 'react';
-import { useSelector } from 'react-redux';
+import PropTypes from 'prop-types';
 
 import * as S from './styled';
 
-const Header = () => {
-  const { transactionCount } = useSelector(state => state.history);
-
+const Header = ({
+  transactionCount
+}) => {
   return (
     <S.Header>
       <S.Title>
@@ -19,6 +19,10 @@ const Header = () => {
       </S.HistoryCount>
     </S.Header>
   );
+};
+
+Header.propTypes = {
+  transactionCount: PropTypes.number.isRequired
 };
 
 export default Header;

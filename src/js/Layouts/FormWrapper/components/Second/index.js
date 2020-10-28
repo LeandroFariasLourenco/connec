@@ -22,6 +22,10 @@ const Second = ({ formType }) => {
 
   useEffect(() => {
     setIsMounted(true);
+  }, []);
+
+  useEffect(() => {
+    if (!isMounted) return;
 
     const { tipoSanguineo } = getStorage(formType, false) || {};
     if (!tipoSanguineo) return;
@@ -30,7 +34,7 @@ const Second = ({ formType }) => {
       formStep: 'second',
       storedFormData: tipoSanguineo
     });
-  }, []);
+  }, [isMounted]);
 
   const onSubmit = ({ tipoSangue }) => {
     const storedData = getStorage(formType, false);

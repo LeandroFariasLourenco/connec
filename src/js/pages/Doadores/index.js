@@ -20,14 +20,14 @@ const Doadores = () => {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
+    const donorsToDispatch = {};
+
     getPatient('doadores')
       .then(({ data }) => {
         setDonorsList(data);
 
-        dispatch(setDonors({
-          donorsCount: data.length,
-          lastThreeMonthsCount: data.length
-        }));
+        donorsToDispatch.donorsCount = data.length;
+        donorsToDispatch.lastThreeMonthsCount = data.length;
 
         setLoading(false);
       })
@@ -36,6 +36,10 @@ const Doadores = () => {
         setLoading(false);
         return e;
       });
+
+    return () => {
+      dispatch(setDonors(donorsToDispatch));
+    };
   }, []);
 
   if (loading) {

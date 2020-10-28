@@ -51,7 +51,7 @@ export const SacWrapper = styled.span`
 
 export const SacInfo = styled.a`
   background-color: #6dc9fa;
-  width: 80%;
+  width: 90%;
   border-top-left-radius: ${rem(10)};
   border-bottom-left-radius: ${rem(10)};
   font-size: ${rem(13)};
@@ -59,6 +59,12 @@ export const SacInfo = styled.a`
   padding: ${rem(5)};
   margin-bottom: ${rem(10)};
   color: #fff;
+  white-space: nowrap;
+
+  /** */
+  ${({ theme }) => theme.mq.lessThan('md')`
+    width: 100%;
+  `}
 
   &:visited {
     color: #fff;

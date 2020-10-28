@@ -6,7 +6,9 @@ export const InformationWrapper = styled.div`
   height: 80%;
   position: relative;
   z-index: 1;
-  ${({ theme }) => theme.mq.lessThan('1366px')`
+
+  /** */
+  ${({ theme }) => theme.mq.lessThan('md')`
     width: 90%;
     height: 90%;
     padding-top: ${rem(30)};

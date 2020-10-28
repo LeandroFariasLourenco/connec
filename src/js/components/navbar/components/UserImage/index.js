@@ -1,15 +1,13 @@
 import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 
-import Placeholder from '@Images/lazyload/placeholder.jpg';
+import Icon from '@Icons/hospital.svg';
 
 import Notifications from '../Notifications';
 
 import { openNotification as openNotify } from '@Store/ducks/general';
 
 import * as S from './styled';
-
-import 'lazysizes';
 
 const UserImg = () => {
   const { notificationOpen: isOpen } = useSelector(state => state.general);
@@ -22,10 +20,7 @@ const UserImg = () => {
   return (
     <S.ImageWrapper>
       <S.UserImage
-        data-src='https://www.sirgia.com/wp-content/uploads/2017/12/shutterstock_83672362-01.jpg'
-        src={Placeholder}
-        className='lazyload'
-        data-sizes='auto'
+        src={Icon}
       />
       <S.NotificationCounter
         reset

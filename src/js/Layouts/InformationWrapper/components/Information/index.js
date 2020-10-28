@@ -18,9 +18,9 @@ const Information = ({
       </S.Content>
     </S.InfoBlock>
 
-    {patient.orgaos.map(({ nome, id }) => (
+    {patient.orgaos.map(({ nome, id }, i) => (
       <S.InfoBlock
-        key={id}
+        key={i}
       >
         {getOrgan(nome)}
         <S.Content

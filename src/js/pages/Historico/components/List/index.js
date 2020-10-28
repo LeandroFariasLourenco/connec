@@ -1,42 +1,20 @@
-import React, { useEffect, useState } from 'react';
-import { useSelector } from 'react-redux';
+import React from 'react';
 import cx from 'classnames';
-
-import Filters from '../Filters';
-import SearchTerm from '../SearchTerm';
+import PropTypes from 'prop-types';
 
 import ListOptions from '@Resources/HistoryList';
-import { getMatches } from '@Requests/History';
 
 import Loader from '@Components/Loader';
 
 import * as S from './styled';
 
-const List = () => {
-  const { searchBar } = useSelector(state => state.history);
-  const [loading, setLoading] = useState(true);
-  const [historyList, setHistoryList] = useState([]);
-
-  useEffect(() => {
-    getMatches()
-      .then((response) => {
-        console.log(response.data);
-        setHistoryList(response.data);
-        setLoading(false);
-        return response;
-      })
-      .catch((err) => {
-        console.warn(err);
-        setLoading(false);
-        return err;
-      });
-  }, []);
-
+const List = ({
+  loading,
+  historyList
+}) => {
   return (
     <S.ListWrapper>
       {loading && <Loader />}
-      <Filters />
-      {!!searchBar && <SearchTerm />}
 
       <S.Table
         cellSpacing={0}
@@ -79,6 +57,11 @@ const List = () => {
       </S.Table>
     </S.ListWrapper>
   );
+};
+
+List.propTypes = {
+  loading: PropTypes.bool.isRequired,
+  historyList: PropTypes.array.isRequired
 };
 
 export default List;

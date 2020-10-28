@@ -26,3 +26,10 @@ export const postPatient = async (endpoint, { patient }) =>
       Authorization: `Bearer ${sessionStorage.getItem(C.ACCESSTOKEN)}`
     }
   });
+
+export const updatePatient = async (endpoint, { patient }) =>
+  await BackEndService.put(`/${endpoint}`, patient, {
+    headers: {
+      Authorization: `Bearer ${sessionStorage.getItem(C.ACCESSTOKEN)}`
+    }
+  });

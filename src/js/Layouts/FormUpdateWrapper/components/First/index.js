@@ -9,6 +9,7 @@ import { setActiveStep } from '@Store/ducks/register';
 
 import { setStorage, getStorage } from '@Utils/General';
 import { handleInputMask, handlePostal, fillFormData } from '@Utils/Form';
+
 import FormInputs from '@Resources/Register/BasicInformations';
 
 import * as S from './styled';
@@ -26,16 +27,33 @@ const First = ({ formType }) => {
   useEffect(() => {
     if (!isMounted) return;
 
-    const storedFormData = getStorage(formType, false);
-
-    if (!storedFormData) return;
-
+    const {
+      endereco,
+      nome,
+      sobrenome,
+      dataNascimento,
+      orgaos,
+      score,
+      tipoSanguineo,
+      ...semEndereco
+    } = getStorage(`${formType}update`, false);
     const inputNames = FormInputs.map(({ name }) => name);
+    const date = new Date(dataNascimento);
+    const formattedDate = `${date.getFullYear()}-${date.getMonth() + 1}-${date.getDate() < 10 ? `0${date.getDate()}` : date.getDate()}`;
+
+    semEndereco.nome = `${nome} ${sobrenome}`;
+    semEndereco.dataNascimento = formattedDate;
+    semEndereco.orgaos = orgaos;
+    semEndereco.score = score;
+    semEndereco.tipoSanguineo = tipoSanguineo;
+
     fillFormData({
       formStep: 'first',
       formFieldNames: inputNames,
-      storedFormData: storedFormData
+      storedFormData: { ...semEndereco, ...endereco }
     });
+
+    setStorage(formType, semEndereco);
   }, [isMounted]);
 
   const {
@@ -51,7 +69,7 @@ const First = ({ formType }) => {
     };
     const storedObject = getStorage(formType, false) || {};
     setStorage(formType, Object.assign(storedObject, data));
-    dispatch(setActiveStep(currentStep + 1));
+    dispatch(setActiveStep(currentStep + 1, 'Detalhes Finais'));
   };
 
   const handleClearForm = (ev) => {
@@ -93,7 +111,7 @@ const First = ({ formType }) => {
                 target: { value }
               }) => {
                 if (input.label.includes('Cep')) {
-                  handlePostal(value, ['logradouro', 'uf', 'cidade']);
+                  handlePostal(value, ['logradouro', 'uf', 'cidade'], 8);
                 }
 
                 if (input.hasMask) {
@@ -104,7 +122,7 @@ const First = ({ formType }) => {
               type={input.type}
               maxLength={input.maxLength}
               autoComplete='new-password'
-              readOnly={input.readOnly}
+              readOnly={input.readOnly || input.name === 'nome'}
               max={input.type === 'date' ? input.maxDate : undefined}
             />
           </S.InputWrapper>

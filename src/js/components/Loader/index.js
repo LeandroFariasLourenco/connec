@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
 import { CSSTransition } from 'react-transition-group';
 
-import LoaderGif from '@Icons/General/loader.gif';
+import LoaderGif from '@Images/lazyload/loader.gif';
 
 import * as S from './styled';
 
@@ -17,7 +17,7 @@ const Loader = ({ message }) => {
     <CSSTransition
       in={loading}
       classNames='transition'
-      timeout={300}
+      timeout={900}
     >
       <S.LoaderWrapper>
         {message} &#128516;

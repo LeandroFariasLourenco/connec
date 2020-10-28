@@ -21,9 +21,9 @@ const Container = ({ children, ...props }) => {
       >
         <CSSTransition
           in={isMounted}
-          timeout={0}
           classNames='transition'
           mountOnEnter
+          timeout={100}
         >
           <S.ContentWrapper>
             {children}

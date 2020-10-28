@@ -1,19 +1,23 @@
-import React, { useEffect, useRef } from 'react';
+import React, { useEffect } from 'react';
 import PropTypes from 'prop-types';
+import { useHistory } from 'react-router-dom';
 
 import Placeholder from '@Images/lazyload/placeholder.jpg';
 import EditIcon from '@Icons/general/edit.svg';
 import PhoneIcon from '@Icons/general/phone.svg';
 import { ReactComponent as ProgressIcon } from '@Icons/general/progress-bar.svg';
 
+import { setStorage } from '@Utils/General';
+
 import Button from '@Components/Button';
 
 import * as S from './styled';
 
 const Header = ({
-  patient
+  patient,
+  patientId
 }) => {
-  const progressRef = useRef();
+  const history = useHistory();
 
   useEffect(() => {
     const progress = document.querySelector('circle');
@@ -24,11 +28,22 @@ const Header = ({
     progress.style.strokeDashoffset = circumference - patient.score / 100 * circumference;
   }, []);
 
+  const handleEdit = () => {
+    if (patient.score) {
+      setStorage('receptorupdate', { ...patient });
+      history.push(`/receptores/atualizar/${patientId}`);
+      return;
+    }
+
+    setStorage('doadorupdate', { ...patient });
+    history.push(`/doadores/atualizar/${patientId}`);
+  };
+
   return (
     <S.Heading>
       <S.ImageWrapper>
         <S.UserImage src={patient.foto || Placeholder} />
-        <ProgressIcon ref={progressRef}/>
+        <ProgressIcon />
 
         {!!patient.score && (
           <S.Score>
@@ -74,6 +89,7 @@ const Header = ({
           <Button
             reset
             title='Contato'
+            onClick={() => handleEdit()}
           >
             <img src={EditIcon} alt='Editar' title='Editar' />
           </Button>
@@ -97,7 +113,8 @@ Header.propTypes = {
     endereco: PropTypes.object,
     telefone: PropTypes.string,
     celular: PropTypes.string
-  }).isRequired
+  }).isRequired,
+  patientId: PropTypes.string.isRequired
 };
 
 export default Header;

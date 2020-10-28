@@ -78,22 +78,19 @@ export const GlobalStyles = createGlobalStyle`
   .transition {
     &-enter {
       opacity: 0;
-      transform: scale(0.9);
+      transition: 0.3s ease-in-out;
 
       &-active {
         opacity: 1;
-        transform: translateX(0);
-        transition: opacity 300ms, transform 300ms;
       }
     }
 
     &-exit {
       opacity: 1;
+      transition: 0.3s ease-in-out;
 
       &-active {
         opacity: 0;
-        transform: scale(0.9);
-        transition: opacity 300ms, transform 300ms;
       }
     }
   }

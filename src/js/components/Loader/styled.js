@@ -3,7 +3,7 @@ import { rem } from 'polished';
 
 export const LoaderWrapper = styled.div`
   ${({ theme }) => css`
-    position: fixed;
+    position: fixed !important;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);

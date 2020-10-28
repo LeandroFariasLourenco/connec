@@ -8,7 +8,7 @@ import cx from 'classnames';
 
 import AddImage from '@Images/register/AddImage.png';
 
-import { postPatient } from '@Requests/Patient';
+import { updatePatient } from '@Requests/Patient';
 
 import { getPatient } from '@Utils/Object';
 import { getStorage } from '@Utils/General';
@@ -21,14 +21,18 @@ import Loader from '@Components/Loader';
 
 import * as S from './styled';
 
-const Fourth = ({ formType }) => {
-  const dispatch = useDispatch();
+const Second = ({ formType, patientId }) => {
+  const { endereco } = getStorage(`${formType}update`, false);
+  const stored = getStorage(formType, false);
+
   const { currentStep } = useSelector((state) => state.register);
+
   const [finishedLoading, setFinishedLoading] = useState(false);
-  const [previewImg, setPreviewImg] = useState('');
+  const [previewImg, setPreviewImg] = useState(stored?.foto || '');
   const [isMounted, setIsMounted] = useState(false);
-  const [patientId, setPatientId] = useState('');
   const [loading, setLoading] = useState(false);
+
+  const dispatch = useDispatch();
   const history = useHistory();
   const fileRef = useRef();
   const {
@@ -41,20 +45,19 @@ const Fourth = ({ formType }) => {
   }, []);
 
   const onSubmit = async () => {
+    const patient = getPatient(stored, previewImg, endereco.codigo);
     setLoading(true);
-    const stored = getStorage(formType, false);
-    const patient = getPatient(stored, previewImg);
 
+    console.log(patient);
     try {
-      await postPatient(`${formType}es`, {
-        patient: { ...patient }
-      }).then(({ data: { codigo } }) => {
-        setPatientId(codigo);
+      await updatePatient(`${formType}es/${patientId}`, {
+        patient
+      }).then((response) => {
+        return response;
       }, (err) => err);
     } catch (e) {
       return console.warn(e);
     }
-
     setLoading(false);
     setFinishedLoading(true);
     sessionStorage.removeItem(formType);
@@ -89,7 +92,7 @@ const Fourth = ({ formType }) => {
             'is--loading': loading
           })}>
             <S.NotificationText>
-              Você também pode optar por cadastrar uma foto da pessoa se desejar;
+              Você pode alterar sua foto ou adicionar uma caso não tenha
             </S.NotificationText>
             <S.NotificationText>
               Clicando na imagem abaixo &#128516;
@@ -118,9 +121,9 @@ const Fourth = ({ formType }) => {
           </div>
         ) : (
           <S.NotificationText>
-            Cadastrado com sucesso!
+              Atualizado com sucesso!
             <S.RedirectButton title='Avançar' onClick={() => handleRedirect()}>
-              Clique aqui e veja as informações do {formType}
+                Clique aqui e veja as informações do {formType}
             </S.RedirectButton>
           </S.NotificationText>
         )}
@@ -129,8 +132,9 @@ const Fourth = ({ formType }) => {
   );
 };
 
-Fourth.propTypes = {
-  formType: PropTypes.string.isRequired
+Second.propTypes = {
+  formType: PropTypes.string.isRequired,
+  patientId: PropTypes.string.isRequired
 };
 
-export default Fourth;
+export default Second;

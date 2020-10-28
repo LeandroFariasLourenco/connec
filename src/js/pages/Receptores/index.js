@@ -19,14 +19,14 @@ const Receptores = () => {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
+    const dispatchObject = {};
+
     getPatient('receptores')
       .then(({ data }) => {
         setReceivers(data);
 
-        dispatch(setReceiverInfo({
-          receiverCount: data.length,
-          lastMonthsCount: data.length
-        }));
+        dispatchObject.receiverCount = data.length;
+        dispatchObject.lastMonthsCount = data.length;
 
         setLoading(false);
       }, (e) => e)
@@ -35,6 +35,10 @@ const Receptores = () => {
         setLoading(false);
         return e;
       });
+
+    return () => {
+      dispatch(setReceiverInfo(dispatchObject));
+    };
   }, []);
 
   if (loading) {

@@ -15,8 +15,10 @@ import axios from '@Requests/Axios/crossDomain';
  *    uf
  *  ])
  */
-const handlePostal = async (cep, fields) => {
-  if (cep.length !== 8) return;
+const handlePostal = async (cep, fields, cepLength = 9) => {
+  console.log(cep.length);
+  if (cep.length !== cepLength) return;
+  console.log('aaa');
   try {
     const { data } = await axios.get(`viacep.com.br/ws/${cep}/json/`);
     const address = { ...data };
@@ -31,6 +33,7 @@ const handlePostal = async (cep, fields) => {
       loadingInputs.forEach((input) => input.classList.remove('is--loading'));
     });
   } catch (e) {
+    console.warn(e);
     console.error('Oops... alguma coisa deu errada na api de consultar cep');
   }
 };
