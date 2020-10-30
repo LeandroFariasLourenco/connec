@@ -8,7 +8,6 @@ import { GlobalStyles } from '@Global/style';
 import Routes from '@Routes';
 import theme from '@Styles/theme';
 
-console.log(process.env.NODE_ENV);
 const Main = () => {
   return (
     <Provider store={store}>

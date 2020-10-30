@@ -1,7 +1,7 @@
 import * as t from './types';
 
 const INITIAL_STATE = {
-  monthNumber: 0,
+  monthNumber: new Date().getMonth(),
   currentMonth: '',
   isLoading: false
 };

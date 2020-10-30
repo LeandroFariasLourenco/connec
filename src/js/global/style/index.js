@@ -1,4 +1,5 @@
 import { createGlobalStyle } from 'styled-components';
+import { rem } from 'polished';
 
 export const GlobalStyles = createGlobalStyle`
   body {
@@ -65,5 +66,33 @@ export const GlobalStyles = createGlobalStyle`
     opacity: 0.3;
     cursor: not-allowed;
     transition: opacity 400ms;
+  }
+
+  .popup {
+    &-content {
+      width: ${rem(960)};
+      padding: 0;
+      border-radius: ${rem(10)};
+    }
+  }
+
+  .transition {
+    &-enter {
+      opacity: 0;
+      transition: 0.3s ease-in-out;
+
+      &-active {
+        opacity: 1;
+      }
+    }
+
+    &-exit {
+      opacity: 1;
+      transition: 0.3s ease-in-out;
+
+      &-active {
+        opacity: 0;
+      }
+    }
   }
 `;

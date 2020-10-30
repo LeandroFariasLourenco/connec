@@ -2,12 +2,12 @@ import * as t from './types';
 
 const INITIAL_STATE = {
   donorsCount: 0,
-  lastThreeMonthsCount: 14
+  lastThreeMonthsCount: 0
 };
 
-export default function reducer (state = INITIAL_STATE, { action, payload: { count, monthsCount } = {} }) {
-  switch (action) {
-  case t.SET_DONOR:
+export default function reducer (state = INITIAL_STATE, { type, payload: { count, monthsCount } = {} }) {
+  switch (type) {
+  case t.SET_DONORS:
     return {
       ...state,
       donorsCount: count,

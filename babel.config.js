@@ -38,7 +38,8 @@ module.exports = {
         '@Utils': './src/js/Utils',
         '@Resources': './src/js/Resources',
         '@Store': './src/js/Store',
-        '@Requests': './src/js/Requests'
+        '@Requests': './src/js/Requests',
+        '@Constants': './src/js/Constants'
       }
     }]
   ]

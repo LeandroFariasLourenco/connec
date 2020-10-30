@@ -1,10 +1,9 @@
 import React, { useState } from 'react';
 import { useForm } from 'react-hook-form';
-import {
-  Link,
-  useHistory
-} from 'react-router-dom';
+import { useHistory } from 'react-router-dom';
 import cx from 'classnames';
+
+import C from '@Constants';
 
 import { postAuthentication } from '@Requests/Auth';
 
@@ -28,8 +27,6 @@ const Form = () => {
   } = useForm();
 
   const onSubmit = async ({ email, password }) => {
-    const homePage = '/dashboard';
-
     try {
       setLoading(true);
       await postAuthentication({
@@ -37,11 +34,16 @@ const Form = () => {
         password: password
       });
     } catch (e) {
-      setLoading(false);
       return setError(true);
+    } finally {
+      setLoading(false);
     }
 
-    history.push(homePage);
+    history.push(C.PATHS.DASHBOARD);
+  };
+
+  const handleForget = () => {
+    history.push(C.PATHS.ESQUECER_SENHA);
   };
 
   return (
@@ -85,11 +87,14 @@ const Form = () => {
           text='Entrar'
           title='Login'
         />
-        <Link
-          to='/cadastro'
+        <S.Btn
+          reset
+          type='button'
+          onClick={() => handleForget()}
+          title='esqueci'
         >
           Esqueci minha senha
-        </Link>
+        </S.Btn>
       </S.Form>
     </S.Wrapper>
   );

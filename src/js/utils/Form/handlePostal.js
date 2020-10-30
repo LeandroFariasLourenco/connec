@@ -15,22 +15,23 @@ import axios from '@Requests/Axios/crossDomain';
  *    uf
  *  ])
  */
-const handlePostal = async (cep, fields) => {
-  if (cep.length < 8) return;
+const handlePostal = async (cep, fields, cepLength = 9) => {
+  if (cep.length !== cepLength) return;
   try {
     const { data } = await axios.get(`viacep.com.br/ws/${cep}/json/`);
-    console.log(data);
+    const address = { ...data };
+    address.cidade = data.localidade;
+
     fields.forEach((field) => {
       const inputField = document.querySelector(`input[name=${field}]`);
       inputField.classList.add('is--loading');
       const loadingInputs = Array.from(document.querySelectorAll('input.is--loading'));
 
-      setTimeout(() => {
-        inputField.value = data[field];
-        loadingInputs.forEach((input) => input.classList.remove('is--loading'));
-      }, 2000);
+      inputField.value = !address[field] ? '' : address[field];
+      loadingInputs.forEach((input) => input.classList.remove('is--loading'));
     });
   } catch (e) {
+    console.warn(e);
     console.error('Oops... alguma coisa deu errada na api de consultar cep');
   }
 };

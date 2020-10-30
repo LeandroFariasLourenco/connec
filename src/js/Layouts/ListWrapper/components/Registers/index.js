@@ -1,13 +1,14 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { useHistory } from 'react-router-dom';
-import 'lazysizes';
 
 import Placeholder from '@Images/lazyload/placeholder.jpg';
 
 import ArrowSvg from '@Icons/back.svg';
 
 import * as S from './styled';
+
+import 'lazysizes';
 
 const Registers = ({
   listToMap,
@@ -26,7 +27,8 @@ const Registers = ({
         linkImage,
         nome,
         dataNascimento,
-        score
+        score,
+        foto
       }) => (
         <S.Receiver
           key={codigo}
@@ -35,7 +37,7 @@ const Registers = ({
             data-sizes='auto'
             data-src={linkImage}
             className='lazyload'
-            src={Placeholder}
+            src={foto || Placeholder}
           />
           <S.ReceiverName>
             {nome}

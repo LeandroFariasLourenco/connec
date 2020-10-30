@@ -1,12 +1,13 @@
 import * as t from './types';
 
-export const setActiveStep = (stepNumber) => {
+export const setActiveStep = (stepNumber, formTitle = '') => {
   const state = {
     currentStep: stepNumber,
-    buttonTitle: stepNumber < 2 ? 'Próximo' : 'Finalizar',
-    formTitle: (stepNumber === 0 && 'Informações Básicas') ||
+    formTitle: formTitle ||
+    (stepNumber === 0 && 'Informações Básicas') ||
     (stepNumber === 1 && 'Tipo Sanguíneo') ||
-    (stepNumber === 2 && 'Cadastro de órgão')
+    (stepNumber === 2 && 'Informações Médicas') ||
+    (stepNumber === 3 && 'Detalhes Finais')
   };
 
   return {
@@ -16,6 +17,10 @@ export const setActiveStep = (stepNumber) => {
 };
 
 export const resetStep = () => ({
-  type: t.RESETSTEP,
-  payload: null
+  type: t.RESETSTEP
+});
+
+export const setIsReceiver = (state) => ({
+  type: t.SET_IS_RECEIVER,
+  payload: state
 });

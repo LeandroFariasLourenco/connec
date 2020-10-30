@@ -3,7 +3,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import cx from 'classnames';
 import PropTypes from 'prop-types';
 
-import { setActiveStep, resetStep } from '@Store/ducks/register';
+import { resetStep } from '@Store/ducks/register';
 
 import * as S from './styled';
 
@@ -11,13 +11,8 @@ const Steps = ({
   subTitle,
   stepOptions
 }) => {
-  const { currentStep, buttonTitle } = useSelector(state => state.register);
+  const { currentStep } = useSelector(state => state.register);
   const dispatch = useDispatch();
-
-  const handleStep = () => {
-    if (currentStep >= 2) return;
-    dispatch(setActiveStep(currentStep + 1));
-  };
 
   useEffect(() => {
     dispatch(resetStep());
@@ -36,10 +31,8 @@ const Steps = ({
 
           return (
             <S.StepTitle
-              reset
               key={id}
               title={title}
-              onClick={() => dispatch(setActiveStep(stepNumber))}
             >
               <S.StepOption
                 className={cx(currentActive, completedSteps)}
@@ -49,14 +42,6 @@ const Steps = ({
             </S.StepTitle>
           );
         })}
-        <S.Submit
-          className={cx({
-            'is--shown': currentStep === 2
-          })}
-          onClick={handleStep}
-          title={buttonTitle}
-          text={buttonTitle}
-        />
       </S.Step>
     </S.StepWrapper>
   );

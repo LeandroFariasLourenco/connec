@@ -1,1 +1,1 @@
-export const SETRECEIVERS = 'receiver/setReceiver';
+export const SET_RECEIVERS = 'receiver/setReceiver';

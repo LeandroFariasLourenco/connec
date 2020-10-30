@@ -4,8 +4,6 @@ import { CSSTransition } from 'react-transition-group';
 
 import Navbar from '@Components/Navbar';
 
-import './style.scss';
-
 import * as S from './styled';
 
 const Container = ({ children, ...props }) => {
@@ -23,8 +21,9 @@ const Container = ({ children, ...props }) => {
       >
         <CSSTransition
           in={isMounted}
-          timeout={300}
           classNames='transition'
+          mountOnEnter
+          timeout={100}
         >
           <S.ContentWrapper>
             {children}
@@ -36,7 +35,11 @@ const Container = ({ children, ...props }) => {
 };
 
 Container.propTypes = {
-  children: Proptypes.node.isRequired
+  children: Proptypes.node
+};
+
+Container.defaultProps = {
+  children: <> </>
 };
 
 export default memo(Container);

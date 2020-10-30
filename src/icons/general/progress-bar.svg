@@ -1,0 +1,7 @@
+<svg class="progress-ring" width="170" height="170" style="
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+">
+  <circle class="progress-ring__circle" stroke="white" stroke-width="4" fill="transparent" r="80" cx="85" cy="85"></circle>
+</svg>

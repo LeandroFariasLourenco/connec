@@ -1,17 +1,26 @@
 import React from 'react';
 import { useHistory } from 'react-router-dom';
+import { useDispatch } from 'react-redux';
+
+import C from '@Constants';
 
 import LogoutIcon from '@Icons/logout.svg';
 
-import UserImage from '../UserImg';
+import { setNavigation } from '@Store/ducks/navbar';
+
+import UserImage from '../UserImage';
 
 import * as S from './styled';
 
 const UserArea = () => {
   const history = useHistory();
+  const dispatch = useDispatch();
 
   const handleLogout = () => {
-    history.push('/');
+    sessionStorage.removeItem('accesstoken');
+    sessionStorage.removeItem('connectedToWebsocket');
+    dispatch(setNavigation(C.PATHS.HOME));
+    history.push(C.PATHS.HOME);
   };
 
   return (

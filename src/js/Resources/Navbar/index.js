@@ -1,3 +1,6 @@
+
+import C from '@Constants';
+
 import UserIconDefault from '@Icons/navbar/userDefault.svg';
 import UserIconActive from '@Icons/navbar/userActive.svg';
 
@@ -11,28 +14,28 @@ export default [
   {
     id: 1,
     title: 'Dashboard',
-    pathname: '/dashboard',
+    pathname: C.PATHS.DASHBOARD,
     iconDefault: ChartIconDefault,
     iconActive: ChartIconActive
   },
   {
     id: 2,
     title: 'Receptores',
-    pathname: '/receptores',
+    pathname: C.PATHS.RECEPTORES,
     iconDefault: UserIconDefault,
     iconActive: UserIconActive
   },
   {
     id: 3,
     title: 'Doadores',
-    pathname: '/doadores',
+    pathname: C.PATHS.DOADORES,
     iconDefault: UserIconDefault,
     iconActive: UserIconActive
   },
   {
     id: 4,
     title: 'Histórico',
-    pathname: '/historico',
+    pathname: C.PATHS.HISTORICO,
     iconDefault: NotebookIconDefault,
     iconActive: NotebookIconActive
   }

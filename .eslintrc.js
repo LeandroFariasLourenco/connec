@@ -1,3 +1,5 @@
+const path = require('path');
+
 module.exports = {
   env: {
     browser: true,
@@ -15,6 +17,13 @@ module.exports = {
   settings: {
     react: {
       version: 'detect'
+    },
+    'import/resolver': {
+      'babel-module': {},
+      node: {
+        paths: [path.resolve(__dirname)],
+        extensions: ['.js', '.jsx', '.ts', '.tsx']
+      }
     }
   },
   rules: {

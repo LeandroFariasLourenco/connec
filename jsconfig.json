@@ -1,6 +1,6 @@
 {
   "compilerOptions": {
-    "baseUrl": "./src",
+    "baseUrl": ".",
     "paths": {
       "@Components/*": ["./src/js/Components/*"],
       "@Images/*": ["./src/Images/*"],
@@ -11,9 +11,10 @@
       "@Styles/*": ["./src/js/Styles/*"],
       "@Layouts/*": ["./src/js/Layouts"],
       "@Utils/*": ["./src/js/Utils/*"],
-      "@Resources/*": ["./src/js/Resources"],
+      "@Resources/*": ["./src/js/Resources/*"],
       "@Store/*": ["./src/js/Store/*"],
-      "@Requests/*": ["./src/js/Requests/*"]
+      "@Requests/*": ["./src/js/Requests/*"],
+      "@Constants/*": ["./src/js/Constants/*"]
     }
   }
 }

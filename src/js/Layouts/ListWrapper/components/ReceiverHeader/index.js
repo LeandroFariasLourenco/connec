@@ -18,7 +18,7 @@ const ReceiverHeader = ({
   const { lastThreeMonthsCount } = useSelector(state => state[`${storeValue}`]);
   const countingText = lastThreeMonthsCount
     ? `${pluralize(title, lastThreeMonthsCount)}`
-    : `Nenhum ${title.toLowerCase()} nos últimos 3 meses`;
+    : `Nenhum ${title.toLowerCase()}`;
 
   const handleClick = () => {
     history.push(`/${redirect}/cadastro`);
@@ -38,7 +38,7 @@ const ReceiverHeader = ({
           <span data-receiver={lastThreeMonthsCount}>
             + {lastThreeMonthsCount}
           </span>
-          {countingText}
+          {countingText} nos últimos 3 meses
         </S.HeaderText>
       </S.HeaderNotify>
     </S.HeaderWrapper>

@@ -1,11 +1,11 @@
 import React, { useState, useEffect } from 'react';
 import { Range } from 'rc-slider';
 import { useDispatch, useSelector } from 'react-redux';
-import 'rc-slider/assets/index.css';
 
 import { setMonth, setLoading } from '@Store/ducks/dashboard';
 import Months from '@Resources/Months';
 
+import 'rc-slider/assets/index.css';
 import './style.scss';
 
 import * as S from './styled';
