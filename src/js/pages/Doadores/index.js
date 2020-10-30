@@ -29,6 +29,7 @@ const Doadores = () => {
         donorsToDispatch.donorsCount = data.length;
         donorsToDispatch.lastThreeMonthsCount = data.length;
 
+        dispatch(setDonors(donorsToDispatch));
         setLoading(false);
       })
       .catch((e) => {
@@ -36,10 +37,6 @@ const Doadores = () => {
         setLoading(false);
         return e;
       });
-
-    return () => {
-      dispatch(setDonors(donorsToDispatch));
-    };
   }, []);
 
   if (loading) {

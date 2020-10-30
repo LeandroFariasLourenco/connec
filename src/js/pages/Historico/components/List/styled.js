@@ -1,5 +1,17 @@
-import styled, { css } from 'styled-components';
+import styled, { css, keyframes } from 'styled-components';
 import { rem } from 'polished';
+
+import Button from '@Components/Button';
+
+const notify = keyframes`
+  from {
+    box-shadow: 0 0 0 #fcba03;
+  }
+
+  to {
+    box-shadow: 0 0 ${rem(5)} ${rem(3)} #fcba03;
+  }
+`;
 
 const tableFill = css`
   width: 100%;
@@ -56,10 +68,17 @@ export const Data = styled.td`
   text-align: center;
   padding: ${rem(15)} 0;
   flex: 1;
+  ${({ theme }) => theme.flexCentered}
+
+  &.is--icon {
+    svg {
+      width: ${rem(30)};
+    }
+  }
 
   span {
     display: block;
-    width: ${rem(100)};
+    width: ${rem(140)};
     padding: ${rem(5)} 0;
     margin: 0 auto;
     border-radius: ${rem(22)};
@@ -68,13 +87,22 @@ export const Data = styled.td`
     text-transform: uppercase;
     font: normal 8px/10px;
 
-    &.aproved {
-      &-false {
-        background: #ef0000;
+    &.is {
+      &--pendent {
+        background-color: #fcba03;
+        animation-name: ${notify};
+        animation-duration: 1.5s;
+        animation-iteration-count: infinite;
+        animation-timing-function: ease-in-out;
+        animation-direction: alternate;
       }
 
-      &-true {
+      &--aproved {
         background: #00ef18;
+      }
+ 
+      &--denied {
+        background: #ef0000;
       }
     }
   }
@@ -93,4 +121,8 @@ export const Row = styled.tr`
       margin: ${rem(16)} 0;
     }
   }
+`;
+
+export const OpenPopup = styled(Button)`
+  color: #fff;
 `;

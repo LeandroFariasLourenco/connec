@@ -48,7 +48,6 @@ const Second = ({ formType, patientId }) => {
     const patient = getPatient(stored, previewImg, endereco.codigo);
     setLoading(true);
 
-    console.log(patient);
     try {
       await updatePatient(`${formType}es/${patientId}`, {
         patient

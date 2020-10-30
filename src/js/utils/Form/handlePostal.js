@@ -16,9 +16,7 @@ import axios from '@Requests/Axios/crossDomain';
  *  ])
  */
 const handlePostal = async (cep, fields, cepLength = 9) => {
-  console.log(cep.length);
   if (cep.length !== cepLength) return;
-  console.log('aaa');
   try {
     const { data } = await axios.get(`viacep.com.br/ws/${cep}/json/`);
     const address = { ...data };

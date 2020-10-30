@@ -1,8 +1,14 @@
 import React from 'react';
 import cx from 'classnames';
 import PropTypes from 'prop-types';
+import { useDispatch, useSelector } from 'react-redux';
 
 import ListOptions from '@Resources/HistoryList';
+
+import { openNotification } from '@Store/ducks/general';
+
+import { ReactComponent as PlaneIcon } from '@Icons/history/plane.svg';
+import { ReactComponent as AmbulanceIcon } from '@Icons/history/ambulance.svg';
 
 import Loader from '@Components/Loader';
 
@@ -12,6 +18,12 @@ const List = ({
   loading,
   historyList
 }) => {
+  const { notificationOpen: isOpen } = useSelector(state => state.general);
+  const dispatch = useDispatch();
+
+  const handleClick = () => {
+    dispatch(openNotification(!isOpen));
+  };
   return (
     <S.ListWrapper>
       {loading && <Loader />}
@@ -38,17 +50,36 @@ const List = ({
               className='has--data'
               key={i}
             >
-              <S.Data>{patient.date}</S.Data>
-              <S.Data>{patient.method}</S.Data>
-              <S.Data>{patient.origin}</S.Data>
-              <S.Data>{patient.destiny}</S.Data>
+              {console.log(patient)}
+              <S.Data>{new Date(patient.data).toLocaleDateString('pt-BR')}</S.Data>
+              <S.Data
+                className='is--icon'
+              >{
+                  {
+                    AEREO: <PlaneIcon />,
+                    TERRESTRE: <AmbulanceIcon />
+                  }[patient.transporteIdeal]
+                }</S.Data>
+              <S.Data>{patient.orgaoDoador.hospital.nome}</S.Data>
+              <S.Data>{patient.orgaoReceptor.hospital.nome}</S.Data>
               <S.Data>
                 <span
-                  className={cx(
-                    `aproved-${patient.status}`
-                  )}
+                  className={cx({
+                    'is--aproved': patient.status === 'CONFIRMADO',
+                    'is--denied': patient.status === 'REJEITADO',
+                    'is--pendent': patient.status === 'AGUARDANDO'
+                  })}
                 >
-                  {patient.status ? 'Aceito' : 'Negado'}
+                  {patient.status !== 'AGUARDANDO' && (patient.status)}
+                  {patient.status === 'AGUARDANDO' && (
+                    <S.OpenPopup
+                      reset
+                      title='Aceitar'
+                      onClick={() => handleClick()}
+                    >
+                      Pendente
+                    </S.OpenPopup>
+                  )}
                 </span>
               </S.Data>
             </S.Row>

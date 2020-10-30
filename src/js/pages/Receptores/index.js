@@ -28,6 +28,7 @@ const Receptores = () => {
         dispatchObject.receiverCount = data.length;
         dispatchObject.lastMonthsCount = data.length;
 
+        dispatch(setReceiverInfo(dispatchObject));
         setLoading(false);
       }, (e) => e)
       .catch((e) => {
@@ -35,10 +36,6 @@ const Receptores = () => {
         setLoading(false);
         return e;
       });
-
-    return () => {
-      dispatch(setReceiverInfo(dispatchObject));
-    };
   }, []);
 
   if (loading) {

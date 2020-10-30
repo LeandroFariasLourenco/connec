@@ -1,17 +1,29 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { useSelector } from 'react-redux';
 import { Pie } from 'react-chartjs-2';
 import cx from 'classnames';
 
-import DoughnutData, { legends } from '@Utils/Hospital/doughnutData';
+import doughnutData, { legends } from '@Utils/Hospital/doughnutData';
+
+import { getAnalytic } from '@Requests/Analytic';
 
 import './style.scss';
 
 import * as S from './styled';
 
 const LeftChart = () => {
-  const { currentMonth } = useSelector(state => state.dashboard);
+  const { currentMonth, monthNumber } = useSelector(state => state.dashboard);
   const { isLoading } = useSelector(state => state.dashboard);
+  const [dataForChart, setDataForChart] = useState({});
+  const [isEmpty, setIsEmpty] = useState(false);
+
+  useEffect(() => {
+    getAnalytic(monthNumber, 2020)
+      .then((response) => {
+        setDataForChart(doughnutData(response.data.totalReceptores, response.data.totalDoadores));
+        setIsEmpty(response.data.totalDoadores === 0 && response.data.totalReceptores === 0);
+      }, (err) => err);
+  }, [currentMonth]);
 
   return (
     <S.ChartWrapper
@@ -27,13 +39,19 @@ const LeftChart = () => {
           eficiência das transações:
         </S.Information>
       </S.InformationText>
-      <Pie
-        data={DoughnutData}
-        width={window.innerWidth >= 1500 ? 60 : 40}
-        height={50}
-        legend={legends}
-        options={{ maintainAspectRatio: true }}
-      />
+      {isEmpty ? (
+        <span>
+          Ops... Parece que não temos dados para o respectivo mês
+        </span>
+      ) : (
+        <Pie
+          data={dataForChart}
+          width={window.innerWidth >= 1500 ? 60 : 40}
+          height={50}
+          legend={legends}
+          options={{ maintainAspectRatio: true }}
+        />
+      )}
     </S.ChartWrapper>
   );
 };

@@ -70,8 +70,9 @@ export const GlobalStyles = createGlobalStyle`
 
   .popup {
     &-content {
+      width: ${rem(960)};
       padding: 0;
-      border-radius: 0 0 ${rem(20)} ${rem(20)};
+      border-radius: ${rem(10)};
     }
   }
 

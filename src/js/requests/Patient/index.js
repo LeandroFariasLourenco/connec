@@ -33,3 +33,17 @@ export const updatePatient = async (endpoint, { patient }) =>
       Authorization: `Bearer ${sessionStorage.getItem(C.ACCESSTOKEN)}`
     }
   });
+
+export const getPatientWaiting = async () =>
+  await BackEndService.get('/match/receptores?status=AGUARDANDO', {
+    headers: {
+      Authorization: `Bearer ${sessionStorage.getItem(C.ACCESSTOKEN)}`
+    }
+  });
+
+export const updatePatientDonating = async (patient) =>
+  await BackEndService.post('/match/receptores/status', patient, {
+    headers: {
+      Authorization: `Bearer ${sessionStorage.getItem(C.ACCESSTOKEN)}`
+    }
+  });

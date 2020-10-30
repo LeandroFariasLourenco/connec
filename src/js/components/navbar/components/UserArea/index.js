@@ -18,6 +18,7 @@ const UserArea = () => {
 
   const handleLogout = () => {
     sessionStorage.removeItem('accesstoken');
+    sessionStorage.removeItem('connectedToWebsocket');
     dispatch(setNavigation(C.PATHS.HOME));
     history.push(C.PATHS.HOME);
   };

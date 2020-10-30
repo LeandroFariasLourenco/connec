@@ -31,7 +31,6 @@ const Historico = () => {
     <Container>
       <S.HistoryWrapper>
         <S.Background />
-        {console.log(historyList)}
         <Header
           transactionCount={historyList.length}
         />

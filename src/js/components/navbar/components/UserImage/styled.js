@@ -1,10 +1,20 @@
-import styled from 'styled-components';
+import styled, { keyframes } from 'styled-components';
 
 import { rem } from 'polished';
 
 import Button from '@Components/Button';
 
-export const ImageWrapper = styled.div`
+const notify = keyframes`
+  from {
+    box-shadow: 0 0 0 #6dc9fa;
+  }
+
+  to {
+    box-shadow: 0 0 ${rem(10)} ${rem(7)} #6dc9fa;
+  }
+`;
+
+export const ImageWrapper = styled(Button)`
   position: relative;
 `;
 
@@ -12,16 +22,12 @@ export const UserImage = styled.img`
   width: ${rem(42)};
   height: ${rem(42)};
   border-radius: 100%;
-`;
 
-export const NotificationCounter = styled(Button)`
-  padding: ${rem(3)} ${rem(7)};
-  color: white;
-  font-weight: bold;
-  font-size: ${rem(14)};
-  position: absolute;
-  right: 0;
-  bottom: 0;
-  background: #6dc9fa;
-  border-radius: 100%;
+  &.has--notify {
+    animation-name: ${notify};
+    animation-duration: 1s;
+    animation-iteration-count: infinite;
+    animation-timing-function: ease-in-out;
+    animation-direction: alternate;
+  }
 `;
