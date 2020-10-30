@@ -1,13 +1,14 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { useHistory } from 'react-router-dom';
-import 'lazysizes';
 
 import Placeholder from '@Images/lazyload/placeholder.jpg';
 
 import ArrowSvg from '@Icons/back.svg';
 
 import * as S from './styled';
+
+import 'lazysizes';
 
 const Registers = ({
   listToMap,

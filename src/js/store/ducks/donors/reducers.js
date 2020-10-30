@@ -5,11 +5,9 @@ const INITIAL_STATE = {
   lastThreeMonthsCount: 0
 };
 
-export default function reducer (state = INITIAL_STATE, { action, payload: { count, monthsCount } = {} }) {
-  switch (action) {
+export default function reducer (state = INITIAL_STATE, { type, payload: { count, monthsCount } = {} }) {
+  switch (type) {
   case t.SET_DONORS:
-    alert('a', count);
-    alert('a', monthsCount);
     return {
       ...state,
       donorsCount: count,

@@ -2,7 +2,8 @@ import styled from 'styled-components';
 import { rem } from 'polished';
 
 export const Wrapper = styled.div`
-  width: ${rem(1360)};
+  width: 100%;
+  max-width: ${rem(1360)};
   padding-top: ${rem(19)};
   display: flex;
   flex-wrap: wrap;

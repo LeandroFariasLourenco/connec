@@ -28,6 +28,7 @@ const RecuperarSenha = () => {
         in={loading}
         classNames='transition'
         timeout={300}
+        mountOnEnter
       >
         <Form />
       </CSSTransition>

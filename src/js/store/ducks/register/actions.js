@@ -1,9 +1,10 @@
 import * as t from './types';
 
-export const setActiveStep = (stepNumber) => {
+export const setActiveStep = (stepNumber, formTitle = '') => {
   const state = {
     currentStep: stepNumber,
-    formTitle: (stepNumber === 0 && 'Informações Básicas') ||
+    formTitle: formTitle ||
+    (stepNumber === 0 && 'Informações Básicas') ||
     (stepNumber === 1 && 'Tipo Sanguíneo') ||
     (stepNumber === 2 && 'Informações Médicas') ||
     (stepNumber === 3 && 'Detalhes Finais')

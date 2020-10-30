@@ -20,8 +20,13 @@ const First = ({ formType }) => {
   const formRef = useRef();
 
   useEffect(() => {
-    const storedFormData = getStorage(formType, false);
     setIsMounted(true);
+  }, []);
+
+  useEffect(() => {
+    if (!isMounted) return;
+
+    const storedFormData = getStorage(formType, false);
 
     if (!storedFormData) return;
 
@@ -31,7 +36,7 @@ const First = ({ formType }) => {
       formFieldNames: inputNames,
       storedFormData: storedFormData
     });
-  }, []);
+  }, [isMounted]);
 
   const {
     register: field,
@@ -59,6 +64,7 @@ const First = ({ formType }) => {
       in={isMounted}
       timeout={600}
       classNames='transition'
+      mountOnEnter
     >
       <S.FormData
         active

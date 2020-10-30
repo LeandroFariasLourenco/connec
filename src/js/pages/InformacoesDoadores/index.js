@@ -27,6 +27,7 @@ const InformacoesDoadores = ({ match: { params: { id } } }) => {
       .catch((e) => {
         console.warn(e);
         setLoading(false);
+        return e;
       });
   }, []);
 
@@ -40,7 +41,7 @@ const InformacoesDoadores = ({ match: { params: { id } } }) => {
         </S.Return>
 
         <S.Content>
-          {!isEmpty(donor) && <InformationWrapper patient={donor}/>}
+          {!isEmpty(donor) && <InformationWrapper patient={donor} patientId={id}/>}
 
         </S.Content>
       </S.Wrapper>

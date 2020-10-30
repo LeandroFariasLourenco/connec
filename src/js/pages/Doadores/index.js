@@ -20,20 +20,22 @@ const Doadores = () => {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
+    const donorsToDispatch = {};
+
     getPatient('doadores')
       .then(({ data }) => {
         setDonorsList(data);
 
-        dispatch(setDonors({
-          donorsCount: data.length,
-          lastThreeMonthsCount: data.length
-        }));
+        donorsToDispatch.donorsCount = data.length;
+        donorsToDispatch.lastThreeMonthsCount = data.length;
 
+        dispatch(setDonors(donorsToDispatch));
         setLoading(false);
       })
       .catch((e) => {
         console.warn(e);
         setLoading(false);
+        return e;
       });
   }, []);
 

@@ -3,10 +3,12 @@ export default {
   PATHS: {
     DOADORES: '/doadores',
     DOADORES_CADASTRO: '/doadores/cadastro',
+    DOADORES_ATUALIZAR: '/doadores/atualizar/:id',
     DOADOR: '/doadores/:id',
 
     RECEPTORES: '/receptores',
     RECEPTORES_CADASTRO: '/receptores/cadastro',
+    RECEPTORES_ATUALIZAR: '/receptores/atualizar/:id',
     RECEPTOR: '/receptores/:id',
 
     ESQUECER_SENHA: '/recuperar-senha',

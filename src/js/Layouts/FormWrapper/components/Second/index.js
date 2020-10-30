@@ -12,7 +12,6 @@ import BloodTypes from '@Resources/Register/BloodType';
 
 import FormButtons from '@Components/FormButtons';
 
-import './style.scss';
 import * as S from './styled';
 
 const Second = ({ formType }) => {
@@ -23,6 +22,10 @@ const Second = ({ formType }) => {
 
   useEffect(() => {
     setIsMounted(true);
+  }, []);
+
+  useEffect(() => {
+    if (!isMounted) return;
 
     const { tipoSanguineo } = getStorage(formType, false) || {};
     if (!tipoSanguineo) return;
@@ -31,7 +34,7 @@ const Second = ({ formType }) => {
       formStep: 'second',
       storedFormData: tipoSanguineo
     });
-  }, []);
+  }, [isMounted]);
 
   const onSubmit = ({ tipoSangue }) => {
     const storedData = getStorage(formType, false);
@@ -45,6 +48,7 @@ const Second = ({ formType }) => {
       in={isMounted}
       timeout={600}
       classNames='transition'
+      mountOnEnter
     >
       <S.FormWrapper
         active

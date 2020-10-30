@@ -76,9 +76,7 @@ export const StepTitle = styled.span`
   margin-bottom: ${rem(40)};
   text-align: center;
 
-  &:nth-child(1),
-  &:nth-child(2),
-  &:nth-child(3) {
+  &:not(:last-of-type) {
     ${StepOption} {
       &::after {
         content: '';

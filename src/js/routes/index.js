@@ -14,14 +14,14 @@ import Dashboard from '@Pages/Dashboard';
 import Historico from '@Pages/Historico';
 import Receptores from '@Pages/Receptores';
 import CadastroReceptores from '@Pages/CadastroReceptores';
+import AtualizarReceptores from '@Pages/AtualizarReceptores';
 import InformacoesReceptores from '@Pages/InformacoesReceptores';
 import Doadores from '@Pages/Doadores';
 import CadastroDoadores from '@Pages/CadastroDoadores';
+import AtualizarDoadores from '@Pages/AtualizarDoadores';
 import InformacoesDoadores from '@Pages/InformacoesDoadores';
 import RecuperarSenha from '@Pages/RecuperarSenha';
 import Sobre from '@Pages/Sobre';
-
-console.log(C.PATHS.RECEPTORES_CADASTRO);
 
 const Routes = () => {
   return (
@@ -36,12 +36,14 @@ const Routes = () => {
 
         <Private path={C.PATHS.RECEPTORES} exact={true} component={Receptores} />
         <Private path={C.PATHS.RECEPTORES_CADASTRO} exact={true} component={CadastroReceptores} />
+        <Private path={C.PATHS.RECEPTORES_ATUALIZAR} exact={true} component={AtualizarReceptores} />
 
         <Private path={C.PATHS.DOADORES} exact={true} component={Doadores} />
         <Private path={C.PATHS.DOADORES_CADASTRO} exact={true} component={CadastroDoadores} />
+        <Private path={C.PATHS.DOADORES_ATUALIZAR} exact={true} component={AtualizarDoadores} />
 
         <Private path={C.PATHS.DOADOR} exact={true} component={InformacoesDoadores} />
-        <Private path={C.PATHS.RECEPTOR} exate={true} component={InformacoesReceptores} />
+        <Private path={C.PATHS.RECEPTOR} exact={true} component={InformacoesReceptores} />
       </Switch>
     </BrowserRouter>
   );

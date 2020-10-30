@@ -21,7 +21,7 @@ import Loader from '@Components/Loader';
 
 import * as S from './styled';
 
-const Third = ({ formType }) => {
+const Fourth = ({ formType }) => {
   const dispatch = useDispatch();
   const { currentStep } = useSelector((state) => state.register);
   const [finishedLoading, setFinishedLoading] = useState(false);
@@ -50,7 +50,7 @@ const Third = ({ formType }) => {
         patient: { ...patient }
       }).then(({ data: { codigo } }) => {
         setPatientId(codigo);
-      });
+      }, (err) => err);
     } catch (e) {
       return console.warn(e);
     }
@@ -129,8 +129,8 @@ const Third = ({ formType }) => {
   );
 };
 
-Third.propTypes = {
+Fourth.propTypes = {
   formType: PropTypes.string.isRequired
 };
 
-export default Third;
+export default Fourth;

@@ -19,20 +19,22 @@ const Receptores = () => {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
+    const dispatchObject = {};
+
     getPatient('receptores')
       .then(({ data }) => {
         setReceivers(data);
 
-        dispatch(setReceiverInfo({
-          receiverCount: data.length,
-          lastMonthsCount: data.length
-        }));
+        dispatchObject.receiverCount = data.length;
+        dispatchObject.lastMonthsCount = data.length;
 
+        dispatch(setReceiverInfo(dispatchObject));
         setLoading(false);
-      })
+      }, (e) => e)
       .catch((e) => {
         console.error(e);
         setLoading(false);
+        return e;
       });
   }, []);
 

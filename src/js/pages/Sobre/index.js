@@ -21,6 +21,7 @@ const Sobre = () => {
         in={loading}
         classNames='transition'
         timeout={300}
+        mountOnEnter
       >
         <S.AboutUs>
           <img src={Logo} />

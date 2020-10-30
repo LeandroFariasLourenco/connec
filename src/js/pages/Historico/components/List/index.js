@@ -1,22 +1,32 @@
 import React from 'react';
-import { useSelector } from 'react-redux';
 import cx from 'classnames';
-
-import Filters from '../Filters';
-import SearchTerm from '../SearchTerm';
+import PropTypes from 'prop-types';
+import { useDispatch, useSelector } from 'react-redux';
 
 import ListOptions from '@Resources/HistoryList';
-import History from '@Requests/History';
+
+import { openNotification } from '@Store/ducks/general';
+
+import { ReactComponent as PlaneIcon } from '@Icons/history/plane.svg';
+import { ReactComponent as AmbulanceIcon } from '@Icons/history/ambulance.svg';
+
+import Loader from '@Components/Loader';
 
 import * as S from './styled';
 
-const List = () => {
-  const { searchBar } = useSelector(state => state.history);
+const List = ({
+  loading,
+  historyList
+}) => {
+  const { notificationOpen: isOpen } = useSelector(state => state.general);
+  const dispatch = useDispatch();
 
+  const handleClick = () => {
+    dispatch(openNotification(!isOpen));
+  };
   return (
     <S.ListWrapper>
-      <Filters />
-      {!!searchBar && <SearchTerm />}
+      {loading && <Loader />}
 
       <S.Table
         cellSpacing={0}
@@ -35,22 +45,41 @@ const List = () => {
         </S.THead>
 
         <S.Body>
-          {History.map((patient) => (
+          {historyList.map((patient, i) => (
             <S.Row
               className='has--data'
-              key={patient.id}
+              key={i}
             >
-              <S.Data>{patient.date}</S.Data>
-              <S.Data>{patient.method}</S.Data>
-              <S.Data>{patient.origin}</S.Data>
-              <S.Data>{patient.destiny}</S.Data>
+              {console.log(patient)}
+              <S.Data>{new Date(patient.data).toLocaleDateString('pt-BR')}</S.Data>
+              <S.Data
+                className='is--icon'
+              >{
+                  {
+                    AEREO: <PlaneIcon />,
+                    TERRESTRE: <AmbulanceIcon />
+                  }[patient.transporteIdeal]
+                }</S.Data>
+              <S.Data>{patient.orgaoDoador.hospital.nome}</S.Data>
+              <S.Data>{patient.orgaoReceptor.hospital.nome}</S.Data>
               <S.Data>
                 <span
-                  className={cx(
-                    `aproved-${patient.aproved}`
-                  )}
+                  className={cx({
+                    'is--aproved': patient.status === 'CONFIRMADO',
+                    'is--denied': patient.status === 'REJEITADO',
+                    'is--pendent': patient.status === 'AGUARDANDO'
+                  })}
                 >
-                  {patient.aproved ? 'Aceito' : 'Negado'}
+                  {patient.status !== 'AGUARDANDO' && (patient.status)}
+                  {patient.status === 'AGUARDANDO' && (
+                    <S.OpenPopup
+                      reset
+                      title='Aceitar'
+                      onClick={() => handleClick()}
+                    >
+                      Pendente
+                    </S.OpenPopup>
+                  )}
                 </span>
               </S.Data>
             </S.Row>
@@ -59,6 +88,11 @@ const List = () => {
       </S.Table>
     </S.ListWrapper>
   );
+};
+
+List.propTypes = {
+  loading: PropTypes.bool.isRequired,
+  historyList: PropTypes.array.isRequired
 };
 
 export default List;

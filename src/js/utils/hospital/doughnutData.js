@@ -1,22 +1,16 @@
 const titles = [
-  'Em Espera',
   'Doadores',
-  'Receptores',
-  'Completados'
+  'Receptores'
 ];
 
 const backgroundColors = [
-  '#FF6384',
   '#36A2EB',
-  '#FFCE56',
-  '#008000'
+  '#FFCE56'
 ];
 
 const hoverBackgroundColors = [
-  '#FF6384',
   '#36A2EB',
-  '#FFCE56',
-  '#008000'
+  '#FFCE56'
 ];
 
 export const legends = {
@@ -24,12 +18,12 @@ export const legends = {
   fullWidth: true
 };
 
-export default {
+export default (receiverCount, donorCount) => ({
   labels: titles,
   fullWidth: true,
   datasets: [{
-    data: [300, 50, 100, 40],
+    data: [receiverCount, donorCount],
     backgroundColor: backgroundColors,
     hoverBackgroundColor: hoverBackgroundColors
   }]
-};
+});

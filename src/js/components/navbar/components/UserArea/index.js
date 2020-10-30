@@ -8,7 +8,7 @@ import LogoutIcon from '@Icons/logout.svg';
 
 import { setNavigation } from '@Store/ducks/navbar';
 
-import UserImage from '../UserImg';
+import UserImage from '../UserImage';
 
 import * as S from './styled';
 
@@ -18,6 +18,7 @@ const UserArea = () => {
 
   const handleLogout = () => {
     sessionStorage.removeItem('accesstoken');
+    sessionStorage.removeItem('connectedToWebsocket');
     dispatch(setNavigation(C.PATHS.HOME));
     history.push(C.PATHS.HOME);
   };

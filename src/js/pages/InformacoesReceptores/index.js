@@ -24,7 +24,10 @@ const InformacoesReceptores = ({ match: { params: { id } } }) => {
         setReceiver(data);
         setLoading(false);
       })
-      .catch(console.warn);
+      .catch((e) => {
+        console.warn(e);
+        return e;
+      });
   }, []);
 
   return (
@@ -37,7 +40,7 @@ const InformacoesReceptores = ({ match: { params: { id } } }) => {
         </S.Return>
 
         <S.Content>
-          {!isEmpty(receiver) && <InformationWrapper patient={receiver} />}
+          {!isEmpty(receiver) && <InformationWrapper patient={receiver} patientId={id}/>}
 
         </S.Content>
       </S.Wrapper>
