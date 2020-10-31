@@ -1,2 +1,3 @@
 export const openNotifications = 'general/openNotifications';
-export const setHasNotification = 'genetal/setHasNotification';
+export const setHasNotification = 'general/setHasNotification';
+export const setInformationPopup = 'general/setInformationPopup';

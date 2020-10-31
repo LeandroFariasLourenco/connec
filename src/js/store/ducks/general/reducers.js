@@ -2,7 +2,8 @@ import * as t from './types';
 
 const INITIAL_STATE = {
   notificationOpen: false,
-  hasNotification: false
+  hasNotification: false,
+  informationPopupOpen: false
 };
 
 export default function reducer (state = INITIAL_STATE, { type, payload }) {
@@ -16,6 +17,10 @@ export default function reducer (state = INITIAL_STATE, { type, payload }) {
     return {
       ...state,
       hasNotification: payload
+    };
+  case t.setInformationPopup:
+    return {
+      informationPopupOpen: payload
     };
   default:
     return state;
