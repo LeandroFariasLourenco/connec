@@ -7,6 +7,7 @@
     "preinstall": "npx use-yarn",
     "commit": "git-cz",
     "start": "npm run clear && npm run server",
+    "deploy": "npm run clear && npm run build",
     "prod": "npm run clear && npm run linters && npm run build",
     "lint:js": "eslint ./src --ext .js,.jsx --color",
     "lint:js:fix": "yarn lint:js --fix --color",
