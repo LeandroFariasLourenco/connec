@@ -92,12 +92,12 @@ const First = ({ formType }) => {
               onChange={({
                 target: { value }
               }) => {
-                if (input.label.includes('Cep')) {
-                  handlePostal(value, ['logradouro', 'uf', 'cidade']);
-                }
-
                 if (input.hasMask) {
                   handleInputMask(value, input.pattern, input.replace, input.name);
+                }
+
+                if (input.label.includes('Cep')) {
+                  handlePostal(value, ['logradouro', 'uf', 'cidade']);
                 }
               }}
               name={input.name}

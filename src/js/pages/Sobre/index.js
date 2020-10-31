@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { CSSTransition } from 'react-transition-group';
 
-import Logo from '@Images/login/logo.png';
+import Logo from '@Images/logo.png';
 
 import Sidebar from '@Components/Sidebar';
 

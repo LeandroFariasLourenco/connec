@@ -12,7 +12,7 @@ import LoginFields from '@Resources/Login';
 import Field from '@Components/Field';
 import Button from '@Components/Button';
 
-import Logo from '@Images/login/logo.png';
+import Logo from '@Images/logo.png';
 
 import * as S from './styled';
 
@@ -40,10 +40,6 @@ const Form = () => {
     }
 
     history.push(C.PATHS.DASHBOARD);
-  };
-
-  const handleForget = () => {
-    history.push(C.PATHS.ESQUECER_SENHA);
   };
 
   return (
@@ -87,14 +83,6 @@ const Form = () => {
           text='Entrar'
           title='Login'
         />
-        <S.Btn
-          reset
-          type='button'
-          onClick={() => handleForget()}
-          title='esqueci'
-        >
-          Esqueci minha senha
-        </S.Btn>
       </S.Form>
     </S.Wrapper>
   );

@@ -20,7 +20,6 @@ import Doadores from '@Pages/Doadores';
 import CadastroDoadores from '@Pages/CadastroDoadores';
 import AtualizarDoadores from '@Pages/AtualizarDoadores';
 import InformacoesDoadores from '@Pages/InformacoesDoadores';
-import RecuperarSenha from '@Pages/RecuperarSenha';
 import Sobre from '@Pages/Sobre';
 
 const Routes = () => {
@@ -29,7 +28,6 @@ const Routes = () => {
       <Switch>
         <Public path={C.PATHS.HOME} exact={true} component={Login} />
         <Public path={C.PATHS.SOBRE} exact={true} component={Sobre} />
-        <Public path={C.PATHS.ESQUECER_SENHA} exact={true} component={RecuperarSenha} />
 
         <Private path={C.PATHS.DASHBOARD} exact={true} component={Dashboard} />
         <Private path={C.PATHS.HISTORICO} exact={true} component={Historico} />

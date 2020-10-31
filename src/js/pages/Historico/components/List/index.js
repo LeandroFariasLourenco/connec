@@ -50,7 +50,6 @@ const List = ({
               className='has--data'
               key={i}
             >
-              {console.log(patient)}
               <S.Data>{new Date(patient.data).toLocaleDateString('pt-BR')}</S.Data>
               <S.Data
                 className='is--icon'

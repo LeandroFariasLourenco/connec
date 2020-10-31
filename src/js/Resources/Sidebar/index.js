@@ -7,11 +7,6 @@ export default [
     pathname: C.PATHS.HOME
   },
   {
-    id: 2,
-    title: 'Recuperar senha',
-    pathname: C.PATHS.ESQUECER_SENHA
-  },
-  {
     id: 3,
     title: 'Sobre',
     pathname: C.PATHS.SOBRE

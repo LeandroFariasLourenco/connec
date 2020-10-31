@@ -66,10 +66,15 @@ export const UserContact = styled.div`
   right: ${rem(40)};
   bottom: ${rem(20)};
 
-  img {
-    padding: ${rem(10)};
+  button {
+    width: ${rem(60)};
     border-radius: 100%;
     background-color: #ffffff7a;
+    margin: 0 ${rem(5)};
+  }
+
+  img {
+    padding: ${rem(2.5)};
     margin: ${rem(10)};
   }
 `;

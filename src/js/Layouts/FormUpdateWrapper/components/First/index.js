@@ -39,7 +39,11 @@ const First = ({ formType }) => {
     } = getStorage(`${formType}update`, false);
     const inputNames = FormInputs.map(({ name }) => name);
     const date = new Date(dataNascimento);
-    const formattedDate = `${date.getFullYear()}-${date.getMonth() + 1}-${date.getDate() < 10 ? `0${date.getDate()}` : date.getDate()}`;
+
+    const formattedMonth = date.getMonth() + 1 < 10 ? `0${date.getMonth()}` : date.getMonth();
+    const formattedDay = date.getDate() < 10 ? `0${date.getDate()}` : date.getDate();
+
+    const formattedDate = `${date.getFullYear()}-${formattedMonth}-${formattedDay}`;
 
     semEndereco.nome = `${nome} ${sobrenome}`;
     semEndereco.dataNascimento = formattedDate;

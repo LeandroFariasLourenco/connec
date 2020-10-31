@@ -14,7 +14,7 @@ module.exports = merge(config, {
     historyApiFallback: {
       index: '/'
     },
-    index: `./views/${process.env.PROJECT_NAME}-index.html`,
+    index: './index.html',
     stats: {
       colors: true,
       hash: false,

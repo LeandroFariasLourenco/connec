@@ -11,7 +11,6 @@ export default {
     RECEPTORES_ATUALIZAR: '/receptores/atualizar/:id',
     RECEPTOR: '/receptores/:id',
 
-    ESQUECER_SENHA: '/recuperar-senha',
     HISTORICO: '/historico',
     DASHBOARD: '/dashboard',
     SOBRE: '/sobre',

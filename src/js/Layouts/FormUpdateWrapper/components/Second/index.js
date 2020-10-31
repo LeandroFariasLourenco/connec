@@ -46,6 +46,7 @@ const Second = ({ formType, patientId }) => {
 
   const onSubmit = async () => {
     const patient = getPatient(stored, previewImg, endereco.codigo);
+    console.log(patient);
     setLoading(true);
 
     try {

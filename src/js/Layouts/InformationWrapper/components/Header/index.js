@@ -78,13 +78,15 @@ const Header = ({
         </S.UserBasicInfo>
 
         <S.UserContact>
-          <Button
-            reset
-            title='Contato'
-            onClick={() => window.open(`https://api.whatsapp.com/send?phone=${encodeURIComponent(patient.celular)}`)}
-          >
-            <img src={PhoneIcon} alt='Contato' title='Contato' />
-          </Button>
+          {patient.celular && (
+            <Button
+              reset
+              title='Contato'
+              onClick={() => window.open(`https://api.whatsapp.com/send?phone=${encodeURIComponent(patient.celular)}`)}
+            >
+              <img src={PhoneIcon} alt='Contato' title='Contato' />
+            </Button>
+          )}
 
           <Button
             reset

@@ -45,13 +45,12 @@ const Dashboard = () => {
   }, []);
 
   useEffect(() => {
-    if (!isMounted || !sessionStorage.getItem('connectedToWebsocket')) return;
+    if (!isMounted) return;
 
     const socket = new SockJS('https://connec-api.herokuapp.com/notificacoes/');
     const { sub: hospitalId } = jwtDecode(sessionStorage.getItem(C.ACCESSTOKEN));
-    sessionStorage.setItem('connectedToWebsocket', true);
 
-    const stompConnectionCallback = function (frame) {
+    const stompConnectionCallback = (frame) => {
       stompClient.subscribe(`/topic/matches/${hospitalId}`, (match) => {
         dispatch(openNotification(true));
       });

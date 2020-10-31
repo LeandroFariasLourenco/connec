@@ -25,17 +25,18 @@ const Notifications = () => {
       .then((response) => {
         setPatients(response.data);
 
+        if (!patients.length) {
+          dispatch(openNotification(false));
+          dispatch(setHasNotification(false));
+          return;
+        }
+
+        dispatch(openNotification(true));
+        dispatch(setHasNotification(true));
         return response;
       }, (err) => {
         return err;
       });
-
-    return () => {
-      if (!patients.length) return;
-
-      dispatch(openNotification(true));
-      dispatch(setHasNotification(true));
-    };
   }, [isOpen, hasNotification]);
 
   const handleSubmitResponse = (patient, newStatus) => {
@@ -51,6 +52,7 @@ const Notifications = () => {
     updatePatientDonating(patientToSend)
       .then((response) => {
         alert('Paciente atualizado com sucesso');
+        setPatients([]);
         return response;
       }, (err) => {
         alert('Ocorreu um erro, tente novamente :(');
@@ -63,8 +65,6 @@ const Notifications = () => {
   return (
     <Popup
       open={isOpen}
-      closeOnDocumentClick={false}
-      closeOnEscape={false}
     >
       <S.PopupWrapper>
         {patients.map((patient, i) => (
