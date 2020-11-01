@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 import Container from '@Layouts/Container';
 import FormUpdateWrapper from '@Layouts/FormUpdateWrapper';
 
-import stepOptions from '@Resources/Steps';
+import stepOptions from '@Resources/UpdateSteps';
 
 import * as S from './styled';
 

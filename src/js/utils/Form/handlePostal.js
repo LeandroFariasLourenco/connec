@@ -1,5 +1,3 @@
-import axios from '@Requests/Axios/crossDomain';
-
 /**
  * Sets up a request for residential auto complete
  *
@@ -15,10 +13,10 @@ import axios from '@Requests/Axios/crossDomain';
  *    uf
  *  ])
  */
-const handlePostal = async (cep, fields, cepLength = 9) => {
+const handlePostal = async (cep, fields) => {
   if (cep.replace('-', '').length < 8) return;
   try {
-    const { data } = await axios.get(`viacep.com.br/ws/${cep}/json/`);
+    const data = await fetch(`https://viacep.com.br/ws/${cep}/json/`).then((r) => (r.json()));
     const address = { ...data };
     address.cidade = data.localidade;
 
