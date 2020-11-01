@@ -23,6 +23,7 @@ const FormButtons = ({
     />
     <S.Continue
       title='Continuar'
+      type='submit'
       className={cx({
         hidden: !goNext
       })}

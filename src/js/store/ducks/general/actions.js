@@ -9,3 +9,8 @@ export const setHasNotification = (state) => ({
   type: t.setHasNotification,
   payload: state
 });
+
+export const setInformationPopup = (state) => ({
+  type: t.setInformationPopup,
+  payload: state
+});

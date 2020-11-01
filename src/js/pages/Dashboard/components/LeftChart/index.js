@@ -46,7 +46,7 @@ const LeftChart = () => {
       ) : (
         <Pie
           data={dataForChart}
-          width={window.innerWidth >= 1500 ? 60 : 40}
+          width={window.innerWidth >= 1500 ? 60 : 70}
           height={50}
           legend={legends}
           options={{ maintainAspectRatio: true }}

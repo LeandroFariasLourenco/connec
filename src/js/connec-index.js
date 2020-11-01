@@ -20,6 +20,5 @@ const Main = () => {
 };
 
 ReactDOM.render(
-  <Main />,
-  document.querySelector('.connec-main')
+  <Main />, document.querySelector('.connec-main')
 );

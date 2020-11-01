@@ -23,14 +23,13 @@ const Notifications = () => {
   useEffect(() => {
     getPatientWaiting()
       .then((response) => {
-        setPatients(response.data);
-
-        if (!patients.length) {
+        if (!response.data.length) {
           dispatch(openNotification(false));
           dispatch(setHasNotification(false));
           return;
         }
 
+        setPatients(response.data);
         dispatch(openNotification(true));
         dispatch(setHasNotification(true));
         return response;
@@ -38,6 +37,13 @@ const Notifications = () => {
         return err;
       });
   }, [isOpen, hasNotification]);
+
+  useEffect(() => {
+    if (!patients.length) {
+      dispatch(openNotification(false));
+      dispatch(setHasNotification(false));
+    }
+  }, [patients]);
 
   const handleSubmitResponse = (patient, newStatus) => {
     const {
@@ -52,14 +58,14 @@ const Notifications = () => {
     updatePatientDonating(patientToSend)
       .then((response) => {
         alert('Paciente atualizado com sucesso');
-        setPatients([]);
+        const filteredPatient = patients.filter((patientState) => patientState.codigoRastreio !== response.data.codigoRastreio);
+
+        setPatients(filteredPatient);
         return response;
       }, (err) => {
         alert('Ocorreu um erro, tente novamente :(');
         return err;
       });
-
-    dispatch(setHasNotification(false));
   };
 
   return (
